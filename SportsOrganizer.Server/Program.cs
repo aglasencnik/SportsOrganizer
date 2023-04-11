@@ -5,7 +5,8 @@ using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Localization;
-using SportsOrganizer.Server.Data;
+using SportsOrganizer.Server.Interfaces;
+using SportsOrganizer.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
