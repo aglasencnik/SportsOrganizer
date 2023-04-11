@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -12,6 +12,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SportsOrganizer.Data\SportsOrganizer.Data.csproj" />
+    <ProjectReference Include="..\SportsOrganizer.MySqlMigrations\SportsOrganizer.MySqlMigrations.csproj" />
+    <ProjectReference Include="..\SportsOrganizer.PostgreSqlMigrations\SportsOrganizer.PostgreSqlMigrations.csproj" />
+    <ProjectReference Include="..\SportsOrganizer.SqlServerMigrations\SportsOrganizer.SqlServerMigrations.csproj" />
   </ItemGroup>
 
 </Project>
