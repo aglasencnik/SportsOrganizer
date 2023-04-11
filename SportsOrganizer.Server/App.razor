@@ -1,12 +1,38 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿@using System.Globalization;
+@using Blazored.Toast.Configuration;
+@inject IHttpContextAccessor HttpContextAccessor
+@inject NavigationManager NavigationManager
+
+@{
+    string language = HttpContextAccessor.HttpContext.Session.GetString("Language");
+
+    var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+    var culture = CultureInfo.GetCultureInfo(language);
+    var cultureEscaped = Uri.EscapeDataString(culture.Name);
+    var uriEscaped = Uri.EscapeDataString(uri);
+    NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+}
+
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
-        <PageTitle>Not found</PageTitle>
+        <PageTitle>Stran ni bila najdena!</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
+            <div class="imgbox">
+                <h1 class="text-center text-danger">Žal iskana stran ni bila najdena!</h1>
+                <img class="center-fit" src="img/page-not-found.jpg" alt="Stran ni bila najdena slika" />
+            </div>
         </LayoutView>
     </NotFound>
 </Router>
+
+<BlazoredToasts Position="ToastPosition.BottomRight"
+                Timeout="10"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                SuccessIcon="fa fa-thumbs-up"
+                ErrorIcon="fa fa-bug"
+                ShowProgressBar="true" />

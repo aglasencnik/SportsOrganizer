@@ -1,0 +1,75 @@
+﻿@inherits DatabaseSetupBase
+
+<div class="database-form">
+    <div class="form-div">
+        <div class="provider-form-div">
+            <Label>@Localizer["SelectProviderInstructions"]</Label>
+            <RadioGroup TValue="DatabaseProviderType"
+                        Name="DatabaseProviders"
+                        CheckedValue="@SelectedDatabaseProvider"
+                        CheckedValueChanged="@OnCheckedDatabaseProviderChanged"
+                        Orientation="Orientation.Vertical">
+                <Radio Value="@(DatabaseProviderType.SqlServer)">SQL Server</Radio>
+                <Radio Value="@(DatabaseProviderType.MySQL)">MySQL</Radio>
+                <Radio Value="@(DatabaseProviderType.PostgreSQL)">PostgreSQL</Radio>
+            </RadioGroup>
+        </div>
+        <hr />
+        @if (SelectedDatabaseProvider == DatabaseProviderType.SqlServer)
+        {
+            <div class="connection-string-form">
+                <Label>@Localizer["Server"]</Label>
+                <TextEdit Placeholder="@Localizer["ServerInput"]" @bind-Text="Server" />
+                <Label Class="mt-3">@Localizer["Database"]</Label>
+                <TextEdit Placeholder="@Localizer["DatabaseInput"]" @bind-Text="Database" />
+                <Label Class="mt-3">@Localizer["Username"]</Label>
+                <TextEdit Placeholder="@Localizer["UsernameInput"]" @bind-Text="Username" />
+                <Label Class="mt-3">@Localizer["Password"]</Label>
+                <TextEdit Placeholder="@Localizer["PasswordInput"]" @bind-Text="Password" />
+            </div>
+        }
+        else if (SelectedDatabaseProvider == DatabaseProviderType.MySQL)
+        {
+            Port = 3306;
+            <div class="connection-string-form">
+                <Label>@Localizer["Server"]</Label>
+                <TextEdit Placeholder="@Localizer["ServerInput"]" @bind-Text="Server" />
+                <Label Class="mt-3">@Localizer["Port"]</Label>
+                <NumericPicker Min="1" @bind-Value="Port" />
+                <Label Class="mt-3">@Localizer["Database"]</Label>
+                <TextEdit Placeholder="@Localizer["DatabaseInput"]" @bind-Text="Database" />
+                <Label Class="mt-3">@Localizer["Username"]</Label>
+                <TextEdit Placeholder="@Localizer["UsernameInput"]" @bind-Text="Username" />
+                <Label Class="mt-3">@Localizer["Password"]</Label>
+                <TextEdit Placeholder="@Localizer["PasswordInput"]" @bind-Text="Password" />
+            </div>
+        }
+        else if (SelectedDatabaseProvider == DatabaseProviderType.PostgreSQL)
+        {
+            Port = 5432;
+            <div class="connection-string-form">
+                <Label>@Localizer["Server"]</Label>
+                <TextEdit Placeholder="@Localizer["ServerInput"]" @bind-Text="Server" />
+                <Label Class="mt-3">@Localizer["Port"]</Label>
+                <NumericPicker Min="1" @bind-Value="Port" />
+                <Label Class="mt-3">@Localizer["Database"]</Label>
+                <TextEdit Placeholder="@Localizer["DatabaseInput"]" @bind-Text="Database" />
+                <Label Class="mt-3">@Localizer["Username"]</Label>
+                <TextEdit Placeholder="@Localizer["UsernameInput"]" @bind-Text="Username" />
+                <Label Class="mt-3">@Localizer["Password"]</Label>
+                <TextEdit Class="mb-3" Placeholder="@Localizer["PasswordInput"]" @bind-Text="Password" />
+                <Check TValue="bool" @bind-Checked="@Pooling">@Localizer["Pooling"]</Check>
+                <Label Class="mt-3">@Localizer["MinPoolSize"]</Label>
+                <NumericPicker Min="0" @bind-Value="MinPoolSize" />
+                <Label Class="mt-3">@Localizer["MaxPoolSize"]</Label>
+                <NumericPicker Min="0" @bind-Value="MaxPoolSize" />
+                <Label Class="mt-3">@Localizer["ConnectionLifetime"]</Label>
+                <NumericPicker Min="0" @bind-Value="ConnectionLifetime" />
+            </div>
+        }
+        <hr />
+    </div>
+    <div class="buttons-div d-flex justify-content-center">
+        <button class="btn btn-primary" @onclick="@(async () => await OnButtonContinueClick())">@Localizer["BtnContinue"]</button>
+    </div>
+</div>

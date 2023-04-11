@@ -1,0 +1,23 @@
+﻿@inherits LanguageSetupBase
+
+<div class="language-form">
+    <div class="select-div">
+        <p>@Localizer["Instructions"]</p>
+        <select class="form-select" size="@Languages.Count" @onchange="OnLanguageSelected">
+            @foreach (var language in Languages)
+            {
+                if (language.Key == SelectedLanguage)
+                {
+                    <option value="@language.Key" selected>@language.Value</option>
+                }
+                else
+                {
+                    <option value="@language.Key">@language.Value</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="buttons-div d-flex justify-content-end">
+        <button class="btn btn-primary mt-3" @onclick="@(async () => await OnButtonContinueClick())">@Localizer["BtnContinue"]</button>
+    </div>
+</div>

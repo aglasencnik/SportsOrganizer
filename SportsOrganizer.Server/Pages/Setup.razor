@@ -1,0 +1,40 @@
+﻿@inherits SetupBase
+@using Blazored.Toast.Configuration;
+@using SportsOrganizer.Server.Components.Setup.LanguageSetupComponent
+@using SportsOrganizer.Server.Components.Setup.DatabaseSetupComponent
+@using SportsOrganizer.Server.Components.Setup.BasicInfoSetupComponent
+@using SportsOrganizer.Server.Components.Setup.ThemeSetupComponent
+
+<BlazoredToasts Position="ToastPosition.BottomRight"
+                Timeout="10"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                SuccessIcon="fa fa-thumbs-up"
+                ErrorIcon="fa fa-bug"
+                ShowProgressBar="true"/>
+
+<PageTitle>Sports Organizer Installer</PageTitle>
+
+<section class="w-100 min-vh-100 d-flex justify-content-center align-items-center py-5">
+    <div class="d-flex flex-column align-items-center">
+        <img src="img/logo.svg" alt=@Localizer["LogoAlt"] width="150" height="150" />
+        <h1 class="mb-4">Sports Organizer</h1>
+
+        @if (SetupStage == SetupStages.LanguageSetup)
+        {
+            <LanguageSetup OnSubmit="@HandleSubmit" />
+        }
+        else if (SetupStage == SetupStages.DatabaseSetup)
+        {
+            <DatabaseSetup OnSubmit="@HandleSubmit" />
+        }
+        else if (SetupStage == SetupStages.BasicInfoSetup)
+        {
+            <BasicInfoSetup OnSubmit="@HandleSubmit" />
+        }
+        else if (SetupStage == SetupStages.ThemeSetup)
+        {
+            <ThemeSetupBase OnSubmit="@HandleSubmit" />
+        }
+    </div>
+</section>
