@@ -1,25 +1,14 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+html {
+    position: relative;
+    min-height: 100%;
+}
 
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body {
+    background: none !important;
 }
 
 h1:focus {
     outline: none;
-}
-
-a, .btn-link {
-    color: #0071c1;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -36,6 +25,17 @@ a, .btn-link {
 
 .validation-message {
     color: red;
+}
+
+.imgbox {
+    display: grid;
+    max-height: 100%;
+}
+
+.center-fit {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
 }
 
 #blazor-error-ui {
