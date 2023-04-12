@@ -5,7 +5,11 @@ using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
+using SportsOrganizer.Data;
+using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Interfaces;
+using SportsOrganizer.Server.Models;
 using SportsOrganizer.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -50,6 +54,38 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 
 builder.Services.AddBlazoredToast();
+
+var liteDbService = new LiteDbService<AppSettingsModel>(configuration);
+var dbProvider = liteDbService
+    .GetAll()
+    .FirstOrDefault(x => x.KeyValueType == KeyValueType.DatabaseProvider);
+var dbConnectionString = liteDbService
+    .GetAll()
+    .FirstOrDefault(x => x.KeyValueType == KeyValueType.ConnectionString);
+
+if (dbProvider != null 
+    && dbConnectionString != null 
+    && dbProvider.DatabaseProvider != DatabaseProviderType.None 
+    && !string.IsNullOrWhiteSpace(dbConnectionString.Value))
+{
+    switch (dbProvider.DatabaseProvider)
+    {
+        case DatabaseProviderType.SqlServer:
+            builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+                opt.UseSqlServer(dbConnectionString.Value));
+            break;
+        case DatabaseProviderType.MySQL:
+            builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+                opt.UseMySQL(dbConnectionString.Value));
+            break;
+        case DatabaseProviderType.PostgreSQL:
+            builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+                opt.UseNpgsql(dbConnectionString.Value));
+            break;
+        default:
+            break;
+    }
+}
 
 var app = builder.Build();
 
