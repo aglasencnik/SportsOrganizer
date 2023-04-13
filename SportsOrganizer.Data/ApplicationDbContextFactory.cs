@@ -3,7 +3,7 @@ using SportsOrganizer.Data.Models;
 
 namespace SportsOrganizer.Data;
 
-public class ApplicationDbFactory : DbContext, IApplicationDbContext
+public class ApplicationDbContextFactory : DbContext, IApplicationDbContext
 {
     public DbSet<TeamModel> Teams { get; set; }
     public DbSet<UserModel> Users { get; set; }

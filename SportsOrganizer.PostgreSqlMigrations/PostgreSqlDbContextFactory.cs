@@ -3,7 +3,7 @@ using SportsOrganizer.Data;
 
 namespace SportsOrganizer.PostgreSqlMigrations;
 
-public class PostgreSqlDbContextFactory : ApplicationDbFactory
+public class PostgreSqlDbContextFactory : ApplicationDbContextFactory
 {
     private readonly string _connectionString;
 

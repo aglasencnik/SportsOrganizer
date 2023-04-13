@@ -3,7 +3,7 @@ using SportsOrganizer.Data;
 
 namespace SportsOrganizer.SqlServerMigrations;
 
-public class SqlServerDbContextFactory : ApplicationDbFactory
+public class SqlServerDbContextFactory : ApplicationDbContextFactory
 {
     private readonly string _connectionString;
 

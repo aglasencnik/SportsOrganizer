@@ -3,7 +3,7 @@ using SportsOrganizer.Data;
 
 namespace SportsOrganizer.MySqlMigrations;
 
-public class MySqlDbContextFactory : ApplicationDbFactory
+public class MySqlDbContextFactory : ApplicationDbContextFactory
 {
     private readonly string _connectionString;
 
