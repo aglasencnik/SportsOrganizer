@@ -11,7 +11,7 @@ public class SetupBase : ComponentBase
 
     public SetupStages SetupStage;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         SetupStage = SetupStages.LanguageSetup;
     }

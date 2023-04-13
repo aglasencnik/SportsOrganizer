@@ -33,6 +33,12 @@
 
     var titleObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.Title);
     HttpContextAccessor.HttpContext.Session.SetString("Title", (titleObj != null) ? titleObj.Value : string.Empty);
+
+    var providerObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.DatabaseProvider);
+    HttpContextAccessor.HttpContext.Session.SetString("Provider", (providerObj != null) ? providerObj.DatabaseProvider.ToString() : string.Empty);
+
+    var connectionStringObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.ConnectionString);
+    HttpContextAccessor.HttpContext.Session.SetString("ConnectionString", (connectionStringObj != null) ? connectionStringObj.Value : string.Empty);
 }
 
 <!DOCTYPE html>
@@ -45,6 +51,7 @@
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link href="_content/Blazorise/blazorise.css" rel="stylesheet" />
     <link href="_content/Blazorise.Bootstrap5/blazorise.bootstrap5.css" rel="stylesheet" />
+    <link href="_content/Blazorise.SpinKit/blazorise.spinkit.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="SportsOrganizer.Server.styles.css" rel="stylesheet" />
     @if (faviconObj != null)

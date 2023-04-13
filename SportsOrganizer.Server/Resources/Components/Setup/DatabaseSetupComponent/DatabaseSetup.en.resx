@@ -120,7 +120,28 @@
   <data name="BtnContinue" xml:space="preserve">
     <value>Apply and Continue</value>
   </data>
+  <data name="Database" xml:space="preserve">
+    <value>Enter Database Name:</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>There has been an error!</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Enter Password:</value>
+  </data>
   <data name="SelectProviderInstructions" xml:space="preserve">
     <value>Select a database provider:</value>
+  </data>
+  <data name="Server" xml:space="preserve">
+    <value>Enter Server Name:</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Database migrated successfully!</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Enter Username:</value>
+  </data>
+  <data name="WarningMessage" xml:space="preserve">
+    <value>Check inputs and try again!</value>
   </data>
 </root>

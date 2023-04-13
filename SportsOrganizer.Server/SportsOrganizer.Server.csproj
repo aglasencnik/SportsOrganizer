@@ -11,6 +11,7 @@
     <PackageReference Include="Blazorise.Bootstrap5" Version="1.2.2" />
     <PackageReference Include="Blazorise.Components" Version="1.2.2" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.2" />
+    <PackageReference Include="Blazorise.SpinKit" Version="1.2.2" />
     <PackageReference Include="LiteDB" Version="5.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
@@ -25,11 +26,6 @@
     <ProjectReference Include="..\SportsOrganizer.MySqlMigrations\SportsOrganizer.MySqlMigrations.csproj" />
     <ProjectReference Include="..\SportsOrganizer.PostgreSqlMigrations\SportsOrganizer.PostgreSqlMigrations.csproj" />
     <ProjectReference Include="..\SportsOrganizer.SqlServerMigrations\SportsOrganizer.SqlServerMigrations.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Resources\Components\Setup\BasicInfoSetupComponent\" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 @using Blazored.Toast.Configuration;
 @inject IHttpContextAccessor HttpContextAccessor
 @inject NavigationManager NavigationManager
+@inject ApplicationDbContextService DbContextService
 
 @{
     string language = HttpContextAccessor.HttpContext.Session.GetString("Language");
@@ -11,6 +12,14 @@
     var cultureEscaped = Uri.EscapeDataString(culture.Name);
     var uriEscaped = Uri.EscapeDataString(uri);
     NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+
+    string providerType = HttpContextAccessor.HttpContext.Session.GetString("Provider");
+    string connectionString = HttpContextAccessor.HttpContext.Session.GetString("ConnectionString");
+
+    if (!string.IsNullOrWhiteSpace(providerType) && !string.IsNullOrWhiteSpace(connectionString) && !DbContextService.IsDbContextSet())
+    {
+        DbContextService.SetDbContext(connectionString, (DatabaseProviderType)Enum.Parse(typeof(DatabaseProviderType), providerType));
+    }
 }
 
 <Router AppAssembly="@typeof(App).Assembly">
