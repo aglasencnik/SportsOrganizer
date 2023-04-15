@@ -4,11 +4,11 @@ public enum KeyValueType
 {
     None,
     SetupComplete,
-    ConnectionString,
-    DatabaseProvider,
+    Database,
     Homepage,
     Theme,
     LanguageShort,
     Favicon,
-    Title
+    Title,
+    CopyrightNotice
 }

@@ -54,11 +54,11 @@ public class LanguageSetupBase : ComponentBase
         }
     }
 
-    public void OnLanguageSelected(ChangeEventArgs args)
+    public void OnLanguageSelected(string value)
     {
-        SelectedLanguage = args.Value as string;
+        SelectedLanguage = value;
         var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
-        var culture = CultureInfo.GetCultureInfo(args.Value as string);
+        var culture = CultureInfo.GetCultureInfo(value);
         var cultureEscaped = Uri.EscapeDataString(culture.Name);
         var uriEscaped = Uri.EscapeDataString(uri);
         NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);

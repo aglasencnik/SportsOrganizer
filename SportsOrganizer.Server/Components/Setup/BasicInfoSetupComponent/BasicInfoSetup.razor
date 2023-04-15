@@ -1,5 +1,83 @@
 ﻿@inherits BasicInfoSetupBase
+@using Radzen
+@using Radzen.Blazor
 
 <div class="basic-info-container">
-
+    <div class="d-flex justify-content-center">
+        <h2>@Localizer["BasicInfoSetupTitle"]</h2>
+    </div>
+    <hr />
+    <Validation Validator="ValidationRule.IsNotEmpty">
+        <Label>@Localizer["Username"]</Label>
+        <TextEdit @bind-Text="Username">
+            <Feedback>
+                <ValidationError>@Localizer["UsernameError"]</ValidationError>
+            </Feedback>
+        </TextEdit>
+    </Validation>
+    <Validation Validator="ValidationRule.IsNotEmpty">
+        <Label Margin="Margin.Is3.FromTop">@Localizer["Password"]</Label>
+        <TextEdit @bind-Text="Password" Role="TextRole.Password">
+            <Feedback>
+                <ValidationError>@Localizer["PasswordError"]</ValidationError>
+            </Feedback>
+        </TextEdit>
+    </Validation>
+    <Validation Validator="ValidationRule.IsNotEmpty">
+        <Label Margin="Margin.Is3.FromTop">@Localizer["SiteTitle"]</Label>
+        <TextEdit @bind-Text="Title">
+            <Feedback>
+                <ValidationError>@Localizer["SiteTitleError"]</ValidationError>
+            </Feedback>
+        </TextEdit>
+    </Validation>
+    <Validation Validator="ValidationRule.IsNotEmpty">
+        <Label Margin="Margin.Is3.FromTop">@Localizer["CopyrightNotice"]</Label>
+        <TextEdit @bind-Text="CopyrightNotice">
+            <Feedback>
+                <ValidationError>@Localizer["CopyrightNoticeError"]</ValidationError>
+            </Feedback>
+        </TextEdit>
+    </Validation>
+    <Label Margin="Margin.Is3.FromTop">@Localizer["Favicon"]</Label>
+    <FilePicker Upload="OnFileUpload" Filter="image/png" ShowMode="FilePickerShowMode.List" />
+    <Figure Size="FigureSize.Is64x64" Margin="Margin.Is2.FromTop">
+        <FigureImage Source="@FaviconDataUrl" AlternateText="Favicon" />
+    </Figure>
+    <hr />
+    <Label>@Localizer["Homepage"]</Label>
+    <RadzenHtmlEditor @bind-Value="HomePageHtml" style="height: 500px;" UploadUrl="upload/image">
+        <RadzenHtmlEditorUndo />
+        <RadzenHtmlEditorRedo />
+        <RadzenHtmlEditorSeparator />
+        <RadzenHtmlEditorBold />
+        <RadzenHtmlEditorItalic />
+        <RadzenHtmlEditorUnderline />
+        <RadzenHtmlEditorStrikeThrough />
+        <RadzenHtmlEditorSeparator />
+        <RadzenHtmlEditorAlignLeft />
+        <RadzenHtmlEditorAlignCenter />
+        <RadzenHtmlEditorAlignRight />
+        <RadzenHtmlEditorJustify />
+        <RadzenHtmlEditorSeparator />
+        <RadzenHtmlEditorIndent />
+        <RadzenHtmlEditorOutdent />
+        <RadzenHtmlEditorUnorderedList />
+        <RadzenHtmlEditorOrderedList />
+        <RadzenHtmlEditorSeparator />
+        <RadzenHtmlEditorColor />
+        <RadzenHtmlEditorBackground />
+        <RadzenHtmlEditorRemoveFormat />
+        <RadzenHtmlEditorSeparator />
+        <RadzenHtmlEditorSubscript />
+        <RadzenHtmlEditorSuperscript />
+        <RadzenHtmlEditorSeparator />
+        <RadzenHtmlEditorLink />
+        <RadzenHtmlEditorUnlink />
+        <RadzenHtmlEditorImage />
+        <RadzenHtmlEditorFontSize />
+        <RadzenHtmlEditorFormatBlock />
+    </RadzenHtmlEditor>
+    <hr />
+    <Button Color="Color.Primary" Clicked="OnButtonContinueClick" Loading="isLoading" Disabled="isDisabled">@Localizer["BtnContinue"]</Button>
 </div>

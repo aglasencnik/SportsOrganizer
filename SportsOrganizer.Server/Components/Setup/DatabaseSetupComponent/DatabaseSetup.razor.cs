@@ -42,7 +42,7 @@ public class DatabaseSetupBase : ComponentBase
     public string Password { get; set; }
     public int Port { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         SelectedDatabaseProvider = DatabaseProviderType.SqlServer;
 
@@ -81,16 +81,16 @@ public class DatabaseSetupBase : ComponentBase
     {
         try
         {
+            ShowForm = !ShowForm;
+            await Task.Yield();
+            StateHasChanged();
+
             if (SelectedDatabaseProvider == DatabaseProviderType.SqlServer &&
                 !string.IsNullOrWhiteSpace(Server) &&
                 !string.IsNullOrWhiteSpace(Database) &&
                 !string.IsNullOrWhiteSpace(Username) &&
                 !string.IsNullOrWhiteSpace(Password))
             {
-                ShowForm = !ShowForm;
-                await Task.Yield();
-                StateHasChanged();
-
                 string connectionString = $"Server={Server};Database={Database};User Id={Username};Password={Password};Encrypt=False;";
 
                 using (var db = new SqlServerDbContextFactory(connectionString))
@@ -110,10 +110,6 @@ public class DatabaseSetupBase : ComponentBase
                 !string.IsNullOrWhiteSpace(Username) &&
                 !string.IsNullOrWhiteSpace(Password))
             {
-                ShowForm = !ShowForm;
-                await Task.Yield();
-                StateHasChanged();
-
                 string connectionString = $"Server={Server};Port={Port};Database={Database};Uid={Username};Pwd={Password};";
 
                 using (var db = new MySqlDbContextFactory(connectionString))
@@ -134,10 +130,6 @@ public class DatabaseSetupBase : ComponentBase
                 !string.IsNullOrWhiteSpace(Password)
                 )
             {
-                ShowForm = !ShowForm;
-                await Task.Yield();
-                StateHasChanged();
-
                 string connectionString = $"Host={Server};Username={Username};Password={Password};Database={Database};";
 
                 using (var db = new PostgreSqlDbContextFactory(connectionString))
@@ -168,28 +160,21 @@ public class DatabaseSetupBase : ComponentBase
     private void SaveConnectionStringToLiteDB(string connectionString, DatabaseProviderType providerType)
     {
         var liteDbResult = LiteDbService.GetAll();
-        var existingConnectionString = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.ConnectionString);
-        var existingDatabaseProvider = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.DatabaseProvider);
+        var existingDatabase = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.Database);
 
-        if (existingConnectionString != null && existingDatabaseProvider != null)
+        if (existingDatabase != null)
         {
-            existingConnectionString.Value = connectionString;
-            existingDatabaseProvider.DatabaseProvider = providerType;
+            existingDatabase.Value = connectionString;
+            existingDatabase.DatabaseProvider = providerType;
 
-            LiteDbService.Update(existingConnectionString);
-            LiteDbService.Update(existingDatabaseProvider);
+            LiteDbService.Update(existingDatabase);
         }
         else
         {
             LiteDbService.Insert(new AppSettingsModel
             {
-                KeyValueType = KeyValueType.ConnectionString,
-                Value = connectionString
-            });
-
-            LiteDbService.Insert(new AppSettingsModel
-            {
-                KeyValueType = KeyValueType.DatabaseProvider,
+                KeyValueType = KeyValueType.Database,
+                Value = connectionString,
                 DatabaseProvider = providerType
             });
         }

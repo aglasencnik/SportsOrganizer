@@ -1,75 +1,63 @@
 ﻿@inherits DatabaseSetupBase
 
 <div class="database-form">
-    <div class="form-div">
-        @if (ShowForm)
+    @if (ShowForm)
+    {
+        <Label>@Localizer["SelectProviderInstructions"]</Label>
+        <RadioGroup TValue="DatabaseProviderType"
+                Name="DatabaseProviders"
+                CheckedValue="@SelectedDatabaseProvider"
+                CheckedValueChanged="@OnCheckedDatabaseProviderChanged"
+                Orientation="Orientation.Vertical">
+            <Radio Value="@(DatabaseProviderType.SqlServer)">SQL Server</Radio>
+            <Radio Value="@(DatabaseProviderType.MySQL)">MySQL</Radio>
+            <Radio Value="@(DatabaseProviderType.PostgreSQL)">PostgreSQL</Radio>
+        </RadioGroup>
+        <hr />
+        <Validation Validator="ValidationRule.IsNotEmpty">
+            <Label>@Localizer["Server"]</Label>
+            <TextEdit @bind-Text="Server">
+                <Feedback>
+                    <ValidationError>@Localizer["ServerError"]</ValidationError>
+                </Feedback>
+            </TextEdit>
+        </Validation>
+        @if (SelectedDatabaseProvider == DatabaseProviderType.MySQL || SelectedDatabaseProvider == DatabaseProviderType.PostgreSQL)
         {
-            <div class="provider-form-div">
-                <Label>@Localizer["SelectProviderInstructions"]</Label>
-                <RadioGroup TValue="DatabaseProviderType"
-                        Name="DatabaseProviders"
-                        CheckedValue="@SelectedDatabaseProvider"
-                        CheckedValueChanged="@OnCheckedDatabaseProviderChanged"
-                        Orientation="Orientation.Vertical">
-                    <Radio Value="@(DatabaseProviderType.SqlServer)">SQL Server</Radio>
-                    <Radio Value="@(DatabaseProviderType.MySQL)">MySQL</Radio>
-                    <Radio Value="@(DatabaseProviderType.PostgreSQL)">PostgreSQL</Radio>
-                </RadioGroup>
-            </div>
-            <hr />
-            @if (SelectedDatabaseProvider == DatabaseProviderType.SqlServer)
-            {
-                <div class="connection-string-form">
-                    <Label>@Localizer["Server"]</Label>
-                    <TextEdit @bind-Text="Server" />
-                    <Label Class="mt-3">@Localizer["Database"]</Label>
-                    <TextEdit @bind-Text="Database" />
-                    <Label Class="mt-3">@Localizer["Username"]</Label>
-                    <TextEdit @bind-Text="Username" />
-                    <Label Class="mt-3">@Localizer["Password"]</Label>
-                    <TextEdit Role="TextRole.Password" @bind-Text="Password" />
-                </div>
-            }
-            else if (SelectedDatabaseProvider == DatabaseProviderType.MySQL)
-            {
-                <div class="connection-string-form">
-                    <Label>@Localizer["Server"]</Label>
-                    <TextEdit @bind-Text="Server" />
-                    <Label Class="mt-3">@Localizer["Port"]</Label>
-                    <NumericPicker Min="1" @bind-Value="Port" />
-                    <Label Class="mt-3">@Localizer["Database"]</Label>
-                    <TextEdit @bind-Text="Database" />
-                    <Label Class="mt-3">@Localizer["Username"]</Label>
-                    <TextEdit @bind-Text="Username" />
-                    <Label Class="mt-3">@Localizer["Password"]</Label>
-                    <TextEdit Role="TextRole.Password" @bind-Text="Password" />
-                </div>
-            }
-            else if (SelectedDatabaseProvider == DatabaseProviderType.PostgreSQL)
-            {
-                <div class="connection-string-form">
-                    <Label>@Localizer["Server"]</Label>
-                    <TextEdit @bind-Text="Server" />
-                    <Label Class="mt-3">@Localizer["Port"]</Label>
-                    <NumericPicker Min="1" @bind-Value="Port" />
-                    <Label Class="mt-3">@Localizer["Database"]</Label>
-                    <TextEdit @bind-Text="Database" />
-                    <Label Class="mt-3">@Localizer["Username"]</Label>
-                    <TextEdit @bind-Text="Username" />
-                    <Label Class="mt-3">@Localizer["Password"]</Label>
-                    <TextEdit Role="TextRole.Password" @bind-Text="Password" />
-                </div>
-            }
-            <hr />
-            <div class="buttons-div d-flex justify-content-center">
-                <button class="btn btn-primary" @onclick="@(async () => await OnButtonContinueClick())">@Localizer["BtnContinue"]</button>
-            </div>
+            <Label Margin="Margin.Is3.FromTop">@Localizer["Port"]</Label>
+            <NumericPicker Min="1" @bind-Value="Port" />
         }
-        else
-        {
-            <Div>
-                <SpinKit Type="SpinKitType.Chase" Centered="true" Size="100px" />
-            </Div>
-        }
-    </div>
+        <Validation Validator="ValidationRule.IsNotEmpty">
+            <Label Margin="Margin.Is3.FromTop">@Localizer["Database"]</Label>
+            <TextEdit @bind-Text="Database">
+                <Feedback>
+                    <ValidationError>@Localizer["DatabaseError"]</ValidationError>
+                </Feedback>
+            </TextEdit>
+        </Validation>
+        <Validation Validator="ValidationRule.IsNotEmpty">
+            <Label Margin="Margin.Is3.FromTop">@Localizer["Username"]</Label>
+            <TextEdit @bind-Text="Username">
+                <Feedback>
+                    <ValidationError>@Localizer["UsernameError"]</ValidationError>
+                </Feedback>
+            </TextEdit>
+        </Validation>
+        <Validation Validator="ValidationRule.IsNotEmpty">
+            <Label Margin="Margin.Is3.FromTop">@Localizer["Password"]</Label>
+            <TextEdit Role="TextRole.Password" @bind-Text="Password">
+                <Feedback>
+                    <ValidationError>@Localizer["PasswordError"]</ValidationError>
+                </Feedback>
+            </TextEdit>
+        </Validation>
+        <hr />
+        <div class="buttons-div d-flex justify-content-center">
+            <Button Color="Color.Primary" Clicked="OnButtonContinueClick">@Localizer["BtnContinue"]</Button>
+        </div>
+    }
+    else
+    {
+        <SpinKit Type="SpinKitType.Chase" Centered="true" Size="100px" />
+    }
 </div>

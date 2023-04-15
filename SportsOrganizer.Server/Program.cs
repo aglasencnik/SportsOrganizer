@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Radzen;
 using SportsOrganizer.Data;
 using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Interfaces;
@@ -37,6 +38,7 @@ builder.Services.AddBlazorise(options =>
     .AddFontAwesomeIcons();
 
 builder.Services.AddScoped(typeof(ILiteDbService<>), typeof(LiteDbService<>));
+builder.Services.AddScoped<DialogService>();
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
