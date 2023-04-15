@@ -1,41 +1,6 @@
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    background: none !important;
-}
-
-h1:focus {
-    outline: none;
-}
-
-.content {
-    padding-top: 1.1rem;
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
-}
-
 .imgbox {
     display: grid;
     max-height: 100%;
-}
-
-.center-fit {
-    max-width: 100%;
-    max-height: 100vh;
-    margin: auto;
 }
 
 #blazor-error-ui {

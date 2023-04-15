@@ -1,1 +1,17 @@
-﻿
+﻿.basic-info-container {
+    background-color: white;
+    padding: 1.5rem;
+    border: .5px solid #c3c4c7;
+}
+
+@media (max-width: 767px) {
+    .basic-info-container {
+        width: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    .basic-info-container {
+        width: 720px;
+    }
+}
