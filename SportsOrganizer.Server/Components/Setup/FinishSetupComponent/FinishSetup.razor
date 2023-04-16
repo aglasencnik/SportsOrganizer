@@ -1,1 +1,12 @@
 ﻿@inherits FinishSetupBase
+
+<div class="finish-setup-container">
+    <h2>@Localizer["Success"]</h2>
+    <hr />
+    <p>@Localizer["Message"]</p>
+    <div class="mt-4">
+        <p><strong>@Localizer["Username"]&nbsp;</strong><i>@Username</i></p>
+        <p><strong>@Localizer["Password"]&nbsp;</strong><i>@Password</i></p>
+    </div>
+    <Button Color="Color.Primary" Outline Margin="Margin.Is4.FromTop" Clicked="OnButtonContinueClick">@Localizer["BtnContinue"]</Button>
+</div>
