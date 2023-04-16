@@ -26,20 +26,22 @@
     }
 }
 
-<Router AppAssembly="@typeof(App).Assembly">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-    </Found>
-    <NotFound>
-        <PageTitle>Stran ni bila najdena!</PageTitle>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <div class="imgbox">
-                <h1 class="text-center text-danger">Žal iskana stran ni bila najdena!</h1>
-                <img class="center-fit" src="img/page-not-found.jpg" alt="Stran ni bila najdena slika" />
-            </div>
-        </LayoutView>
-    </NotFound>
-</Router>
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        </Found>
+        <NotFound>
+            <PageTitle>Stran ni bila najdena!</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <div class="imgbox">
+                    <h1 class="text-center text-danger">Žal iskana stran ni bila najdena!</h1>
+                    <img class="center-fit" src="img/page-not-found.jpg" alt="Stran ni bila najdena slika" />
+                </div>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
 
 <BlazoredToasts Position="ToastPosition.BottomRight"
                 Timeout="10"
