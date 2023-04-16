@@ -2,7 +2,7 @@
 
 namespace SportsOrganizer.Server.Pages.Admin;
 
-public class BackupAndRestorationBase : ComponentBase
+public class BackupAndRestoreBase : ComponentBase
 {
 
 }
