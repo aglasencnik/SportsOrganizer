@@ -30,6 +30,9 @@ public class LanguageSetupBase : ComponentBase
     [Inject]
     private IHttpContextAccessor HttpContextAccessor { get; set; }
 
+    [Inject]
+    public CultureProviderService CultureProvider { get; set; }
+
     public Dictionary<string, string> Languages { get; set; }
 
     public string SelectedLanguage { get; set; }
@@ -57,11 +60,15 @@ public class LanguageSetupBase : ComponentBase
     public void OnLanguageSelected(string value)
     {
         SelectedLanguage = value;
-        var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
         var culture = CultureInfo.GetCultureInfo(value);
-        var cultureEscaped = Uri.EscapeDataString(culture.Name);
-        var uriEscaped = Uri.EscapeDataString(uri);
-        NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+
+        if (CultureProvider.GetCurrentCultureInfo() != culture)
+        {
+            var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+            var cultureEscaped = Uri.EscapeDataString(culture.Name);
+            var uriEscaped = Uri.EscapeDataString(uri);
+            NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+        }
     }
 
     public async Task OnButtonContinueClick()

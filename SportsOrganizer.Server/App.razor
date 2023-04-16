@@ -3,15 +3,19 @@
 @inject IHttpContextAccessor HttpContextAccessor
 @inject NavigationManager NavigationManager
 @inject ApplicationDbContextService DbContextService
+@inject CultureProviderService CultureProvider
 
 @{
     string language = HttpContextAccessor.HttpContext.Session.GetString("Language");
-
-    var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
     var culture = CultureInfo.GetCultureInfo(language);
-    var cultureEscaped = Uri.EscapeDataString(culture.Name);
-    var uriEscaped = Uri.EscapeDataString(uri);
-    NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+
+    if (CultureProvider.GetCurrentCultureInfo() != culture)
+    {
+        var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+        var cultureEscaped = Uri.EscapeDataString(culture.Name);
+        var uriEscaped = Uri.EscapeDataString(uri);
+        NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+    }
 
     string providerType = HttpContextAccessor.HttpContext.Session.GetString("Provider");
     string connectionString = HttpContextAccessor.HttpContext.Session.GetString("ConnectionString");
@@ -25,7 +29,6 @@
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
         <PageTitle>Stran ni bila najdena!</PageTitle>

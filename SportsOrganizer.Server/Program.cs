@@ -41,6 +41,7 @@ builder.Services.AddScoped(typeof(ILiteDbService<>), typeof(LiteDbService<>));
 builder.Services.AddScoped<DialogService>();
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<CultureProviderService>();
 
 var languages = configuration.GetSection("Localization:Languages").Get<Dictionary<string, string>>();
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
