@@ -40,7 +40,7 @@
         </TextEdit>
     </Validation>
     <Label Margin="Margin.Is3.FromTop">@Localizer["Favicon"]</Label>
-    <FileEdit @ref="FileEdit" Filter="image/png" Changed="OnFileChanged" BrowseButtonLocalizer="@((name, arguments)=>Localizer["ChooseFile"])" />
+    <FileEdit @ref="FileEdit" AutoReset="false" Filter="image/png" Changed="OnFileChanged" BrowseButtonLocalizer="@((name, arguments)=>Localizer["ChooseFile"])" />
     <Figure Size="FigureSize.Is64x64" Margin="Margin.Is2.FromTop">
         <FigureImage Source="@FaviconDataUrl" AlternateText="Favicon" />
     </Figure>
