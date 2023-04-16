@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsOrganizer.Server", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{37152E48-1690-45BF-B949-C084F5083C41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsOrganizer.Data", "SportsOrganizer.Data\SportsOrganizer.Data.csproj", "{534550F0-70B8-4C9B-9630-10AB15E116B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsOrganizer.Data", "SportsOrganizer.Data\SportsOrganizer.Data.csproj", "{534550F0-70B8-4C9B-9630-10AB15E116B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsOrganizer.SqlServerMigrations", "SportsOrganizer.SqlServerMigrations\SportsOrganizer.SqlServerMigrations.csproj", "{C7937538-54B4-4F81-B5A4-2310D05A7F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsOrganizer.SqlServerMigrations", "SportsOrganizer.SqlServerMigrations\SportsOrganizer.SqlServerMigrations.csproj", "{C7937538-54B4-4F81-B5A4-2310D05A7F74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsOrganizer.MySqlMigrations", "SportsOrganizer.MySqlMigrations\SportsOrganizer.MySqlMigrations.csproj", "{63CDC7B5-69D8-4186-913A-6AC225794F6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsOrganizer.MySqlMigrations", "SportsOrganizer.MySqlMigrations\SportsOrganizer.MySqlMigrations.csproj", "{63CDC7B5-69D8-4186-913A-6AC225794F6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsOrganizer.PostgreSqlMigrations", "SportsOrganizer.PostgreSqlMigrations\SportsOrganizer.PostgreSqlMigrations.csproj", "{D8DE65A4-B2F3-49B2-A441-7FD0378BEC9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsOrganizer.PostgreSqlMigrations", "SportsOrganizer.PostgreSqlMigrations\SportsOrganizer.PostgreSqlMigrations.csproj", "{D8DE65A4-B2F3-49B2-A441-7FD0378BEC9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,5 +5,6 @@ public enum SetupStages
     LanguageSetup,
     DatabaseSetup,
     BasicInfoSetup,
-    ThemeSetup
+    ThemeSetup,
+    FinishSetup
 }

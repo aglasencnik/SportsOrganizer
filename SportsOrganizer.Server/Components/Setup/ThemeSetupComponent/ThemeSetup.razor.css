@@ -1,1 +1,37 @@
-﻿
+﻿.theme-setup-container {
+    background-color: white;
+    padding: 1.5rem;
+    border: .5px solid #c3c4c7;
+}
+
+.preview {
+    margin-bottom: 4em;
+    background-color: #eaf1f1;
+}
+
+.preview .image {
+    position: relative;
+}
+
+.preview .image img {
+    width: 100%;
+    height: auto;
+}
+
+.preview .options {
+    padding: 2em;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.preview .options p {
+    margin-bottom: 2em;
+}
+
+.bs-component > .btn, .bs-component > .btn-toolbar > .btn-group, .bs-component > .btn-group, .card .btn-group {
+    margin-bottom: 0.25rem;
+}
+
+.btn {
+    padding: 0.5rem 0.9rem;
+}

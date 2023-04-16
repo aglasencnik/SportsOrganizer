@@ -4,6 +4,7 @@
 @using SportsOrganizer.Server.Components.Setup.DatabaseSetupComponent
 @using SportsOrganizer.Server.Components.Setup.BasicInfoSetupComponent
 @using SportsOrganizer.Server.Components.Setup.ThemeSetupComponent
+@using SportsOrganizer.Server.Components.Setup.FinishSetupComponent
 
 <BlazoredToasts Position="ToastPosition.BottomRight"
                 Timeout="10"
@@ -34,7 +35,11 @@
         }
         else if (SetupStage == SetupStages.ThemeSetup)
         {
-            <ThemeSetupBase OnSubmit="@HandleSubmit" />
+            <ThemeSetup OnSubmit="@HandleSubmit" />
+        }
+        else if (SetupStage == SetupStages.FinishSetup)
+        {
+            <FinishSetup OnSubmit="@HandleSubmit" />
         }
     </div>
 </section>
