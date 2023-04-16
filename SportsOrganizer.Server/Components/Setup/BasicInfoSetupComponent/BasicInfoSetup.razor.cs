@@ -1,5 +1,6 @@
 ﻿using Blazored.Toast.Services;
 using Blazorise;
+using Blazorise.Bootstrap5;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using SportsOrganizer.Data;
@@ -41,6 +42,8 @@ public class BasicInfoSetupBase : ComponentBase
     public string HomePageHtml { get; set; }
 
     private IEnumerable<AppSettingsModel> liteDbResult;
+    public Blazorise.FileEdit FileEdit { get; set; } = new();
+    public IFileEntry faviconFile { get; set; }
     public string FaviconDataUrl { get; set; }
 
     protected override void OnInitialized()
@@ -48,29 +51,40 @@ public class BasicInfoSetupBase : ComponentBase
         liteDbResult = LiteDbService.GetAll();
         var faviconObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.Favicon);
 
-        FaviconDataUrl = (faviconObj != null) ? 
-            $"data:image/png;base64,{Convert.ToBase64String(faviconObj.ImageData)}" : "favicon.png";
+        FaviconDataUrl = (faviconObj != null) ? faviconObj.Value : "favicon.png";
     }
 
-    public async Task OnFileUpload(FileUploadEventArgs e)
+    public async Task OnFileChanged(FileChangedEventArgs e)
     {
         try
         {
+            var file = e.Files.FirstOrDefault();
+            if (file == null)
+            {
+                return;
+            }
+
             using (MemoryStream result = new MemoryStream())
             {
-                await e.File.OpenReadStream(long.MaxValue).CopyToAsync(result);
+                await file.OpenReadStream(long.MaxValue).CopyToAsync(result);
 
                 FaviconDataUrl = $"data:image/png;base64,{Convert.ToBase64String(result.ToArray())}";
             }
         }
         catch (Exception exc)
         {
-            ToastService.ShowError(Localizer["ErrorMessage"]);
+            Console.WriteLine(exc.Message);
         }
-        finally
-        {
-            this.StateHasChanged();
-        }
+    }
+
+    public Task ResetFileEdit()
+    {
+        liteDbResult = LiteDbService.GetAll();
+        var faviconObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.Favicon);
+
+        FaviconDataUrl = (faviconObj != null) ? faviconObj.Value : "favicon.png";
+
+        return FileEdit.Reset().AsTask();
     }
 
     public async Task OnButtonContinueClick()

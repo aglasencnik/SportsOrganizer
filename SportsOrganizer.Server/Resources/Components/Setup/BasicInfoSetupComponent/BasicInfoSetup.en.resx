@@ -123,6 +123,12 @@
   <data name="BtnContinue" xml:space="preserve">
     <value>Save and Continue</value>
   </data>
+  <data name="BtnReset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Choose a File</value>
+  </data>
   <data name="CopyrightNotice" xml:space="preserve">
     <value>Enter Copyright Notice:</value>
   </data>

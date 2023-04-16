@@ -40,10 +40,11 @@
         </TextEdit>
     </Validation>
     <Label Margin="Margin.Is3.FromTop">@Localizer["Favicon"]</Label>
-    <FilePicker Upload="OnFileUpload" Filter="image/png" ShowMode="FilePickerShowMode.List" />
+    <FileEdit @ref="FileEdit" Filter="image/png" Changed="OnFileChanged" BrowseButtonLocalizer="@((name, arguments)=>Localizer["ChooseFile"])" />
     <Figure Size="FigureSize.Is64x64" Margin="Margin.Is2.FromTop">
         <FigureImage Source="@FaviconDataUrl" AlternateText="Favicon" />
     </Figure>
+    <Button Color="Color.Primary" Clicked="ResetFileEdit">@Localizer["BtnReset"]</Button>
     <hr />
     <Label>@Localizer["Homepage"]</Label>
     <RadzenHtmlEditor @bind-Value="HomePageHtml" style="height: 500px;" UploadUrl="upload/image">
@@ -72,9 +73,6 @@
         <RadzenHtmlEditorSubscript />
         <RadzenHtmlEditorSuperscript />
         <RadzenHtmlEditorSeparator />
-        <RadzenHtmlEditorLink />
-        <RadzenHtmlEditorUnlink />
-        <RadzenHtmlEditorImage />
         <RadzenHtmlEditorFontSize />
         <RadzenHtmlEditorFormatBlock />
     </RadzenHtmlEditor>

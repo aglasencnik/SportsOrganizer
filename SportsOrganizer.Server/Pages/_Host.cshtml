@@ -58,9 +58,7 @@
     <link href="SportsOrganizer.Server.styles.css" rel="stylesheet" />
     @if (faviconObj != null)
     {
-        var base64Data = Convert.ToBase64String(faviconObj.ImageData);
-        var imgSrc = $"data:image/png;base64,{base64Data}";
-        <link rel="icon" type="image/png" href="@imgSrc">
+        <link rel="icon" type="image/png" href="@faviconObj.Value">
     }
     else
     {

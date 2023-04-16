@@ -29,4 +29,8 @@
     <ProjectReference Include="..\SportsOrganizer.SqlServerMigrations\SportsOrganizer.SqlServerMigrations.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\upload\image\" />
+  </ItemGroup>
+
 </Project>
