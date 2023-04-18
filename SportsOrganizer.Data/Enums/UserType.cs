@@ -3,6 +3,6 @@
 public enum UserType
 {
     Guest,
-    Referee,
+    User,
     Admin
 }

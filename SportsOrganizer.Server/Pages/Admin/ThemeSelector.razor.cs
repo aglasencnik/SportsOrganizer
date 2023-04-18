@@ -4,10 +4,10 @@ using SportsOrganizer.Server.Utils;
 
 namespace SportsOrganizer.Server.Pages.Admin;
 
-public class ThemeSwitchBase : ComponentBase
+public class ThemeSelectorBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<ThemeSwitch> Localizer { get; set; }
+    public IStringLocalizer<ThemeSelector> Localizer { get; set; }
 
     [Inject]
     public MemoryStorageUtility MemoryStorage { get; set; }
