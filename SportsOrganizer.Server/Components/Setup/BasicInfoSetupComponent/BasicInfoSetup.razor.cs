@@ -51,7 +51,7 @@ public class BasicInfoSetupBase : ComponentBase
         liteDbResult = LiteDbService.GetAll();
         var faviconObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.Favicon);
 
-        FaviconDataUrl = (faviconObj != null) ? faviconObj.Value : "favicon.png";
+        FaviconDataUrl = (faviconObj != null) ? (string)faviconObj.Value : "favicon.png";
     }
 
     public async Task OnFileChanged(FileChangedEventArgs e)
@@ -82,7 +82,7 @@ public class BasicInfoSetupBase : ComponentBase
         liteDbResult = LiteDbService.GetAll();
         var faviconObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.Favicon);
 
-        FaviconDataUrl = (faviconObj != null) ? faviconObj.Value : "favicon.png";
+        FaviconDataUrl = (faviconObj != null) ? (string)faviconObj.Value : "favicon.png";
 
         return FileEdit.Reset().AsTask();
     }

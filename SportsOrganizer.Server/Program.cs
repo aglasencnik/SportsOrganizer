@@ -12,6 +12,7 @@ using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Interfaces;
 using SportsOrganizer.Server.Models;
 using SportsOrganizer.Server.Services;
+using SportsOrganizer.Server.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,9 +40,9 @@ builder.Services.AddBlazorise(options =>
 
 builder.Services.AddScoped(typeof(ILiteDbService<>), typeof(LiteDbService<>));
 builder.Services.AddScoped<DialogService>();
-builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<CultureProviderService>();
+builder.Services.AddScoped<MemoryStorageUtility>();
 
 var languages = configuration.GetSection("Localization:Languages").Get<Dictionary<string, string>>();
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -77,8 +78,6 @@ app.UseRouting();
 app.UseRequestLocalization();
 
 app.MapControllers();
-
-app.UseSession();
 
 app.MapBlazorHub(opt =>
 {

@@ -57,12 +57,12 @@ public class FinishSetupBase : ComponentBase
             LiteDbService.Insert(new AppSettingsModel
             {
                 KeyValueType = KeyValueType.SetupComplete,
-                BoolValue = true
+                Value = true
             });
         }
         else
         {
-            completedObj.BoolValue = true;
+            completedObj.Value = true;
 
             LiteDbService.Update(completedObj);
         }

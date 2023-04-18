@@ -75,13 +75,13 @@ public class LanguageSetupBase : ComponentBase
     {
         var liteDbResult = LiteDbService.GetAll();
 
-        var languageSetting = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.LanguageShort);
+        var langObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.LanguageShort);
 
-        if (languageSetting != null)
+        if (langObj != null)
         {
-            languageSetting.Value = !string.IsNullOrWhiteSpace(SelectedLanguage) ? SelectedLanguage : "en";
+            langObj.Value = !string.IsNullOrWhiteSpace(SelectedLanguage) ? SelectedLanguage : "en";
 
-            LiteDbService.Update(languageSetting);
+            LiteDbService.Update(langObj);
         }
         else
         {

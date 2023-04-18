@@ -1,8 +1,8 @@
 ﻿@inherits DatabaseSetupBase
 
-<div class="database-form">
-    @if (ShowForm)
-    {
+@if (ShowForm)
+{
+    <div class="database-form">
         <Label>@Localizer["SelectProviderInstructions"]</Label>
         <RadioGroup TValue="DatabaseProviderType"
                 Name="DatabaseProviders"
@@ -55,9 +55,9 @@
         <div class="buttons-div d-flex justify-content-center">
             <Button Color="Color.Primary" Clicked="OnButtonContinueClick">@Localizer["BtnContinue"]</Button>
         </div>
-    }
-    else
-    {
-        <SpinKit Type="SpinKitType.Chase" Centered="true" Size="100px" />
-    }
-</div>
+    </div>
+}
+else
+{
+    <SpinKit Type="SpinKitType.Chase" Centered="true" Size="100px" />
+}

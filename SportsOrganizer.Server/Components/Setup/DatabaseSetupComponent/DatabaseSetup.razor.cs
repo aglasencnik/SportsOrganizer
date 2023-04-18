@@ -164,8 +164,11 @@ public class DatabaseSetupBase : ComponentBase
 
         if (existingDatabase != null)
         {
-            existingDatabase.Value = connectionString;
-            existingDatabase.DatabaseProvider = providerType;
+            existingDatabase.Value = new DatabaseConnectionModel
+            {
+                DatabaseProvider = providerType,
+                ConnectionString = connectionString
+            };
 
             LiteDbService.Update(existingDatabase);
         }
@@ -174,8 +177,11 @@ public class DatabaseSetupBase : ComponentBase
             LiteDbService.Insert(new AppSettingsModel
             {
                 KeyValueType = KeyValueType.Database,
-                Value = connectionString,
-                DatabaseProvider = providerType
+                Value = new DatabaseConnectionModel
+                {
+                    DatabaseProvider = providerType,
+                    ConnectionString = connectionString
+                }
             });
         }
     }
