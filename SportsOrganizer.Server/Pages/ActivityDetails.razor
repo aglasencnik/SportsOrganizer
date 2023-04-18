@@ -1,2 +1,4 @@
 ﻿@page "/Activity-Details"
 @inherits ActivityDetailsBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

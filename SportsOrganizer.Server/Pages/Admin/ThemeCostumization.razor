@@ -1,2 +1,4 @@
 ﻿@page "/Admin/Theme-Costumization"
 @inherits ThemeCostumizationBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

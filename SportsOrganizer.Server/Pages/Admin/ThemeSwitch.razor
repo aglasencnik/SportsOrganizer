@@ -1,2 +1,4 @@
 ﻿@page "/Admin/Theme-Switch"
 @inherits ThemeSwitchBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

@@ -23,16 +23,16 @@ public class AppBase : ComponentBase
     public ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorageUtility { get; set; }
+    public MemoryStorageUtility MemoryStorage { get; set; }
 
     protected override void OnInitialized()
     {
-        if (MemoryStorageUtility.Storage.Count == 0)
+        if (MemoryStorage.Storage.Count == 0)
         {
-            MemoryStorageUtility.SetValuesFromLiteDb(LiteDbService.GetAll());
+            MemoryStorage.SetValuesFromLiteDb(LiteDbService.GetAll());
         }
 
-        var language = MemoryStorageUtility.GetValue(KeyValueType.LanguageShort);
+        var language = MemoryStorage.GetValue(KeyValueType.LanguageShort);
         var culture = CultureInfo.GetCultureInfo((string)language);
 
         if (CultureProvider.GetCurrentCultureInfo().Name != culture.Name)
@@ -45,7 +45,7 @@ public class AppBase : ComponentBase
 
         if (!DbContextService.IsDbContextSet())
         {
-            var dbConnectionObj = MemoryStorageUtility.GetValue(KeyValueType.Database);
+            var dbConnectionObj = MemoryStorage.GetValue(KeyValueType.Database);
 
             if (dbConnectionObj != null)
             {

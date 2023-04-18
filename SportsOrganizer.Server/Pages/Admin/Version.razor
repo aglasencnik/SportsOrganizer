@@ -1,2 +1,4 @@
 ﻿@page "/Admin/Version"
 @inherits VersionBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

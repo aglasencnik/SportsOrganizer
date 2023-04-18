@@ -1,2 +1,4 @@
 ﻿@page "/Admin/Homepage-Edit"
 @inherits HomepageEditBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

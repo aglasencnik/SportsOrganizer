@@ -1,2 +1,4 @@
 ﻿@page "/Admin/Backup-And-Restore"
 @inherits BackupAndRestoreBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

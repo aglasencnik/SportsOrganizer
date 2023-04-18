@@ -1,2 +1,4 @@
 ﻿@page "/User/"
 @inherits IndexBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

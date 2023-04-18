@@ -1,2 +1,4 @@
 ﻿@page "/Admin/Basic-Info-Edit"
 @inherits BasicInfoEditBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>

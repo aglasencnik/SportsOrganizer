@@ -1,2 +1,4 @@
 ﻿@page "/Account/Login"
 @inherits LoginBase
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
