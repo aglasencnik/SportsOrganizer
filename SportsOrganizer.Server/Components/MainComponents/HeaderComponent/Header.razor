@@ -1,0 +1,53 @@
+﻿@using System.Security.Claims;
+@inherits HeaderBase
+
+<nav class="navbar navbar-expand-lg @(NavbarColor) w-100 px-sm-5 navbar-custom" style="position: absolute; top: 0;">
+    <div class="container-fluid navbar-padding">
+        <a class="navbar-brand" href="/">@Title</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">@Localizer["Homepage"]</a>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/Activities">@Localizer["Activities"]</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/Activity-Results">@Localizer["ActivityResults"]</NavLink>
+                </li>
+            </ul>
+            <AuthorizeView>
+                <Authorized>
+                    <div class="username-text-div">
+                        <p class="@TextColor">@Localizer["Welcome"], @(context.User.Identity.Name)!</p>
+                    </div>
+                    <div style="padding-right: 1rem;">
+                        @if (context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role && x.Value == "User") != null)
+                        {
+                            <NavLink class="@(ButtonColor)" href="/User/">@Localizer["Dashboard"]</NavLink>
+                        }
+                        else
+                        {
+                            <NavLink class="@(ButtonColor)" href="/Admin/">@Localizer["Dashboard"]</NavLink>
+                        }
+                    </div>
+                    <div>
+                        @{
+                            ButtonColor += " my-2 my-sm-0";
+                        }
+                        <NavLink class="@(ButtonColor)" href="/Account/Logout">@Localizer["Logout"]</NavLink>
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    @{
+                        ButtonColor += " my-2 my-sm-0";
+                    }
+                    <NavLink class="@(ButtonColor)" href="/Account/Login">@Localizer["Login"]</NavLink>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
+    </div>
+</nav>

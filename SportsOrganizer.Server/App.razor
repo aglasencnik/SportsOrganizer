@@ -8,10 +8,7 @@
             <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         </Found>
         <NotFound>
-            <PageTitle>Stran ni bila najdena!</PageTitle>
-            <LayoutView Layout="@typeof(MainLayout)">
-                <PageNotFoundBase />
-            </LayoutView>
+            <PageNotFound />
         </NotFound>
     </Router>
 </CascadingAuthenticationState>

@@ -2,7 +2,9 @@ using Blazored.Toast;
 using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
@@ -60,6 +62,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services.AddBlazoredToast();
 
 builder.Services.AddScoped<ApplicationDbContextService>();
+builder.Services.AddScoped<AuthenticatorService>();
+builder.Services.AddScoped<AuthenticationStateProvider>(sp => sp.GetRequiredService<AuthenticatorService>());
 
 var app = builder.Build();
 

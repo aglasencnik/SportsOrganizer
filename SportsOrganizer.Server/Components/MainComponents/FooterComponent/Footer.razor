@@ -1,0 +1,18 @@
+﻿@inherits FooterBase
+
+<footer class="footer-custom py-3 @(NavbarColor)">
+    <ul class="nav justify-content-center pb-3 mb-3">
+        <li class="nav-item"><NavLink href="/" class="nav-link px-2 text-muted">@Localizer["Homepage"]</NavLink></li>
+        <li class="nav-item"><NavLink href="/Activities" class="nav-link px-2 text-muted">@Localizer["Activities"]</NavLink></li>
+        <li class="nav-item"><NavLink href="/Activity-Results" class="nav-link px-2 text-muted">@Localizer["ActivityResults"]</NavLink></li>
+        <AuthorizeView>
+            <Authorized>
+                <li class="nav-item"><NavLink href="/Account/Logout" class="nav-link px-2 text-muted">@Localizer["Logout"]</NavLink></li>
+            </Authorized>
+            <NotAuthorized>
+                <li class="nav-item"><NavLink href="/Account/Login" class="nav-link px-2 text-muted">@Localizer["Login"]</NavLink></li>
+            </NotAuthorized>
+        </AuthorizeView>
+    </ul>
+    <p class="text-center text-muted">© @DateTime.Today.ToString("yyyy"), @CopyrightNotice</p>
+</footer>

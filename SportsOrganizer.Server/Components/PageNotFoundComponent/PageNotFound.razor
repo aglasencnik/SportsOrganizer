@@ -1,3 +1,12 @@
 ﻿@inherits PageNotFoundBase
 
-<h1>Page not found ;(</h1>
+<PageTitle>@Localizer["PageNotFoundTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+    <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="text-center">
+            <h1 class="display-1 fw-bold">404</h1>
+            <p class="fs-3"> <span class="text-danger">@Localizer["Oops"]</span> @Localizer["Title"]</p>
+            <p class="lead">@Localizer["Text"]</p>
+            <a href="/" class="btn btn-primary">@Localizer["GoHomeBtn"]</a>
+        </div>
+    </div>

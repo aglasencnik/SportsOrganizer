@@ -1,3 +1,40 @@
+:root {
+    --footer-height: 12vh;
+    --navbar-height: 6rem;
+}
+
+.input-border {
+    border: 1px solid black;
+}
+
+.login {
+    height: calc(100vh - var(--footer-height));
+}
+
+.footer-custom {
+    height: var(--footer-height);
+    min-height: max-content;
+}
+
+.navbar-custom {
+    height: var(--navbar-height);
+}
+
+@media only screen and (max-width: 600px) {
+    :root {
+        --footer-height: max-content;
+    }
+
+    .login {
+        height: 100vh;
+        margin-top: 5rem;
+    }
+
+    .navbar-custom {
+        height: max-content;
+    }
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
