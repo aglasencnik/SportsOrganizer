@@ -47,11 +47,11 @@ public class LoginBase : ComponentBase
 
         if (user.Identities.Count() > 0)
         {
-            if (user.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value != UserType.Admin.ToString())
+            if (user.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value == UserType.Admin.ToString())
             {
                 NavigationManager.NavigateTo("/Admin/");
             }
-            else if (user.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value != UserType.User.ToString())
+            else if (user.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value == UserType.User.ToString())
             {
                 NavigationManager.NavigateTo("/User/");
             }
