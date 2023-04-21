@@ -107,7 +107,7 @@ public class ActivityResultSortService
         return models;
     }
 
-    public static List<ActivityResultScoresModel> SortGameScores(List<ActivityResultScoresModel> models)
+    public static List<ActivityResultScoresModel> SortActivityResultScores(List<ActivityResultScoresModel> models)
     {
         int place = 1;
 

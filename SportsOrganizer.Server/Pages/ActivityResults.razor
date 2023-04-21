@@ -12,7 +12,6 @@
         {
             <div class="mt-5 mb-5">
                 <h1 class="text-center">@($"{Activity.ActivityNumber}. {Localizer["Activity"]}: {Activity.Title}")</h1>
-                <NavLink class="btn btn-primary my-3" href="/Activities">&lt;- @Localizer["BackToAll"].Value.ToUpper()</NavLink>
                 <div style="font-size: 18px">
                     <p>@($"{Localizer["Location"].Value.ToUpper()}: {Activity.Location}")</p>
                     <p>@($"{Localizer["Rules"].Value.ToUpper()}:")</p>
@@ -52,7 +51,6 @@
 
                                                 sortedActivityResults.Add(new ActivityResultSortModel()
                                                 {
-                                                    ActivityId = Activity.Id,
                                                     Team = team,
                                                     Activity = Activity,
                                                     ActivityResult = activityResult
