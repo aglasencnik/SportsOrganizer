@@ -13,5 +13,6 @@ public enum KeyValueType
     CopyrightNotice,
     HeaderColor,
     FooterColor,
-    TableColor
+    SingleActivityTableColor,
+    FinalScoresTableColor
 }

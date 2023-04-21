@@ -2,3 +2,101 @@
 @inherits ActivityResultsBase
 
 <PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+<h1 class="text-center display-5">@Localizer["PageTitle"]</h1>
+
+<div class="mt-5">
+    @if (Activities != null && Activities.Count != 0)
+    {
+        foreach (var Activity in Activities)
+        {
+            <div class="mt-5 mb-5">
+                <h1 class="text-center">@($"{Activity.ActivityNumber}. {Localizer["Activity"]}: {Activity.Title}")</h1>
+                <NavLink class="btn btn-primary my-3" href="/Activities">&lt;- @Localizer["BackToAll"].Value.ToUpper()</NavLink>
+                <div style="font-size: 18px">
+                    <p>@($"{Localizer["Location"].Value.ToUpper()}: {Activity.Location}")</p>
+                    <p>@($"{Localizer["Rules"].Value.ToUpper()}:")</p>
+                    <div>
+                        @((MarkupString)Activity.Rules)
+                    </div>
+                    <p>@($"{Localizer["Props"].Value.ToUpper()}: {Activity.Props}")</p>
+                </div>
+
+                <div class="col-lg-12 control-section">
+                    <div class="content-wrapper">
+                        <div class="row">
+
+                            <div style="overflow-x:auto;">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr class="@TableColor">
+                                            <th scope="col">@Localizer["PlaceOfRanking"]</th>
+                                            <th scope="col">@Localizer["Team"]</th>
+                                            @if (Activity.NumberOfPlayers > 1)
+                                            {
+                                                for (int i = 1; i <= Activity.NumberOfPlayers; i++)
+                                                {
+                                                    <th scope="col">@($"{i}. {Localizer["Player"]}")</th>
+                                                }
+                                            }
+                                            <th scope="col">@Localizer["Result"]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            List<ActivityResultSortModel> sortedActivityResults = new();
+
+                                            foreach (var team in Teams)
+                                            {
+                                                var activityResult = ActivityResults.FirstOrDefault(x => x.TeamId == team.Id);
+
+                                                sortedActivityResults.Add(new ActivityResultSortModel()
+                                                {
+                                                    ActivityId = Activity.Id,
+                                                    Team = team,
+                                                    Activity = Activity,
+                                                    ActivityResult = activityResult
+                                                });
+                                            }
+
+                                            sortedActivityResults = ActivityResultSortService.SortActivityResults(sortedActivityResults, Activity.OrderType);
+
+                                            foreach (var activityResult in sortedActivityResults)
+                                            {
+                                                <tr>
+                                                    <td>@(activityResult.Place).</td>
+                                                    <td>@activityResult.Team.Name</td>
+                                                    @if (Activity.NumberOfPlayers > 1)
+                                                    {
+                                                        if (activityResult.ActivityResult != null)
+                                                        {
+                                                            var playerResults = PlayerResults.Where(x => x.ActivityResultId == activityResult.ActivityResult.Id);
+
+                                                            foreach (var result in playerResults)
+                                                            {
+                                                                <td>@($"{result}")</td>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            for (var i = 0; i < Activity.NumberOfPlayers; i++)
+                                                            {
+                                                                <td>-</td>
+                                                            }
+                                                        }
+                                                    }
+                                                    <td>@(activityResult.ActivityResult != null ? $"{activityResult.ActivityResult.Result}" : "-")</td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

@@ -51,7 +51,7 @@ public class ActivityDetailsBase : ComponentBase
                             .Contains(pr.ActivityResultId))
                         .ToList();
 
-                var colorObj = MemoryStorage.GetValue(KeyValueType.TableColor);
+                var colorObj = MemoryStorage.GetValue(KeyValueType.SingleActivityTableColor);
 
                 if (colorObj != null) TableColor = (string)colorObj;
                 else TableColor = Enums.TableColor.Default;
