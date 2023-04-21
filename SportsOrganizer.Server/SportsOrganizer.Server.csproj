@@ -32,8 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\AdminComponents\" />
-    <Folder Include="Components\UserComponents\" />
     <Folder Include="Resources\Components\AdminComponents\" />
     <Folder Include="Resources\Components\UserComponents\" />
     <Folder Include="wwwroot\upload\image\" />

@@ -12,5 +12,6 @@ public enum KeyValueType
     Title,
     CopyrightNotice,
     HeaderColor,
-    FooterColor
+    FooterColor,
+    TableColor
 }

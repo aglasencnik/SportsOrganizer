@@ -2,30 +2,22 @@
 
 @if (ActivityPreviewType == ActivityPreviewType.View && Activity != null)
 {
-    string activityText = Localizer["Activity"];
-    string locationText = Localizer["Location"];
-    string propsText = Localizer["Props"];
-
     <div class="card border-primary my-3">
         <div class="card-body">
-            <h4 class="card-title">@($"{Activity.ActivityNumber}. {activityText.ToUpper()}: {Activity.Title}")</h4>
-            <p class="card-text">@($"{locationText.ToUpper()}: {Activity.Location}")</p>
-            <p class="card-text">@($"{propsText.ToUpper()}: {Activity.Props}")</p>
+            <h4 class="card-title">@($"{Activity.ActivityNumber}. {Localizer["Activity"].Value.ToUpper()}: {Activity.Title}")</h4>
+            <p class="card-text">@($"{Localizer["Location"].Value.ToUpper()}: {Activity.Location}")</p>
+            <p class="card-text">@($"{Localizer["Props"].Value.ToUpper()}: {Activity.Props}")</p>
             <NavLink href="@($"/Activity-Details/{Activity.Id}")" class="card-link btn btn-primary">@Localizer["SeeMore"]</NavLink>
         </div>
     </div>
 }
 else if (ActivityPreviewType == ActivityPreviewType.Insert && Activity != null)
 {
-    string activityText = Localizer["Activity"];
-    string locationText = Localizer["Location"];
-    string propsText = Localizer["Props"];
-
     <div class="card border-primary my-3">
         <div class="card-body">
-            <h4 class="card-title">@($"{Activity.ActivityNumber}. {activityText.ToUpper()}: {Activity.Title}")</h4>
-            <p class="card-text">@($"{locationText.ToUpper()}: {Activity.Location}")</p>
-            <p class="card-text">@($"{propsText.ToUpper()}: {Activity.Props}")</p>
+            <h4 class="card-title">@($"{Activity.ActivityNumber}. {Localizer["Activity"].Value.ToUpper()}: {Activity.Title}")</h4>
+            <p class="card-text">@($"{Localizer["Location"].Value.ToUpper()}: {Activity.Location}")</p>
+            <p class="card-text">@($"{Localizer["Props"].Value.ToUpper()}: {Activity.Props}")</p>
             <NavLink href="@($"/User/Insert-Activity-Results/{Activity.Id}")" class="card-link btn btn-primary">@Localizer["SelectActivity"]</NavLink>
         </div>
     </div>
