@@ -120,4 +120,7 @@
   <data name="LogoAlt" xml:space="preserve">
     <value>Sports Organizer Logo</value>
   </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Sports Organizer Installer</value>
+  </data>
 </root>
