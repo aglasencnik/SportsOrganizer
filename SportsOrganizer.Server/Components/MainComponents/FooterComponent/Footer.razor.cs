@@ -28,7 +28,7 @@ public class FooterBase : ComponentBase
         if (copyrightObj != null) CopyrightNotice = (string)copyrightObj;
         else CopyrightNotice = "SportsOrganizer";
 
-        var navbarObj = MemoryStorage.GetValue(KeyValueType.None);
+        var navbarObj = MemoryStorage.GetValue(KeyValueType.FooterColor);
         if (navbarObj != null) NavbarColor = (string)navbarObj;
         else NavbarColor = Enums.NavbarColor.Dark;
     }

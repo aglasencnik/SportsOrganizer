@@ -36,8 +36,6 @@
     <Folder Include="Components\UserComponents\" />
     <Folder Include="Resources\Components\AdminComponents\" />
     <Folder Include="Resources\Components\UserComponents\" />
-    <Folder Include="Resources\Pages\Index\" />
-    <Folder Include="Resources\Pages\Setup\" />
     <Folder Include="wwwroot\upload\image\" />
   </ItemGroup>
 

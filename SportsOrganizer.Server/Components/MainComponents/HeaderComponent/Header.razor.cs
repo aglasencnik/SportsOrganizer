@@ -29,7 +29,7 @@ public class HeaderBase : ComponentBase
         if (titleObj != null) Title = (string)titleObj;
         else Title = "SportsOrganizer";
 
-        var navbarObj = MemoryStorage.GetValue(KeyValueType.None);
+        var navbarObj = MemoryStorage.GetValue(KeyValueType.HeaderColor);
         if (navbarObj != null) NavbarColor = (string)navbarObj;
         else NavbarColor = Enums.NavbarColor.Primary;
 

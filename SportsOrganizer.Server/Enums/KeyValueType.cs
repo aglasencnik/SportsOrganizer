@@ -10,5 +10,7 @@ public enum KeyValueType
     LanguageShort,
     Favicon,
     Title,
-    CopyrightNotice
+    CopyrightNotice,
+    HeaderColor,
+    FooterColor
 }
