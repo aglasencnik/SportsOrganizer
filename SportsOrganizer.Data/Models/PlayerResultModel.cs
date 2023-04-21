@@ -10,7 +10,7 @@ public class PlayerResultModel
     public int Id { get; set; }
 
     [Required]
-    public string ActivityResultId { get; set; } = null!;
+    public int ActivityResultId { get; set; }
 
     [Required]
     public double Result { get; set; }

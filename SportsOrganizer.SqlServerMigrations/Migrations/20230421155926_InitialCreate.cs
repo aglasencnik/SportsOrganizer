@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace SportsOrganizer.PostgreSqlMigrations.Migrations
+namespace SportsOrganizer.SqlServerMigrations.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -15,16 +14,16 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 name: "Activities",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ActivityNumber = table.Column<int>(type: "integer", nullable: false),
-                    Title = table.Column<string>(type: "text", nullable: false),
-                    Location = table.Column<string>(type: "text", nullable: false),
-                    Rules = table.Column<string>(type: "text", nullable: false),
-                    Props = table.Column<string>(type: "text", nullable: false),
-                    ActivityType = table.Column<int>(type: "integer", nullable: false),
-                    OrderType = table.Column<int>(type: "integer", nullable: false),
-                    NumberOfPlayers = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ActivityNumber = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rules = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Props = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ActivityType = table.Column<int>(type: "int", nullable: false),
+                    OrderType = table.Column<int>(type: "int", nullable: false),
+                    NumberOfPlayers = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -35,9 +34,9 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 name: "Teams",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,11 +47,11 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Username = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    UserType = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserType = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,11 +62,11 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 name: "ActivityResults",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    TeamId = table.Column<int>(type: "integer", nullable: false),
-                    ActivityId = table.Column<int>(type: "integer", nullable: false),
-                    Result = table.Column<double>(type: "double precision", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TeamId = table.Column<int>(type: "int", nullable: false),
+                    ActivityId = table.Column<int>(type: "int", nullable: false),
+                    Result = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,10 +89,10 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 name: "UserActivities",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    ActivityId = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ActivityId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -116,18 +115,17 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 name: "PlayerResults",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ActivityResultId = table.Column<string>(type: "text", nullable: false),
-                    Result = table.Column<double>(type: "double precision", nullable: false),
-                    ActivityResultId1 = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ActivityResultId = table.Column<int>(type: "int", nullable: false),
+                    Result = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PlayerResults", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PlayerResults_ActivityResults_ActivityResultId1",
-                        column: x => x.ActivityResultId1,
+                        name: "FK_PlayerResults_ActivityResults_ActivityResultId",
+                        column: x => x.ActivityResultId,
                         principalTable: "ActivityResults",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -144,9 +142,9 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 column: "TeamId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PlayerResults_ActivityResultId1",
+                name: "IX_PlayerResults_ActivityResultId",
                 table: "PlayerResults",
-                column: "ActivityResultId1");
+                column: "ActivityResultId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserActivities_ActivityId",

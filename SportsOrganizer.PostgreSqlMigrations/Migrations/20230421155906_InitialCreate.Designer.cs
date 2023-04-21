@@ -11,7 +11,7 @@ using SportsOrganizer.PostgreSqlMigrations;
 namespace SportsOrganizer.PostgreSqlMigrations.Migrations
 {
     [DbContext(typeof(PostgreSqlDbContextFactory))]
-    [Migration("20230411154301_InitialCreate")]
+    [Migration("20230421155906_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -99,11 +99,7 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ActivityResultId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("ActivityResultId1")
+                    b.Property<int>("ActivityResultId")
                         .HasColumnType("integer");
 
                     b.Property<double>("Result")
@@ -111,7 +107,7 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActivityResultId1");
+                    b.HasIndex("ActivityResultId");
 
                     b.ToTable("PlayerResults");
                 });
@@ -203,7 +199,7 @@ namespace SportsOrganizer.PostgreSqlMigrations.Migrations
                 {
                     b.HasOne("SportsOrganizer.Data.Models.ActivityResultModel", "ActivityResult")
                         .WithMany("PlayerResults")
-                        .HasForeignKey("ActivityResultId1")
+                        .HasForeignKey("ActivityResultId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -87,11 +87,7 @@ namespace SportsOrganizer.MySqlMigrations.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("ActivityResultId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("ActivityResultId1")
+                    b.Property<int>("ActivityResultId")
                         .HasColumnType("int");
 
                     b.Property<double>("Result")
@@ -99,7 +95,7 @@ namespace SportsOrganizer.MySqlMigrations.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActivityResultId1");
+                    b.HasIndex("ActivityResultId");
 
                     b.ToTable("PlayerResults");
                 });
@@ -185,7 +181,7 @@ namespace SportsOrganizer.MySqlMigrations.Migrations
                 {
                     b.HasOne("SportsOrganizer.Data.Models.ActivityResultModel", "ActivityResult")
                         .WithMany("PlayerResults")
-                        .HasForeignKey("ActivityResultId1")
+                        .HasForeignKey("ActivityResultId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

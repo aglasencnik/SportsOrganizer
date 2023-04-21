@@ -11,7 +11,7 @@ using SportsOrganizer.SqlServerMigrations;
 namespace SportsOrganizer.SqlServerMigrations.Migrations
 {
     [DbContext(typeof(SqlServerDbContextFactory))]
-    [Migration("20230411154326_InitialCreate")]
+    [Migration("20230421155926_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -99,11 +99,7 @@ namespace SportsOrganizer.SqlServerMigrations.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ActivityResultId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ActivityResultId1")
+                    b.Property<int>("ActivityResultId")
                         .HasColumnType("int");
 
                     b.Property<double>("Result")
@@ -111,7 +107,7 @@ namespace SportsOrganizer.SqlServerMigrations.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ActivityResultId1");
+                    b.HasIndex("ActivityResultId");
 
                     b.ToTable("PlayerResults");
                 });
@@ -203,7 +199,7 @@ namespace SportsOrganizer.SqlServerMigrations.Migrations
                 {
                     b.HasOne("SportsOrganizer.Data.Models.ActivityResultModel", "ActivityResult")
                         .WithMany("PlayerResults")
-                        .HasForeignKey("ActivityResultId1")
+                        .HasForeignKey("ActivityResultId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
