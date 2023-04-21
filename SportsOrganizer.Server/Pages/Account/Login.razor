@@ -13,7 +13,7 @@
                         <div class="form-group">
                             <Validation Validator="ValidationRule.IsNotEmpty">
                                 <Label Margin="Margin.Is3.FromTop">@Localizer["Username"]</Label>
-                                <TextEdit @bind-Text="Username" Class="input-border">
+                                <TextEdit @bind-Text="Username" Border="Border.Primary">
                                     <Feedback>
                                         <ValidationError>@Localizer["UsernameError"]</ValidationError>
                                     </Feedback>
@@ -23,7 +23,7 @@
                         <div class="form-group mt-4">
                             <Validation Validator="ValidationRule.IsNotEmpty">
                                 <Label Margin="Margin.Is3.FromTop">@Localizer["Password"]</Label>
-                                <TextEdit @bind-Text="Password" Role="TextRole.Password" Class="input-border">
+                                <TextEdit @bind-Text="Password" Role="TextRole.Password" Border="Border.Primary">
                                     <Feedback>
                                         <ValidationError>@Localizer["PasswordError"]</ValidationError>
                                     </Feedback>

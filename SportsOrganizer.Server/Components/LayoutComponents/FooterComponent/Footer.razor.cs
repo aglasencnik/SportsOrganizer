@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
-using SportsOrganizer.Server.Components.MainComponents.HeaderComponent;
 using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Utils;
 
-namespace SportsOrganizer.Server.Components.MainComponents.FooterComponent;
+namespace SportsOrganizer.Server.Components.LayoutComponents.FooterComponent;
 
 public class FooterBase : ComponentBase
 {
@@ -13,7 +12,7 @@ public class FooterBase : ComponentBase
     public Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public IStringLocalizer<Header> Localizer { get; set; }
+    public IStringLocalizer<Footer> Localizer { get; set; }
 
     [Inject]
     public MemoryStorageUtility MemoryStorage { get; set; }

@@ -3,10 +3,6 @@
     --navbar-height: 6rem;
 }
 
-.input-border {
-    border: 1px solid black;
-}
-
 .login {
     height: calc(100vh - var(--footer-height));
 }

@@ -1,10 +1,17 @@
 ﻿@page "/Activities"
+@using SportsOrganizer.Server.Components.ActivityPreviewComponent
 @inherits ActivitiesBase
 
 <PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
 
-<h1>ACTIVITIES!!!!</h1>
+<h1 class="text-center display-4">@Localizer["PageTitle"]</h1>
 
-<h2></h2>
-
-<a href="/">Go to home</a>
+<div class="m-2">
+    @if (Activities != null && Activities.Count != 0)
+    {
+        foreach (var Activity in Activities)
+        {
+            <ActivityPreview Activity="Activity" ActivityPreviewType="ActivityPreviewType.View" />
+        }
+    }
+</div>

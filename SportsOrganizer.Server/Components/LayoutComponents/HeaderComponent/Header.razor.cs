@@ -4,7 +4,7 @@ using Microsoft.Extensions.Localization;
 using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Utils;
 
-namespace SportsOrganizer.Server.Components.MainComponents.HeaderComponent;
+namespace SportsOrganizer.Server.Components.LayoutComponents.HeaderComponent;
 
 public class HeaderBase : ComponentBase
 {
