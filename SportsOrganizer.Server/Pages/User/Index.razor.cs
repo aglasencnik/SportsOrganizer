@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
+using SportsOrganizer.Data.Enums;
 using SportsOrganizer.Server.Utils;
+using System.Security.Claims;
 
 namespace SportsOrganizer.Server.Pages.User;
 
@@ -19,11 +21,15 @@ public class IndexBase : ComponentBase
     [Inject]
     public NavigationManager NavigationManager { get; set; }
 
+    public IEnumerable<Claim> Claims { get; set; } = Enumerable.Empty<Claim>();
+
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthState;
         var user = authState.User;
 
         if (user.Identities.Count() == 0) NavigationManager.NavigateTo("/");
+
+        Claims = user.Claims;
     }
 }

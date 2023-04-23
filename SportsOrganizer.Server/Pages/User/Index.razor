@@ -1,4 +1,17 @@
 ﻿@page "/User/"
+@using System.Security.Claims;
+@using SportsOrganizer.Data.Enums;
 @inherits IndexBase
 
 <PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+<div class="text-center d-grid gap-2">
+    @if (Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value == UserType.Admin.ToString())
+    {
+        <NavLink class="btn btn-lg btn-primary my-4" href="/Admin/"><p class="custom-text">@Localizer["AdminControlPanel"]</p></NavLink>
+        <br />
+    }
+    <NavLink class="btn btn-lg btn-primary my-4" href="/User/Activity-Results-Overview"><p class="custom-text">@Localizer["ReviewResults"]</p></NavLink>
+    <br />
+    <NavLink class="btn btn-lg btn-primary my-4" href="/User/Insert-Activity-Results-Selector"><p class="custom-text">@Localizer["ResultEntering"]</p></NavLink>
+</div>

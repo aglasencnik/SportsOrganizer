@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdminControlPanel" xml:space="preserve">
+    <value>Admin control panel</value>
+  </data>
   <data name="PageTitle" xml:space="preserve">
-    <value>User dashboard</value>
+    <value>User control panel</value>
+  </data>
+  <data name="ResultEntering" xml:space="preserve">
+    <value>Result entering</value>
+  </data>
+  <data name="ReviewResults" xml:space="preserve">
+    <value>Review results</value>
   </data>
 </root>

@@ -31,6 +31,10 @@
     }
 }
 
+.input-border {
+    border: 1px solid black;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
