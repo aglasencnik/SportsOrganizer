@@ -14,8 +14,8 @@
                 <h1 class="text-center">@($"{Activity.ActivityNumber}. {Localizer["Activity"]}: {Activity.Title}")</h1>
                 <div style="font-size: 18px">
                     <p>@($"{Localizer["Location"].Value.ToUpper()}: {Activity.Location}")</p>
-                    <p>@($"{Localizer["Rules"].Value.ToUpper()}:")</p>
-                    <div>
+                    <p class="rules-title">@($"{Localizer["Rules"].Value.ToUpper()}:")</p>
+                    <div class="rules-div">
                         @((MarkupString)Activity.Rules)
                     </div>
                     <p>@($"{Localizer["Props"].Value.ToUpper()}: {Activity.Props}")</p>

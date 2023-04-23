@@ -1,4 +1,11 @@
-﻿@page "/User/Insert-Activity-Results"
+﻿@page "/User/Insert-Activity-Results/{ActivityId:int}"
 @inherits InsertActivityResultsBase
 
-<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+<PageTitle>@($"{Activity.ActivityNumber}. {Localizer["Activity"]}")</PageTitle>
+
+<div class="row">
+    <h1 class="text-center">@($"{Activity.ActivityNumber}. {Localizer["Activity"]}: {Activity.Title}")</h1>
+    <div class="col-md-4">
+        
+    </div>
+</div>

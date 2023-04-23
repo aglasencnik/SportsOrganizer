@@ -7,8 +7,8 @@
 <NavLink class="btn btn-primary my-3" href="/Activities">&lt;- @Localizer["BackToAll"].Value.ToUpper()</NavLink>
 <div style="font-size: 18px">
     <p>@($"{Localizer["Location"].Value.ToUpper()}: {Activity.Location}")</p>
-    <p>@($"{Localizer["Rules"].Value.ToUpper()}:")</p>
-    <div>
+    <p class="rules-title">@($"{Localizer["Rules"].Value.ToUpper()}:")</p>
+    <div class="rules-div">
         @((MarkupString)Activity.Rules)
     </div>
     <p>@($"{Localizer["Props"].Value.ToUpper()}: {Activity.Props}")</p>
