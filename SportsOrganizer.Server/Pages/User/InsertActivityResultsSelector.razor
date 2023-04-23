@@ -1,4 +1,17 @@
 ﻿@page "/User/Insert-Activity-Results-Selector"
+@using SportsOrganizer.Server.Components.ActivityPreviewComponent
 @inherits InsertActivityResultsSelectorBase
 
 <PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+<h1 class="text-center display-6">@Localizer["Title"]</h1>
+
+<div class="m-2">
+    @if (Activities != null && Activities.Count() != 0)
+    {
+        foreach (var activity in Activities)
+        {
+            <ActivityPreview Activity="activity" ActivityPreviewType="ActivityPreviewType.Insert" />
+        }
+    }
+</div>

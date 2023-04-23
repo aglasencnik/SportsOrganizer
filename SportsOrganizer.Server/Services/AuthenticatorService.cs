@@ -73,6 +73,7 @@ public class AuthenticatorService : AuthenticationStateProvider
     {
         return new ClaimsIdentity(new Claim[]
             {
+                new (ClaimTypes.Sid, user.Id.ToString()),
                 new (ClaimTypes.Name, user.Username),
                 new (ClaimTypes.Hash, user.Password),
                 new (ClaimTypes.Role, user.UserType.ToString())
