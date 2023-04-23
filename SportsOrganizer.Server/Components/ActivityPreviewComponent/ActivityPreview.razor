@@ -22,3 +22,14 @@ else if (ActivityPreviewType == ActivityPreviewType.Insert && Activity != null)
         </div>
     </div>
 }
+else if (ActivityPreviewType == ActivityPreviewType.Edit && Activity != null)
+{
+    <div class="card border-primary my-3">
+        <div class="card-body">
+            <h4 class="card-title">@($"{Activity.ActivityNumber}. {Localizer["Activity"].Value.ToUpper()}: {Activity.Title}")</h4>
+            <p class="card-text">@($"{Localizer["Location"].Value.ToUpper()}: {Activity.Location}")</p>
+            <p class="card-text">@($"{Localizer["Props"].Value.ToUpper()}: {Activity.Props}")</p>
+            <NavLink href="@($"/User/Activity-Results-Overview/{Activity.Id}")" class="card-link btn btn-primary">@Localizer["SelectActivity"]</NavLink>
+        </div>
+    </div>
+}

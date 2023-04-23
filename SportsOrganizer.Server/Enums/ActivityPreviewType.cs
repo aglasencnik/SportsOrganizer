@@ -3,5 +3,6 @@
 public enum ActivityPreviewType
 {
     View,
-    Insert
+    Insert,
+    Edit
 }
