@@ -17,7 +17,7 @@ public class ActivityResultSortService
 
             for (int i = 0; i < models.Count(); i++)
             {
-                if (previousModel.Place != null)
+                if (previousModel.Place != 0)
                 {
                     if (models[i].ActivityResult != null)
                     {
@@ -64,7 +64,7 @@ public class ActivityResultSortService
 
             for (int i = 0; i < models.Count(); i++)
             {
-                if (previousModel.Place != null)
+                if (previousModel.Place != 0)
                 {
                     if (models[i].ActivityResult != null)
                     {
