@@ -123,8 +123,8 @@
   <data name="ActivityResults" xml:space="preserve">
     <value>Activity results</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value>Dashboard</value>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>Control panel</value>
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>Homepage</value>

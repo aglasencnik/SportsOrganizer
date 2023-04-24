@@ -27,11 +27,11 @@
                     <div style="padding-right: 1rem;">
                         @if (context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role && x.Value == "User") != null)
                         {
-                            <NavLink class="@(ButtonColor)" href="/User/">@Localizer["Dashboard"]</NavLink>
+                            <NavLink class="@(ButtonColor)" href="/User/">@Localizer["ControlPanel"]</NavLink>
                         }
                         else
                         {
-                            <NavLink class="@(ButtonColor)" href="/Admin/">@Localizer["Dashboard"]</NavLink>
+                            <NavLink class="@(ButtonColor)" href="/Admin/">@Localizer["ControlPanel"]</NavLink>
                         }
                     </div>
                     <div>
