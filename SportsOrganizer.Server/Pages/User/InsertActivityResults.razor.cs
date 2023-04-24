@@ -40,6 +40,8 @@ public class InsertActivityResultsBase : ComponentBase
     public ActivityModel Activity { get; set; } = new();
     public List<double> PlayerResults { get; set; } = new();
     public string ErrorMessage { get; set; }
+    public int TeamId { get; set; }
+    public double Result { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -77,6 +79,9 @@ public class InsertActivityResultsBase : ComponentBase
 
     private void ResetInputs()
     {
+        Result = 0;
+        TeamId = 0;
+
         int N = Activity.NumberOfPlayers;
 
         if (N > 1)
@@ -88,6 +93,75 @@ public class InsertActivityResultsBase : ComponentBase
 
     public async Task InsertResult()
     {
+        try
+        {
+            if (TeamId != 0 && Result >= 0)
+            {
+                int insertedActivityResultId;
 
+                var existingActivityResult = DbContext.ActivityResults.FirstOrDefault(x => x.ActivityId == Activity.Id && x.TeamId == TeamId);
+
+                if (existingActivityResult == null)
+                {
+                    var newActivityResult = new ActivityResultModel
+                    {
+                        ActivityId = Activity.Id,
+                        TeamId = TeamId,
+                        Result = Result
+                    };
+
+                    await DbContext.ActivityResults.AddAsync(newActivityResult);
+                    await DbContext.SaveChangesAsync();
+
+                    insertedActivityResultId = newActivityResult.Id;
+                }
+                else
+                {
+                    existingActivityResult.Result = Result;
+
+                    if (Activity.NumberOfPlayers > 1)
+                    {
+                        var oldPlayerResults = DbContext.PlayerResults.Where(x => x.ActivityResultId == existingActivityResult.Id);
+                        DbContext.PlayerResults.RemoveRange(oldPlayerResults);
+                    }
+
+                    await DbContext.SaveChangesAsync();
+
+                    insertedActivityResultId = existingActivityResult.Id;
+                }
+
+                if (Activity.NumberOfPlayers > 1)
+                {
+                    List<PlayerResultModel> pResults = new();
+
+                    foreach (var playerResult in PlayerResults)
+                    {
+                        pResults.Add(new PlayerResultModel 
+                        { 
+                            ActivityResultId = insertedActivityResultId, 
+                            Result = playerResult 
+                        });
+                    }
+
+                    await DbContext.PlayerResults.AddRangeAsync(pResults);
+                    await DbContext.SaveChangesAsync();
+                }
+
+                Toast.ShowSuccess(Localizer["SuccessToast"]);
+                ResetInputs();
+            }
+            else Toast.ShowWarning(Localizer["WarningToast"]);
+        }
+        catch
+        {
+            Toast.ShowError(Localizer["ErrorToast"]);
+        }
+    }
+
+    public void ResumValues(double value, int index)
+    {
+        PlayerResults[index] = value;
+
+        Result = PlayerResults.Sum();
     }
 }

@@ -1,11 +1,62 @@
 ﻿@page "/User/Insert-Activity-Results/{ActivityId:int}"
+@using SportsOrganizer.Data.Enums;
 @inherits InsertActivityResultsBase
 
-<PageTitle>@($"{Activity.ActivityNumber}. {Localizer["Activity"]}")</PageTitle>
+<PageTitle>@($"{Activity.ActivityNumber}. {Localizer["Activity"]} - {MemoryStorage.GetValue(KeyValueType.Title)}")</PageTitle>
 
-<div class="row">
-    <h1 class="text-center">@($"{Activity.ActivityNumber}. {Localizer["Activity"]}: {Activity.Title}")</h1>
+    <div class="row">
+        <h1 class="text-center">@($"{Activity.ActivityNumber}. {Localizer["Activity"]}: {Activity.Title}")</h1>
     <div class="col-md-4">
-        
+
+        <div class="form-group mt-4">
+            <Label>@Localizer["Team"]</Label>
+            <InputSelect @bind-Value="TeamId" class="form-select input-border mt-1" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                @foreach (var team in Teams)
+                {
+                    <option value="@team.Id">@team.Name</option>
+                }
+            </InputSelect>
+        </div>
+
+        @if (Activity.ActivityType == ActivityType.Time)
+        {
+            <p class="mt-4">@Localizer["TimeText"]</p>
+        }
+        else if (Activity.ActivityType == ActivityType.Distance)
+        {
+            <p class="mt-4">@Localizer["DistanceText"]</p>
+        }
+        else if (Activity.ActivityType == ActivityType.Points)
+        {
+            <p class="mt-4">@Localizer["PointsText"]</p>
+        }
+
+        @if (Activity.NumberOfPlayers > 1)
+        {
+            @foreach (var i in Enumerable.Range(0, Activity.NumberOfPlayers))
+            {
+                var ii = i;
+                int num = i + 1;
+
+                <div class="form-group mt-4">
+                    <Label>@($"{Localizer["Player"]} {num}:")</Label>
+                    <div class="mt-2">
+                        <NumericPicker Class="input-border" TValue="double" Min="0" Value="PlayerResults[i]" ValueChanged="@((double value) => ResumValues(value, i))" Step="0.1M" />
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="form-group mt-4">
+            <Label>@Localizer["Result"]</Label>
+            <div class="mt-1">
+                <NumericPicker Class="input-border" TValue="double" @bind-Value="Result" Min="0" Step="0.1M" />
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <Button Color="Color.Primary" Clicked="InsertResult">@Localizer["BtnSave"]</Button>
+        </div>
+        <p class="text-danger error-message mt-4">@ErrorMessage</p>
     </div>
 </div>
