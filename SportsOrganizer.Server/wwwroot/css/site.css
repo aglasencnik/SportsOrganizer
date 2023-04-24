@@ -9,11 +9,12 @@
 
 .footer-custom {
     height: var(--footer-height);
-    min-height: max-content;
+    min-height: 9.5rem;
 }
 
 .navbar-custom {
     height: var(--navbar-height);
+    z-index: 50;
 }
 
 @media only screen and (max-width: 600px) {

@@ -14,5 +14,6 @@ public enum KeyValueType
     HeaderColor,
     FooterColor,
     SingleActivityTableColor,
-    FinalScoresTableColor
+    FinalScoresTableColor,
+    ScoringType
 }

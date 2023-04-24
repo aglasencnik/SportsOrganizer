@@ -1,4 +1,5 @@
 ﻿using SportsOrganizer.Data.Enums;
+using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Models;
 
 namespace SportsOrganizer.Server.Services;
@@ -107,35 +108,68 @@ public class ActivityResultSortService
         return models;
     }
 
-    public static List<ActivityResultScoresModel> SortActivityResultScores(List<ActivityResultScoresModel> models)
+    public static List<ActivityResultScoresModel> SortActivityResultScores(List<ActivityResultScoresModel> models, ScoringType scoringType)
     {
         int place = 1;
 
-        models = models.OrderBy(x => x.Points).ToList();
-
-        var previousModel = new ActivityResultScoresModel();
-
-        for (int i = 0; i < models.Count(); i++)
+        if (scoringType == ScoringType.Ascending)
         {
-            if (previousModel.Place != 0)
+            models = models.OrderBy(x => x.Points).ToList();
+
+            var previousModel = new ActivityResultScoresModel();
+
+            for (int i = 0; i < models.Count(); i++)
             {
-                if (models[i].Points > previousModel.Points)
+                if (previousModel.Place != 0)
+                {
+                    if (models[i].Points > previousModel.Points)
+                    {
+                        models[i].Place = place;
+                        previousModel = models[i];
+                        place++;
+                    }
+                    else
+                    {
+                        models[i].Place = previousModel.Place;
+                        place++;
+                    }
+                }
+                else
                 {
                     models[i].Place = place;
                     previousModel = models[i];
                     place++;
                 }
+            }
+        }
+        else if (scoringType == ScoringType.Descending)
+        {
+            models = models.OrderByDescending(x => x.Points).ToList();
+
+            var previousModel = new ActivityResultScoresModel();
+
+            for (int i = 0; i < models.Count(); i++)
+            {
+                if (previousModel.Place != 0)
+                {
+                    if (models[i].Points < previousModel.Points)
+                    {
+                        models[i].Place = place;
+                        previousModel = models[i];
+                        place++;
+                    }
+                    else
+                    {
+                        models[i].Place = previousModel.Place;
+                        place++;
+                    }
+                }
                 else
                 {
-                    models[i].Place = previousModel.Place;
+                    models[i].Place = place;
+                    previousModel = models[i];
                     place++;
                 }
-            }
-            else
-            {
-                models[i].Place = place;
-                previousModel = models[i];
-                place++;
             }
         }
 

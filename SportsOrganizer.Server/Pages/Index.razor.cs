@@ -38,7 +38,10 @@ public class IndexBase : ComponentBase
 
         NumberOfActivities = Activities.Count();
 
-        ActivityResultScores = ActivityResultScoringService.ScoreActivityResults(Teams, Activities, ActivityResults);
+        var scoreObj = MemoryStorage.GetValue(KeyValueType.ScoringType);
+        ScoringType scoringType = (scoreObj != null) ? (ScoringType)scoreObj : ScoringType.Ascending;
+
+        ActivityResultScores = ActivityResultScoringService.ScoreActivityResults(Teams, Activities, ActivityResults, scoringType);
 
         var colorObj = MemoryStorage.GetValue(KeyValueType.FinalScoresTableColor);
 

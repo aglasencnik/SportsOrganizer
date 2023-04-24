@@ -1,13 +1,14 @@
 ﻿using SportsOrganizer.Data.Models;
+using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Models;
 
 namespace SportsOrganizer.Server.Services;
 
 public class ActivityResultScoringService
 {
-    public static List<ActivityResultScoresModel> ScoreActivityResults(List<TeamModel> teams, List<ActivityModel> activities, List<ActivityResultModel> activityResults)
+    public static List<ActivityResultScoresModel> ScoreActivityResults(List<TeamModel> teams, List<ActivityModel> activities, List<ActivityResultModel> activityResults, ScoringType scoringType)
     {
-        List<ActivityResultScoresModel> activityResultScores = InitializeActivityResultScores(teams, teams.Count, activities.Count);
+        List<ActivityResultScoresModel> activityResultScores = InitializeActivityResultScores(teams, teams.Count, activities.Count, scoringType);
 
         foreach (var activity in activities)
         {
@@ -29,22 +30,23 @@ public class ActivityResultScoringService
 
             foreach (var sortedActivityResult in sortedActivityResults)
             {
-                int minusScore = 0;
-
-                if (sortedActivityResult.ActivityResult != null) minusScore = teams.Count - (int)sortedActivityResult.Place;
-
                 int index = activityResultScores.FindIndex(x => x.Team.Id == sortedActivityResult.Team.Id);
-                activityResultScores[index].Points -= minusScore;
-                activityResultScores[index].ActivityPlaces.Add(sortedActivityResult.ActivityResult != null ? (int)sortedActivityResult.Place : 0);
+
+                if (scoringType == ScoringType.Ascending)
+                    activityResultScores[index].Points += sortedActivityResult.Place;
+                else if (scoringType == ScoringType.Descending) 
+                    activityResultScores[index].Points -= sortedActivityResult.Place;
+
+                activityResultScores[index].ActivityPlaces.Add(sortedActivityResult.ActivityResult != null ? sortedActivityResult.Place : 0);
             }
         }
 
-        activityResultScores = ActivityResultSortService.SortActivityResultScores(activityResultScores);
+        activityResultScores = ActivityResultSortService.SortActivityResultScores(activityResultScores, scoringType);
 
         return activityResultScores;
     }
 
-    private static List<ActivityResultScoresModel> InitializeActivityResultScores(List<TeamModel> teams, int numOfTeams, int numOfActivities)
+    private static List<ActivityResultScoresModel> InitializeActivityResultScores(List<TeamModel> teams, int numOfTeams, int numOfActivities, ScoringType scoringType)
     {
         List<ActivityResultScoresModel> activityResultScores = new();
 
@@ -53,7 +55,7 @@ public class ActivityResultScoringService
             activityResultScores.Add(new ActivityResultScoresModel()
             {
                 Team = team,
-                Points = numOfTeams * numOfActivities,
+                Points = (scoringType == ScoringType.Ascending) ? 0 : numOfTeams * numOfActivities,
                 Place = 0,
                 ActivityPlaces = new List<int>()
             });

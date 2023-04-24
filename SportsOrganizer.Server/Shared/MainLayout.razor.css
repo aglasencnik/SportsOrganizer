@@ -9,5 +9,5 @@ main {
 }
 
 main {
-    padding-top: calc(2rem + var(--navbar-height));
+    padding-top: calc(.5rem + var(--navbar-height));
 }
