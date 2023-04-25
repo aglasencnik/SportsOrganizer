@@ -2,7 +2,7 @@
 
 namespace SportsOrganizer.Server.Components.LayoutComponents.AdminBarComponent;
 
-public class AdminBarComponentBase : ComponentBase
+public class AdminBarBase : ComponentBase
 {
 
 }
