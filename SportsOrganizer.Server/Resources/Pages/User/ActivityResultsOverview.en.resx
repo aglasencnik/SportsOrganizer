@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="BtnNew" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="EditData" xml:space="preserve">
+    <value>Data editing</value>
+  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Activity results overview</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="TeamName" xml:space="preserve">
+    <value>Team name</value>
+  </data>
+  <data name="totalItems" xml:space="preserve">
+    <value>total items</value>
+  </data>
+  <data name="UniqueIdentifier" xml:space="preserve">
+    <value>Unique identifier</value>
   </data>
 </root>
