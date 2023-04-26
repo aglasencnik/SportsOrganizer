@@ -32,7 +32,7 @@
     }
 }
 
-.input-border {
+.input-border, .form-control, .form-select {
     border: 1px solid black;
 }
 
