@@ -1,0 +1,109 @@
+﻿@using SportsOrganizer.Data.Enums;
+@inherits UserActivityResultEditModalBase
+
+@if (ModalParameters.EditType == EditType.Edit)
+{
+    <ModalHeader>
+        <ModalTitle>@Localizer["EditTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["Team"]</Label>
+            <TextEdit @bind-Text="Team.Name" Disabled />
+        </div>
+
+        @if (Activity.ActivityType == ActivityType.Time)
+        {
+            <p class="mt-4">@Localizer["TimeText"]</p>
+        }
+        else if (Activity.ActivityType == ActivityType.Distance)
+        {
+            <p class="mt-4">@Localizer["DistanceText"]</p>
+        }
+        else if (Activity.ActivityType == ActivityType.Points)
+        {
+            <p class="mt-4">@Localizer["PointsText"]</p>
+        }
+
+        @if (Activity.NumberOfPlayers > 1)
+        {
+            @foreach (var i in Enumerable.Range(0, Activity.NumberOfPlayers))
+            {
+                var ii = i;
+                int num = i + 1;
+
+                <div class="form-group mt-4">
+                    <Label>@($"{Localizer["Player"]} {num}:")</Label>
+                        <div class="mt-2">
+                            <NumericPicker TValue="double" Min="0" Value="PlayerResults[i].Result" ValueChanged="@((double value) => ResumValues(value, i))" Step="0.1M" />
+                        </div>
+                    </div>
+            }
+        }
+
+        <div class="form-group mt-4">
+            <Label>@Localizer["Result"]</Label>
+            <div class="mt-1">
+                <NumericPicker TValue="double" @bind-Value="ActivityResult.Result" Min="0" Step="0.1M" />
+            </div>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Warning " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}
+else if (ModalParameters.EditType == EditType.Delete)
+{
+    <ModalHeader>
+        <ModalTitle>@Localizer["DeleteTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["Team"]</Label>
+            <TextEdit @bind-Text="Team.Name" Disabled />
+        </div>
+
+        @if (Activity.ActivityType == ActivityType.Time)
+        {
+            <p class="mt-4">@Localizer["TimeText"]</p>
+        }
+        else if (Activity.ActivityType == ActivityType.Distance)
+        {
+            <p class="mt-4">@Localizer["DistanceText"]</p>
+        }
+        else if (Activity.ActivityType == ActivityType.Points)
+        {
+            <p class="mt-4">@Localizer["PointsText"]</p>
+        }
+
+        @if (Activity.NumberOfPlayers > 1)
+        {
+            @foreach (var i in Enumerable.Range(0, Activity.NumberOfPlayers))
+            {
+                var ii = i;
+                int num = i + 1;
+
+                <div class="form-group mt-4">
+                    <Label>@($"{Localizer["Player"]} {num}:")</Label>
+                        <div class="mt-2">
+                            <NumericPicker TValue="double" Value="PlayerResults[i].Result" Disabled />
+                        </div>
+                    </div>
+            }
+        }
+
+        <div class="form-group mt-4">
+            <Label>@Localizer["Result"]</Label>
+            <div class="mt-1">
+                <NumericPicker TValue="double" @bind-Value="ActivityResult.Result" Disabled />
+            </div>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Danger " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}

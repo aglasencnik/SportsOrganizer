@@ -7,7 +7,7 @@ using Microsoft.Extensions.Localization;
 using SportsOrganizer.Data;
 using SportsOrganizer.Data.Enums;
 using SportsOrganizer.Data.Models;
-using SportsOrganizer.Server.Components.EditComponents.ActivityResultEditModalComponent;
+using SportsOrganizer.Server.Components.UserComponents.UserActivityResultEditModalComponent;
 using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Models;
 using SportsOrganizer.Server.Services;
@@ -97,8 +97,8 @@ public class ActivityResultsOverviewBase : ComponentBase
             Id = id
         };
 
-        ModalService.Show<ActivityResultEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
-            new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed) });
+        ModalService.Show<UserActivityResultEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
+            new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed), UseModalStructure = false });
     }
 
     public void OpenDeleteModal(int id)
@@ -109,8 +109,8 @@ public class ActivityResultsOverviewBase : ComponentBase
             Id = id
         };
 
-        ModalService.Show<ActivityResultEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
-            new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed) });
+        ModalService.Show<UserActivityResultEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
+            new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed), UseModalStructure = false });
     }
 
     private void OnModalClosed()
