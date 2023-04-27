@@ -16,5 +16,8 @@ public enum KeyValueType
     SingleActivityTableColor,
     FinalScoresTableColor,
     ScoringType,
-    ThemeContrast
+    DataGridThemeContrast,
+    AdminLayoutBarThemeContrast,
+    AdminLayoutHeaderThemeContrast,
+    AdminLayoutHeaderBackground
 }

@@ -65,7 +65,7 @@ public class ActivityResultsOverviewBase : ComponentBase
         ActivityResults = DbContext.ActivityResults.Where(x => x.ActivityId == ActivityId).ToList();
         Teams = DbContext.Teams.ToList();
 
-        var themeObj = MemoryStorage.GetValue(KeyValueType.ThemeContrast);
+        var themeObj = MemoryStorage.GetValue(KeyValueType.DataGridThemeContrast);
 
         if (themeObj != null) ThemeContrast = (ThemeContrast)themeObj;
         else ThemeContrast = ThemeContrast.Light;

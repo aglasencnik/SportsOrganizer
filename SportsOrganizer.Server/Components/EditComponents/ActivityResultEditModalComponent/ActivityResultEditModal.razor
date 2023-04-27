@@ -1,14 +1,44 @@
-﻿@inherits ActivityResultEditModal
+﻿@inherits ActivityResultEditModalBase
 
-@if (EditType == EditType.Add)
+@if (ModalParameters.EditType == EditType.Add)
 {
-
+    <ModalHeader>
+        <ModalTitle>@Localizer["CreateTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Success " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
 }
-else if (EditType == EditType.Edit)
+else if (ModalParameters.EditType == EditType.Edit)
 {
+    <ModalHeader>
+        <ModalTitle>@Localizer["EditTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
 
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Warning " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
 }
-else if (EditType == EditType.Delete)
+else if (ModalParameters.EditType == EditType.Delete)
 {
+    <ModalHeader>
+        <ModalTitle>@Localizer["DeleteTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
 
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Danger " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
 }

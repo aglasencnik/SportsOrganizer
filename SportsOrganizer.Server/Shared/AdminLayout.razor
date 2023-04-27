@@ -1,11 +1,108 @@
 ﻿@inherits LayoutComponentBase
 
-<PageTitle>SportsOrganizer</PageTitle>
+<Layout Sider>
+    <LayoutSider>
+        <LayoutSiderContent>
+            <Bar @ref="@sideBar" Breakpoint="Breakpoint.Desktop" NavigationBreakpoint="Breakpoint.Tablet" ThemeContrast="SidebarThemeContrast" Shadow="Shadow.Default"
+                 Mode="BarMode.VerticalInline" CollapseMode="BarCollapseMode.Hide">
+                <BarBrand>
+                    <BarItem>
+                        <BarLink To="/Admin/">
+                            <BarIcon IconName="customIcon" Display="Display.InlineBlock" />&nbsp;
+                            @((string)MemoryStorage.GetValue(KeyValueType.Title))
+                        </BarLink>
+                    </BarItem>
+                </BarBrand>
+                <BarMenu>
+                    <BarStart>
+                        <BarItem>
+                            <BarLink To="/">
+                                <BarIcon IconName="IconName.Home" /> Overview
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/">
+                                <BarIcon IconName="IconName.Directions" /> Start
+                            </BarLink>
+                        </BarItem>
+                    </BarStart>
+                </BarMenu>
+            </Bar>
+        </LayoutSiderContent>
+    </LayoutSider>
+    <Layout>
+        <LayoutHeader>
+            <Bar @ref="@topBar" @bind-Visible="@topBarVisible"
+                 Breakpoint="Breakpoint.Desktop" Background="HeaderBackground" ThemeContrast="HeaderThemeContrast">
+                <BarToggler Bar="@sideBar" Border="Border.Is0" />
+                <BarMenu>
+                    <BarStart>
+                        <BarItem Margin="Margin.Is3.FromEnd">
+                            <BarLink To="/" Shadow="Shadow.Small" Border="Border.Rounded.Is1.Primary.OnBottom.Is1.Primary.OnTop" TextWeight="TextWeight.Normal">
+                                @Localizer["Homepage"]
+                            </BarLink>
+                        </BarItem>
+                    </BarStart>
+                    <BarEnd>
+                        <BarItem Margin="Margin.Is5.FromEnd">
+                            <BarLink To="https://github.com/aglasencnik/sportsorganizer" Target="Target.Blank">
+                                <Icon Name="@("fab fa-github")" />
+                                GitHub
+                            </BarLink>
+                        </BarItem>
+                    </BarEnd>
+                </BarMenu>
+            </Bar>
+        </LayoutHeader>
+        <CascadingValue Value="@this" IsFixed>
+            <LayoutContent Padding="Padding.Is0.OnX.Is4.OnY.Is4.OnWidescreen">
+                <Container Breakpoint="Breakpoint.Widescreen">
+                    <Row>
+                        <Column ColumnSize="ColumnSize.Is12.Is10.OnDesktop">
+                            @Body
+                        </Column>
+                    </Row>
+                </Container>
+            </LayoutContent>
+        </CascadingValue>
+    </Layout>
+</Layout>
 
-<div class="page w-100 min-vh-100">
-    <main>
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+@code{
+    [Inject]
+    public IStringLocalizer<AdminLayout> Localizer { get; set; }
+
+    [Inject]
+    public MemoryStorageUtility MemoryStorage { get; set; }
+
+    private Bar sideBar;
+    private Bar topBar;
+    private bool topBarVisible;
+    private ThemeContrast SidebarThemeContrast;
+    private ThemeContrast HeaderThemeContrast;
+    private Background HeaderBackground;
+
+    RenderFragment customIcon = @<Image Source="/img/logo.svg" Style="width:32px; height: 32px" />;
+
+    protected override async Task OnInitializedAsync()
+    {
+        string altText = Localizer["SportsOrganizerLogo"];
+
+        var faviconObj = MemoryStorage.GetValue(KeyValueType.Favicon);
+        var favicon = (faviconObj != null) ? (string)faviconObj : "favicon.png";
+
+        customIcon = @<Image Source="@favicon" Text="@altText" Style="width:32px; height: 32px" />;
+
+        var sidebarThemeContrastObj = MemoryStorage.GetValue(KeyValueType.AdminLayoutBarThemeContrast);
+        if (sidebarThemeContrastObj != null) SidebarThemeContrast = (ThemeContrast)sidebarThemeContrastObj;
+        else SidebarThemeContrast = ThemeContrast.Light;
+
+        var headerThemeContrastObj = MemoryStorage.GetValue(KeyValueType.AdminLayoutHeaderThemeContrast);
+        if (headerThemeContrastObj != null) HeaderThemeContrast = (ThemeContrast)headerThemeContrastObj;
+        else HeaderThemeContrast = ThemeContrast.Light;
+
+        var headerBackgroundObj = MemoryStorage.GetValue(KeyValueType.AdminLayoutHeaderBackground);
+        if (headerBackgroundObj != null) HeaderBackground = (Background)headerBackgroundObj;
+        else HeaderBackground = Background.Light;
+    }
+}
