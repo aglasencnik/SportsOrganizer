@@ -38,7 +38,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/@(theme).min.css" />
+    <link rel="stylesheet" href="css/bootstrap/@(theme).min.css" id="themeLink" />
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link href="_content/Blazorise/blazorise.css" rel="stylesheet" />
     <link href="_content/Blazorise.Bootstrap5/blazorise.bootstrap5.css" rel="stylesheet" />
@@ -70,5 +70,13 @@
     <script src="_framework/blazor.server.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <script>
+        window.changeTheme = (themeName) => {
+            var linkTag = document.querySelector('link[id="themeLink"]');
+            if (linkTag) {
+                linkTag.href = 'css/bootstrap/' + themeName + '.min.css';
+            }
+        }
+    </script>
 </body>
 </html>

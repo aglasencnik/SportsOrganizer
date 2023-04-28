@@ -1,3 +1,614 @@
 ﻿@page "/Admin/Theme-Selector"
 @inherits ThemeSelectorBase
 @layout AdminLayout
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+<h1 class="text-center">@Localizer["PageTitle"]</h1>
+<hr />
+<p>@Localizer["p1"]</p>
+<p>@Localizer["p2"]</p>
+<p>@Localizer["p3"]</p>
+<p>@Localizer["p4"]</p>
+<p>@Localizer["p5"]</p>
+<hr />
+<div class="row">
+    <div class="col-lg-4 col-sm-6">
+            <div class="card preview @((OldTheme == "default") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)default/" target="_blank">
+                    <img src="img/theme-preview/default.png" alt="Default">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Default</h3>
+                <p>Basic Bootstrap</p>
+                <div class="btn-group">
+                    @{
+                        string destinationUrl = $"{BootswatchUrl}/default/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("default"))" Disabled="@((OldTheme == "default") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "cerulean") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)cerulean/" target="_blank">
+                    <img src="img/theme-preview/cerulean.png" alt="Cerulean">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Cerulean</h3>
+                <p>A calm blue sky</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/cerulean/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("cerulean"))" Disabled="@((OldTheme == "cerulean") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "cosmo") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)cosmo/" target="_blank">
+                    <img src="img/theme-preview/cosmo.png" alt="Cosmo">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Cosmo</h3>
+                <p>An ode to Metro</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/cosmo/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("cosmo"))" Disabled="@((OldTheme == "cosmo") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "cyborg") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)cyborg/" target="_blank">
+                    <img src="img/theme-preview/cyborg.png" alt="Cyborg">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Cyborg</h3>
+                <p>Jet black and electric blue</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/cyborg/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("cyborg"))" Disabled="@((OldTheme == "cyborg") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "darkly") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)darkly/" target="_blank">
+                    <img src="img/theme-preview/darkly.png" alt="Darkly">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Darkly</h3>
+                <p>Flatly in night mode</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/darkly/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("darkly"))" Disabled="@((OldTheme == "darkly") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "flatly") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)flatly/" target="_blank">
+                    <img src="img/theme-preview/flatly.png" alt="Flatly">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Flatly</h3>
+                <p>Flat and modern</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/flatly/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("flatly"))" Disabled="@((OldTheme == "flatly") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "journal") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)journal/" target="_blank">
+                    <img src="img/theme-preview/journal.png" alt="Journal">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Journal</h3>
+                <p>Crisp like a new sheet of paper</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/journal/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("journal"))" Disabled="@((OldTheme == "journal") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "litera") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)litera/" target="_blank">
+                    <img src="img/theme-preview/litera.png" alt="Litera">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Litera</h3>
+                <p>The medium is the message</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/litera/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("litera"))" Disabled="@((OldTheme == "litera") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "lumen") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)lumen/" target="_blank">
+                    <img src="img/theme-preview/lumen.png" alt="Lumen">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Lumen</h3>
+                <p>Light and shadow</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/lumen/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("lumen"))" Disabled="@((OldTheme == "lumen") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "lux") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)lux/" target="_blank">
+                    <img src="img/theme-preview/lux.png" alt="Lux">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Lux</h3>
+                <p>A touch of class</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/lux/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("lux"))" Disabled="@((OldTheme == "lux") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "materia") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)materia/" target="_blank">
+                    <img src="img/theme-preview/materia.png" alt="Materia">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Materia</h3>
+                <p>Material is the metaphor</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/materia/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("materia"))" Disabled="@((OldTheme == "materia") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "minty") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)minty/" target="_blank">
+                    <img src="img/theme-preview/minty.png" alt="Minty">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Minty</h3>
+                <p>A fresh feel</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/minty/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("minty"))" Disabled="@((OldTheme == "minty") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "morph") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)morph/" target="_blank">
+                    <img src="img/theme-preview/morph.png" alt="Morph">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Morph</h3>
+                <p>A neumorphic layer</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/morph/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("morph"))" Disabled="@((OldTheme == "morph") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "pulse") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)pulse/" target="_blank">
+                    <img src="img/theme-preview/pulse.png" alt="Pulse">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Pulse</h3>
+                <p>A trace of purple</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/pulse/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("pulse"))" Disabled="@((OldTheme == "pulse") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "quartz") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)quartz/" target="_blank">
+                    <img src="img/theme-preview/quartz.png" alt="Quartz">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Quartz</h3>
+                <p>A glassmorphic layer</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/quartz/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("quartz"))" Disabled="@((OldTheme == "quartz") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "sandstone") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)sandstone/" target="_blank">
+                    <img src="img/theme-preview/sandstone.png" alt="Sandstone">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Sandstone</h3>
+                <p>A touch of warmth</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/sandstone/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("sandstone"))" Disabled="@((OldTheme == "sandstone") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "simplex") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)simplex/" target="_blank">
+                    <img src="img/theme-preview/simplex.png" alt="Simplex">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Simplex</h3>
+                <p>Mini and minimalist</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/simplex/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("simplex"))" Disabled="@((OldTheme == "simplex") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "sketchy") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)sketchy/" target="_blank">
+                    <img src="img/theme-preview/sketchy.png" alt="Sketchy">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Sketchy</h3>
+                <p>A hand-drawn look for mockups and mirth</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/sketchy/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("sketchy"))" Disabled="@((OldTheme == "sketchy") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "slate") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)slate/" target="_blank">
+                    <img src="img/theme-preview/slate.png" alt="Slate">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Slate</h3>
+                <p>Shades of gunmetal gray</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/slate/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("slate"))" Disabled="@((OldTheme == "slate") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "solar") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)solar/" target="_blank">
+                    <img src="img/theme-preview/solar.png" alt="Solar">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Solar</h3>
+                <p>A spin on Solarized</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/solar/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("solar"))" Disabled="@((OldTheme == "solar") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "spacelab") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)spacelab/" target="_blank">
+                    <img src="img/theme-preview/spacelab.png" alt="Spacelab">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Spacelab</h3>
+                <p>Silvery and sleek</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/spacelab/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("spacelab"))" Disabled="@((OldTheme == "spacelab") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "superhero") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)superhero/" target="_blank">
+                    <img src="img/theme-preview/superhero.png" alt="Superhero">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Superhero</h3>
+                <p>The brave and the blue</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/superhero/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("superhero"))" Disabled="@((OldTheme == "superhero") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "united") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)united/" target="_blank">
+                    <img src="img/theme-preview/united.png" alt="United">
+                </a>
+            </div>
+            <div class="options">
+                <h3>United</h3>
+                <p>Ubuntu orange and unique font</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/united/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("united"))" Disabled="@((OldTheme == "united") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "vapor") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)vapor/" target="_blank">
+                    <img src="img/theme-preview/vapor.png" alt="Vapor">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Vapor</h3>
+                <p>A cyberpunk aesthetic</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/vapor/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("vapor"))" Disabled="@((OldTheme == "vapor") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "yeti") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)yeti/" target="_blank">
+                    <img src="img/theme-preview/yeti.png" alt="Yeti">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Yeti</h3>
+                <p>A friendly foundation</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/yeti/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("yeti"))" Disabled="@((OldTheme == "yeti") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6">
+        <div class="card preview @((OldTheme == "zephyr") ? "text-white bg-dark" : "bg-light")">
+            <div class="image">
+                <a href="@(BootswatchUrl)zephyr/" target="_blank">
+                    <img src="img/theme-preview/zephyr.png" alt="Zephyr">
+                </a>
+            </div>
+            <div class="options">
+                <h3>Zephyr</h3>
+                <p>Breezy and beautiful</p>
+                <div class="btn-group">
+                    @{
+                        destinationUrl = $"{BootswatchUrl}/zephyr/";
+                    }
+                    <Button Color="Color.Primary" Type="ButtonType.Link" To="@destinationUrl" Target="Target.Blank">@Localizer["BtnPreview"]</Button>
+                </div>
+                <div class="btn-group">
+                    <Button Color="Color.Success" Clicked="@(() => SelectTheme("zephyr"))" Disabled="@((OldTheme == "zephyr") ? true : false)">@Localizer["BtnSelect"]</Button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
