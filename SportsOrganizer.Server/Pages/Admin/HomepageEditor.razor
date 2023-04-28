@@ -1,3 +1,49 @@
 ﻿@page "/Admin/Homepage-Editor"
+@using Radzen.Blazor
 @inherits HomepageEditorBase
 @layout AdminLayout
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+<h1 class="text-center">@Localizer["PageTitle"]</h1>
+<hr />
+<p>@Localizer["p1"]</p>
+<p>@Localizer["p2"]</p>
+<p>@Localizer["p3"]</p>
+<p>@Localizer["p4"]</p>
+<p>@Localizer["p5"]</p>
+<p>@Localizer["p6"]</p>
+<RadzenHtmlEditor @bind-Value="HomePageHtml" style="height: 500px;">
+    <RadzenHtmlEditorUndo />
+    <RadzenHtmlEditorRedo />
+    <RadzenHtmlEditorSeparator />
+    <RadzenHtmlEditorBold />
+    <RadzenHtmlEditorItalic />
+    <RadzenHtmlEditorUnderline />
+    <RadzenHtmlEditorStrikeThrough />
+    <RadzenHtmlEditorSeparator />
+    <RadzenHtmlEditorAlignLeft />
+    <RadzenHtmlEditorAlignCenter />
+    <RadzenHtmlEditorAlignRight />
+    <RadzenHtmlEditorJustify />
+    <RadzenHtmlEditorSeparator />
+    <RadzenHtmlEditorIndent />
+    <RadzenHtmlEditorOutdent />
+    <RadzenHtmlEditorUnorderedList />
+    <RadzenHtmlEditorOrderedList />
+    <RadzenHtmlEditorSeparator />
+    <RadzenHtmlEditorColor />
+    <RadzenHtmlEditorBackground />
+    <RadzenHtmlEditorRemoveFormat />
+    <RadzenHtmlEditorSeparator />
+    <RadzenHtmlEditorSubscript />
+    <RadzenHtmlEditorSuperscript />
+    <RadzenHtmlEditorSeparator />
+    <RadzenHtmlEditorFontSize />
+    <RadzenHtmlEditorFormatBlock />
+</RadzenHtmlEditor>
+<Button Color="Color.Success" Clicked="SaveChanges" Margin="Margin.Is3.FromTop">@Localizer["BtnSaveChanges"]</Button>
+<hr />
+<div>
+    @((MarkupString)HomePageHtml)
+</div>
