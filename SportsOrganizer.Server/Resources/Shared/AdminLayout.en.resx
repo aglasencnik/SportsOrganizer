@@ -117,10 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActivityEditor" xml:space="preserve">
+    <value>Activity Editor</value>
+  </data>
+  <data name="Backup&amp;Restore" xml:space="preserve">
+    <value>Backup &amp; Restore</value>
+  </data>
   <data name="Homepage" xml:space="preserve">
     <value>Homepage</value>
   </data>
+  <data name="HomepageEditor" xml:space="preserve">
+    <value>Homepage Editor</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="ResultEditor" xml:space="preserve">
+    <value>Result Editor</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="SportsOrganizerLogo" xml:space="preserve">
     <value>Sports organizer logo</value>
+  </data>
+  <data name="TeamManagement" xml:space="preserve">
+    <value>Team Management</value>
+  </data>
+  <data name="ThemeSelector" xml:space="preserve">
+    <value>Theme Selector</value>
+  </data>
+  <data name="Update&amp;Versioning" xml:space="preserve">
+    <value>Update &amp; Versioning</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>User Management</value>
   </data>
 </root>

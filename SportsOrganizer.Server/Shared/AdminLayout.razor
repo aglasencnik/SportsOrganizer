@@ -16,16 +16,140 @@
                 <BarMenu>
                     <BarStart>
                         <BarItem>
-                            <BarLink To="/">
-                                <BarIcon IconName="IconName.Home" /> Overview
+                            <BarLink To="/Admin/">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        <BarIcon IconName="IconName.Dashboard" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["Overview"]
+                                    </Column>
+                                </Row>
                             </BarLink>
                         </BarItem>
                         <BarItem>
-                            <BarLink To="/">
-                                <BarIcon IconName="IconName.Directions" /> Start
+                            <BarLink To="/Admin/Homepage-Editor">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        <BarIcon IconName="IconName.Home" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["HomepageEditor"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/Admin/User-Management">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        &nbsp;<Icon IconSize="IconSize.Large" Name="@("fa-user-cog")" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["UserManagement"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/Admin/Team-Management">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        &nbsp;<Icon IconSize="IconSize.Large" Name="@("fa-project-diagram")" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["TeamManagement"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/Admin/Activity-Editor">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        &nbsp;<Icon IconSize="IconSize.Large" Name="@("fa-tasks")" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["ActivityEditor"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/Admin/Result-Editor">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        &nbsp;<Icon IconSize="IconSize.Large" Name="@("fa-chart-bar")" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["ResultEditor"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/Admin/Backup-and-Restore">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        <BarIcon IconName="IconName.CloudDownloadAlt" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["Backup&Restore"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/Admin/Theme-Selector">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        <BarIcon IconName="IconName.Palette" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["ThemeSelector"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="/Admin/Settings">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        &nbsp;<Icon IconSize="IconSize.Large" Name="@("fa-cog")" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["Settings"]
+                                    </Column>
+                                </Row>
                             </BarLink>
                         </BarItem>
                     </BarStart>
+                    <BarEnd>
+                        <BarItem>
+                            <BarLink To="/Admin/Update-and-Versioning" Target="Target.Blank">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        <BarIcon IconName="IconName.Sync" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        @Localizer["Update&Versioning"]
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                        <BarItem>
+                            <BarLink To="https://github.com/aglasencnik/sportsorganizer" Target="Target.Blank">
+                                <Row>
+                                    <Column ColumnSize="ColumnSize.IsAuto" Padding="Padding.Is0.FromEnd">
+                                        &nbsp;<Icon IconSize="IconSize.Large" Name="@("fab fa-github")" />
+                                    </Column>
+                                    <Column Padding="Padding.Is2.FromStart">
+                                        GitHub
+                                    </Column>
+                                </Row>
+                            </BarLink>
+                        </BarItem>
+                    </BarEnd>
                 </BarMenu>
             </Bar>
         </LayoutSiderContent>
@@ -68,7 +192,7 @@
     </Layout>
 </Layout>
 
-@code{
+@code {
     [Inject]
     public IStringLocalizer<AdminLayout> Localizer { get; set; }
 
