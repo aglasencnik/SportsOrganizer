@@ -1,3 +1,60 @@
 ﻿@page "/Admin/Team-Management"
+@using SportsOrganizer.Data.Models;
 @inherits TeamManagementBase
 @layout AdminLayout
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+<h1 class="text-center">@Localizer["PageTitle"]</h1>
+<hr />
+<p>@Localizer["p1"]</p>
+<p>@Localizer["p2"]</p>
+<p>@Localizer["p3"]</p>
+<p>@Localizer["p4"]</p>
+<p>@Localizer["p5"]</p>
+<p>@Localizer["p6"]</p>
+<DataGrid Data="Teams"
+          Responsive
+          ShowPager
+          ShowPageSizes
+          PagerPosition="DataGridPagerPosition.Bottom"
+          PagerOptions="new(){ ButtonSize=Size.Small }"
+          Sortable
+          SortMode="DataGridSortMode.Single"
+          Resizable
+          ResizeMode="TableResizeMode.Header"
+          Editable
+          Striped
+          Bordered
+          Hoverable
+          HeaderThemeContrast="ThemeContrast"
+          Filterable
+          FilterMethod="DataGridFilterMethod.Contains">
+
+    <DataGridColumns>
+        <DataGridColumn Caption="@Localizer["EditData"]" TextAlignment="TextAlignment.Center" Width="275px">
+            <DisplayTemplate>
+                @{
+                    var teamId = (context as TeamModel)?.Id;
+                }
+                <Button Color="Color.Warning" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenEditModal(teamId ?? default(int)))">@Localizer["BtnEdit"]</Button>
+                <Button Color="Color.Danger" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenDeleteModal(teamId ?? default(int)))">@Localizer["BtnDelete"]</Button>
+            </DisplayTemplate>
+        </DataGridColumn>
+        <DataGridColumn Field="@nameof(TeamModel.Id)" Caption="@Localizer["UniqueIdentifier"]" />
+        <DataGridColumn Field="@nameof(TeamModel.Name)" Caption="@Localizer["TeamName"]" />
+    </DataGridColumns>
+    <PageButtonTemplate>
+        <Span TextColor="TextColor.Success">
+            @context.PageNumber
+        </Span>
+    </PageButtonTemplate>
+    <NextPageButtonTemplate><Icon Name="IconName.StepForward" TextColor="TextColor.Success" /></NextPageButtonTemplate>
+    <PreviousPageButtonTemplate><Icon Name="IconName.StepBackward" TextColor="TextColor.Success" /></PreviousPageButtonTemplate>
+    <LastPageButtonTemplate><Icon Name="IconName.Forward" TextColor="TextColor.Success" /></LastPageButtonTemplate>
+    <FirstPageButtonTemplate><Icon Name="IconName.Backward" TextColor="TextColor.Success" /></FirstPageButtonTemplate>
+    <TotalItemsTemplate><Badge Color="Color.Success">@context.TotalItems @Localizer["TotalItems"]</Badge></TotalItemsTemplate>
+    <TotalItemsShortTemplate><Badge Color="Color.Success">@context.TotalItems</Badge></TotalItemsShortTemplate>
+    <ItemsPerPageTemplate></ItemsPerPageTemplate>
+</DataGrid>
+<Button Margin="Margin.Is3.FromTop" Color="Color.Success" Clicked="OpenAddModal">@Localizer["BtnAdd"]</Button>
