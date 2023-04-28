@@ -15,21 +15,21 @@ public class FinishSetupBase : ComponentBase
     public EventCallback<SetupStages> OnSubmit { get; set; }
 
     [Inject]
-    public IStringLocalizer<FinishSetup> Localizer { get; set; }
+    protected IStringLocalizer<FinishSetup> Localizer { get; set; }
 
     [Inject]
-    public ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
+    protected ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public string Username { get; set; }
-    public string Password { get; set; }
+    protected string Username { get; set; }
+    protected string Password { get; set; }
 
     protected override void OnInitialized()
     {
@@ -47,7 +47,7 @@ public class FinishSetupBase : ComponentBase
         }
     }
 
-    public void OnButtonContinueClick()
+    protected void OnButtonContinueClick()
     {
         var liteDbResult = LiteDbService.GetAll();
         var completedObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.SetupComplete);

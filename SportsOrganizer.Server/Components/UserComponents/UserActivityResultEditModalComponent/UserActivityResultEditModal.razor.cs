@@ -16,23 +16,23 @@ public class UserActivityResultEditModalBase : ComponentBase
     public ModalParametersModel ModalParameters { get; set; }
 
     [Inject]
-    public IStringLocalizer<UserActivityResultEditModal> Localizer { get; set; }
+    protected IStringLocalizer<UserActivityResultEditModal> Localizer { get; set; }
 
     [Inject]
-    public IToastService Toast { get; set; }
+    protected IToastService Toast { get; set; }
 
     [Inject]
-    public IModalService ModalService { get; set; }
+    protected IModalService ModalService { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public ActivityResultModel ActivityResult { get; set; } = new();
-    public ActivityModel Activity { get; set; } = new();
-    public TeamModel Team { get; set; } = new();
-    public List<PlayerResultModel> PlayerResults { get; set; } = new();
+    protected ActivityResultModel ActivityResult { get; set; } = new();
+    protected ActivityModel Activity { get; set; } = new();
+    protected TeamModel Team { get; set; } = new();
+    protected List<PlayerResultModel> PlayerResults { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -46,7 +46,7 @@ public class UserActivityResultEditModalBase : ComponentBase
         }
     }
 
-    public async Task Confirm()
+    protected async Task Confirm()
     {
         try
         {
@@ -89,7 +89,7 @@ public class UserActivityResultEditModalBase : ComponentBase
         }
     }
 
-    public void ResumValues(double value, int index)
+    protected void ResumValues(double value, int index)
     {
         PlayerResults[index].Result = value;
 

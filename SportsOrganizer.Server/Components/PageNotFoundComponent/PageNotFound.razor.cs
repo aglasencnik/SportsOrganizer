@@ -7,8 +7,8 @@ namespace SportsOrganizer.Server.Components.PageNotFoundComponent;
 public class PageNotFoundBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<PageNotFound> Localizer { get; set; }
+    protected IStringLocalizer<PageNotFound> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 }

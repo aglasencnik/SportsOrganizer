@@ -10,16 +10,16 @@ namespace SportsOrganizer.Server.Pages.Admin;
 public class TeamManagementBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<TeamManagement> Localizer { get; set; }
+    protected IStringLocalizer<TeamManagement> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [CascadingParameter]
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

@@ -10,17 +10,17 @@ namespace SportsOrganizer.Server.Pages;
 public class ActivitiesBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<Activities> Localizer { get; set; }
+    protected IStringLocalizer<Activities> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public List<ActivityModel> Activities { get; set; } = new();
+    protected List<ActivityModel> Activities { get; set; } = new();
 
     protected override void OnInitialized()
     {

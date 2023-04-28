@@ -10,18 +10,18 @@ namespace SportsOrganizer.Server.Pages.User;
 public class IndexBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<Index> Localizer { get; set; }
+    protected IStringLocalizer<Index> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [CascadingParameter]
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
-    public IEnumerable<Claim> Claims { get; set; } = Enumerable.Empty<Claim>();
+    protected IEnumerable<Claim> Claims { get; set; } = Enumerable.Empty<Claim>();
 
     protected override async Task OnInitializedAsync()
     {

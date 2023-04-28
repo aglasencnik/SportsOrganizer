@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
 using SportsOrganizer.Data;
 using SportsOrganizer.Data.Enums;
-using SportsOrganizer.Data.Models;
 using SportsOrganizer.Server.Services;
 using SportsOrganizer.Server.Utils;
 using System.Security.Claims;
@@ -14,31 +13,31 @@ namespace SportsOrganizer.Server.Pages.Account;
 public class LoginBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<Login> Localizer { get; set; }
+    protected IStringLocalizer<Login> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [Inject] 
-    public AuthenticatorService AuthService { get; set; }
+    protected AuthenticatorService AuthService { get; set; }
 
     [CascadingParameter] 
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public IToastService ToastService { get; set; }
+    protected IToastService ToastService { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public string ErrorMessage { get; set; }
+    protected string Username { get; set; }
+    protected string Password { get; set; }
+    protected string ErrorMessage { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -58,7 +57,7 @@ public class LoginBase : ComponentBase
         }
     }
 
-    public async Task TryLogin()
+    protected async Task TryLogin()
     {
         try
         {

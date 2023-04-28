@@ -6,7 +6,6 @@ using SportsOrganizer.Server.Interfaces;
 using SportsOrganizer.Server.Models;
 using SportsOrganizer.Server.Services;
 using System.Globalization;
-using System.Text.RegularExpressions;
 
 namespace SportsOrganizer.Server.Components.Setup.LanguageSetupComponent;
 
@@ -16,10 +15,10 @@ public class LanguageSetupBase : ComponentBase
     public EventCallback<SetupStages> OnSubmit { get; set; }
 
     [Inject]
-    public IConfiguration Configuration { get; set; }
+    protected IConfiguration Configuration { get; set; }
 
     [Inject]
-    public IStringLocalizer<LanguageSetup> Localizer { get; set; }
+    protected IStringLocalizer<LanguageSetup> Localizer { get; set; }
 
     [Inject]
     private ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
@@ -31,11 +30,11 @@ public class LanguageSetupBase : ComponentBase
     private IHttpContextAccessor HttpContextAccessor { get; set; }
 
     [Inject]
-    public CultureProviderService CultureProvider { get; set; }
+    protected CultureProviderService CultureProvider { get; set; }
 
-    public Dictionary<string, string> Languages { get; set; }
+    protected Dictionary<string, string> Languages { get; set; }
 
-    public string SelectedLanguage { get; set; }
+    protected string SelectedLanguage { get; set; }
 
     protected override void OnInitialized()
     {
@@ -57,7 +56,7 @@ public class LanguageSetupBase : ComponentBase
         }
     }
 
-    public void OnLanguageSelected(string value)
+    protected void OnLanguageSelected(string value)
     {
         SelectedLanguage = value;
         var culture = CultureInfo.GetCultureInfo(value);
@@ -71,7 +70,7 @@ public class LanguageSetupBase : ComponentBase
         }
     }
 
-    public async Task OnButtonContinueClick()
+    protected async Task OnButtonContinueClick()
     {
         var liteDbResult = LiteDbService.GetAll();
 

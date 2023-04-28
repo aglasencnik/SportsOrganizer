@@ -9,15 +9,15 @@ namespace SportsOrganizer.Server.Pages;
 public class SetupBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<Setup> Localizer { get; set; }
+    protected IStringLocalizer<Setup> Localizer { get; set; }
 
-    public SetupStages SetupStage;
-
-    [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected SetupStages SetupStage;
 
     [Inject]
-    public ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
+
+    [Inject]
+    protected ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
 
     protected override void OnInitialized()
     {
@@ -28,7 +28,7 @@ public class SetupBase : ComponentBase
         if (dbResult != null && (bool)dbResult.Value == true) NavigationManager.NavigateTo("/");
     }
 
-    public void HandleSubmit(SetupStages stage)
+    protected void HandleSubmit(SetupStages stage)
     {
         SetupStage = stage;
 

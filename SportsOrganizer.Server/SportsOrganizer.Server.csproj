@@ -39,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Components\AdminComponents\" />
     <Folder Include="wwwroot\upload\image\" />
   </ItemGroup>
 

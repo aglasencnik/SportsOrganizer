@@ -9,18 +9,18 @@ namespace SportsOrganizer.Server.Components.LayoutComponents.HeaderComponent;
 public class HeaderBase : ComponentBase
 {
     [CascadingParameter]
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public IStringLocalizer<Header> Localizer { get; set; }
+    protected IStringLocalizer<Header> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
-    public string NavbarColor { get; set; }
-    public string ButtonColor { get; set; }
-    public string TextColor { get; set; }
-    public string Title { get; set; }
+    protected string NavbarColor { get; set; }
+    protected string ButtonColor { get; set; }
+    protected string TextColor { get; set; }
+    protected string Title { get; set; }
 
     protected override void OnInitialized()
     {

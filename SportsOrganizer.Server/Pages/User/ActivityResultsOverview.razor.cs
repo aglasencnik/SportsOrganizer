@@ -22,33 +22,33 @@ public class ActivityResultsOverviewBase : ComponentBase
     public int ActivityId { get; set; }
 
     [Inject]
-    public IStringLocalizer<ActivityResultsOverview> Localizer { get; set; }
+    protected IStringLocalizer<ActivityResultsOverview> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [CascadingParameter]
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     [Inject]
-    public IToastService Toast { get; set; }
+    protected IToastService Toast { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     [Inject]
-    public IModalService ModalService { get; set; }
+    protected IModalService ModalService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public List<TeamModel> Teams { get; set; } = new();
-    public ActivityModel Activity { get; set; } = new();
-    public List<ActivityResultModel> ActivityResults { get; set; } = new();
-    public List<PlayerResultModel> PlayerResults { get; set; } = new();
-    public ThemeContrast ThemeContrast { get; set; }
+    protected List<TeamModel> Teams { get; set; } = new();
+    protected ActivityModel Activity { get; set; } = new();
+    protected List<ActivityResultModel> ActivityResults { get; set; } = new();
+    protected List<PlayerResultModel> PlayerResults { get; set; } = new();
+    protected ThemeContrast ThemeContrast { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -89,7 +89,7 @@ public class ActivityResultsOverviewBase : ComponentBase
         else return false;
     }
 
-    public void OpenEditModal(int id)
+    protected void OpenEditModal(int id)
     {
         var modalParameters = new ModalParametersModel
         {
@@ -101,7 +101,7 @@ public class ActivityResultsOverviewBase : ComponentBase
             new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed), UseModalStructure = false });
     }
 
-    public void OpenDeleteModal(int id)
+    protected void OpenDeleteModal(int id)
     {
         var modalParameters = new ModalParametersModel
         {

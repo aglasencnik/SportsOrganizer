@@ -9,16 +9,16 @@ namespace SportsOrganizer.Server.Components.LayoutComponents.FooterComponent;
 public class FooterBase : ComponentBase
 {
     [CascadingParameter]
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public IStringLocalizer<Footer> Localizer { get; set; }
+    protected IStringLocalizer<Footer> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
-    public string NavbarColor { get; set; }
-    public string CopyrightNotice { get; set; }
+    protected string NavbarColor { get; set; }
+    protected string CopyrightNotice { get; set; }
 
     protected override void OnInitialized()
     {

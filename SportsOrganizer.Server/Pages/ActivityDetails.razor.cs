@@ -14,24 +14,24 @@ public class ActivityDetailsBase : ComponentBase
     public int ActivityId { get; set; }
 
     [Inject]
-    public IStringLocalizer<ActivityDetails> Localizer { get; set; }
+    protected IStringLocalizer<ActivityDetails> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public ActivityModel Activity { get; set; } = new();
-    public List<TeamModel> Teams { get; set; } = new();
-    public List<ActivityResultModel> ActivityResults { get; set; } = new();
-    public List<PlayerResultModel> PlayerResults { get; set; } = new();
-    public string TableColor { get; set; }
+    protected ActivityModel Activity { get; set; } = new();
+    protected List<TeamModel> Teams { get; set; } = new();
+    protected List<ActivityResultModel> ActivityResults { get; set; } = new();
+    protected List<PlayerResultModel> PlayerResults { get; set; } = new();
+    protected string TableColor { get; set; }
 
     protected override void OnInitialized()
     {

@@ -194,10 +194,10 @@
 
 @code {
     [Inject]
-    public IStringLocalizer<AdminLayout> Localizer { get; set; }
+    protected IStringLocalizer<AdminLayout> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     private Bar sideBar;
     private Bar topBar;
@@ -205,8 +205,7 @@
     private ThemeContrast SidebarThemeContrast;
     private ThemeContrast HeaderThemeContrast;
     private Background HeaderBackground;
-
-    RenderFragment customIcon = @<Image Source="/img/logo.svg" Style="width:32px; height: 32px" />;
+    private RenderFragment customIcon = @<Image Source="/img/logo.svg" Style="width:32px; height: 32px" />;
 
     protected override async Task OnInitializedAsync()
     {

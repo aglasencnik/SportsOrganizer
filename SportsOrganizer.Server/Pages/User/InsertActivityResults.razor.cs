@@ -17,31 +17,31 @@ public class InsertActivityResultsBase : ComponentBase
     public int ActivityId { get; set; }
 
     [Inject]
-    public IStringLocalizer<InsertActivityResults> Localizer { get; set; }
+    protected IStringLocalizer<InsertActivityResults> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [CascadingParameter]
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     [Inject]
-    public IToastService Toast { get; set; }
+    protected IToastService Toast { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public List<TeamModel> Teams { get; set; } = new();
-    public ActivityModel Activity { get; set; } = new();
-    public List<double> PlayerResults { get; set; } = new();
-    public string ErrorMessage { get; set; }
-    public int TeamId { get; set; }
-    public double Result { get; set; }
+    protected List<TeamModel> Teams { get; set; } = new();
+    protected ActivityModel Activity { get; set; } = new();
+    protected List<double> PlayerResults { get; set; } = new();
+    protected string ErrorMessage { get; set; }
+    protected int TeamId { get; set; }
+    protected double Result { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -91,7 +91,7 @@ public class InsertActivityResultsBase : ComponentBase
         ErrorMessage = string.Empty;
     }
 
-    public async Task InsertResult()
+    protected async Task InsertResult()
     {
         try
         {
@@ -158,7 +158,7 @@ public class InsertActivityResultsBase : ComponentBase
         }
     }
 
-    public void ResumValues(double value, int index)
+    protected void ResumValues(double value, int index)
     {
         PlayerResults[index] = value;
 

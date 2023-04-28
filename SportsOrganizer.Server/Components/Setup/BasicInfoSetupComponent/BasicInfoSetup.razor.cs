@@ -19,32 +19,32 @@ public class BasicInfoSetupBase : ComponentBase
     public EventCallback<SetupStages> OnSubmit { get; set; }
 
     [Inject]
-    public IStringLocalizer<BasicInfoSetup> Localizer { get; set; }
+    protected IStringLocalizer<BasicInfoSetup> Localizer { get; set; }
 
     [Inject]
-    public ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
+    protected ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
 
     [Inject]
-    public IToastService ToastService { get; set; }
+    protected IToastService ToastService { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public bool isLoading { get; set; }
-    public bool isDisabled { get; set; }
+    protected bool isLoading { get; set; }
+    protected bool isDisabled { get; set; }
 
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public string Title { get; set; }
-    public string CopyrightNotice { get; set; }
-    public string HomePageHtml { get; set; }
+    protected string Username { get; set; }
+    protected string Password { get; set; }
+    protected string Title { get; set; }
+    protected string CopyrightNotice { get; set; }
+    protected string HomePageHtml { get; set; }
 
     private IEnumerable<AppSettingsModel> liteDbResult;
-    public Blazorise.FileEdit FileEdit { get; set; } = new();
-    public IFileEntry faviconFile { get; set; }
-    public string FaviconDataUrl { get; set; }
+    protected Blazorise.FileEdit FileEdit { get; set; } = new();
+    protected IFileEntry faviconFile { get; set; }
+    protected string FaviconDataUrl { get; set; }
 
     protected override void OnInitialized()
     {
@@ -54,7 +54,7 @@ public class BasicInfoSetupBase : ComponentBase
         FaviconDataUrl = (faviconObj != null) ? (string)faviconObj.Value : "favicon.png";
     }
 
-    public async Task OnFileChanged(FileChangedEventArgs e)
+    protected async Task OnFileChanged(FileChangedEventArgs e)
     {
         try
         {
@@ -77,7 +77,7 @@ public class BasicInfoSetupBase : ComponentBase
         }
     }
 
-    public Task ResetFileEdit()
+    protected Task ResetFileEdit()
     {
         liteDbResult = LiteDbService.GetAll();
         var faviconObj = liteDbResult.FirstOrDefault(x => x.KeyValueType == KeyValueType.Favicon);
@@ -87,7 +87,7 @@ public class BasicInfoSetupBase : ComponentBase
         return FileEdit.Reset().AsTask();
     }
 
-    public async Task OnButtonContinueClick()
+    protected async Task OnButtonContinueClick()
     {
         try
         {

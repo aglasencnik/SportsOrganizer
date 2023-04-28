@@ -7,13 +7,13 @@ namespace SportsOrganizer.Server.Pages.Account;
 public class LogoutBase : ComponentBase
 {
     [Inject]
-    public AuthenticatorService AuthenticatorService { get; set; }
+    protected AuthenticatorService AuthenticatorService { get; set; }
 
     [CascadingParameter]
-    public Task<AuthenticationState> AuthState { get; set; }
+    protected Task<AuthenticationState> AuthState { get; set; }
 
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

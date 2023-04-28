@@ -11,19 +11,19 @@ namespace SportsOrganizer.Server;
 public class AppBase : ComponentBase
 {
     [Inject]
-    public NavigationManager NavigationManager { get; set; }
+    protected NavigationManager NavigationManager { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     [Inject]
-    public CultureProviderService CultureProvider { get; set; }
+    protected CultureProviderService CultureProvider { get; set; }
 
     [Inject]
-    public ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
+    protected ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     protected override void OnInitialized()
     {

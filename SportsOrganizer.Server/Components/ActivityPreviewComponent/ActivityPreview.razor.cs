@@ -10,9 +10,9 @@ public class ActivityPreviewBase : ComponentBase
     [Parameter] 
     public ActivityPreviewType ActivityPreviewType { get; set; }
 
-    [Parameter] 
+    [Parameter]
     public ActivityModel Activity { get; set; }
 
     [Inject]
-    public IStringLocalizer<ActivityPreview> Localizer { get; set; }
+    protected IStringLocalizer<ActivityPreview> Localizer { get; set; }
 }

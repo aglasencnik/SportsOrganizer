@@ -19,26 +19,26 @@ public class DatabaseSetupBase : ComponentBase
     public EventCallback<SetupStages> OnSubmit { get; set; }
 
     [Inject]
-    public IStringLocalizer<DatabaseSetup> Localizer { get; set; }
+    protected IStringLocalizer<DatabaseSetup> Localizer { get; set; }
 
     [Inject]
-    public ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
+    protected ILiteDbService<AppSettingsModel> LiteDbService { get; set; }
 
     [Inject]
-    public IToastService ToastService { get; set; }
+    protected IToastService ToastService { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
-    public DatabaseProviderType SelectedDatabaseProvider { get; set; }
+    protected DatabaseProviderType SelectedDatabaseProvider { get; set; }
 
-    public bool ShowForm { get; set; }
+    protected bool ShowForm { get; set; }
 
-    public string Server { get; set; }
-    public string Database { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public int Port { get; set; }
+    protected string Server { get; set; }
+    protected string Database { get; set; }
+    protected string Username { get; set; }
+    protected string Password { get; set; }
+    protected int Port { get; set; }
 
     protected override void OnInitialized()
     {
@@ -50,7 +50,7 @@ public class DatabaseSetupBase : ComponentBase
         Database = "sports_organizer_db";
     }
 
-    public Task OnCheckedDatabaseProviderChanged(DatabaseProviderType provider)
+    protected Task OnCheckedDatabaseProviderChanged(DatabaseProviderType provider)
     {
         SelectedDatabaseProvider = provider;
 
@@ -75,7 +75,7 @@ public class DatabaseSetupBase : ComponentBase
         return Task.CompletedTask;
     }
 
-    public async Task OnButtonContinueClick()
+    protected async Task OnButtonContinueClick()
     {
         try
         {

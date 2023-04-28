@@ -11,21 +11,21 @@ namespace SportsOrganizer.Server.Pages;
 public class ActivityResultsBase : ComponentBase
 {
     [Inject]
-    public IStringLocalizer<ActivityResults> Localizer { get; set; }
+    protected IStringLocalizer<ActivityResults> Localizer { get; set; }
 
     [Inject]
-    public MemoryStorageUtility MemoryStorage { get; set; }
+    protected MemoryStorageUtility MemoryStorage { get; set; }
 
     [Inject]
-    public ApplicationDbContextService DbContextService { get; set; }
+    protected ApplicationDbContextService DbContextService { get; set; }
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public List<ActivityModel> Activities { get; set; } = new();
-    public List<TeamModel> Teams { get; set; } = new();
-    public List<ActivityResultModel> ActivityResults { get; set; } = new();
-    public List<PlayerResultModel> PlayerResults { get; set; } = new();
-    public string TableColor { get; set; }
+    protected List<ActivityModel> Activities { get; set; } = new();
+    protected List<TeamModel> Teams { get; set; } = new();
+    protected List<ActivityResultModel> ActivityResults { get; set; } = new();
+    protected List<PlayerResultModel> PlayerResults { get; set; } = new();
+    protected string TableColor { get; set; }
 
     protected override void OnInitialized()
     {
