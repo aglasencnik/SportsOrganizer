@@ -1,3 +1,15 @@
 ﻿@page "/Admin/Update-and-Versioning"
 @inherits UpdateAndVersioningBase
 @layout AdminLayout
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+<h1 class="text-center">@Localizer["PageTitle"]</h1>
+<hr />
+<p>@Localizer["p1"]</p>
+<p>@Localizer["p2"]</p>
+<p>@Localizer["p3"]</p>
+<p>@Localizer["p4"]</p>
+<p>@Localizer["p6"]</p>
+
+<!-- TODO UPDATING -->
