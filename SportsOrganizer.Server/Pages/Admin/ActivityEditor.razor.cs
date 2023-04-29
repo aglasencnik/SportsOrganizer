@@ -43,7 +43,7 @@ public class ActivityEditorBase : ComponentBase
 
     private ApplicationDbContext DbContext => DbContextService.GetDbContext();
 
-    public List<ActivityModel> Activities { get; set; }
+    protected List<ActivityModel> Activities { get; set; }
     protected ThemeContrast ThemeContrast { get; set; }
 
     protected override async Task OnInitializedAsync()
@@ -103,9 +103,11 @@ public class ActivityEditorBase : ComponentBase
         if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"]))
         {
             var activityIds = Activities.Select(t => t.Id);
-            var result = DbContext.ActivityResults.Where(x => activityIds.Contains(x.ActivityId)).ToList();
+            var activityResults = DbContext.ActivityResults.Where(x => activityIds.Contains(x.ActivityId)).ToList();
+            var userActivities = DbContext.UserActivities.Where(x => activityIds.Contains(x.ActivityId)).ToList();
 
-            if (result == null || result.Count() == 0)
+            if (activityResults == null || activityResults.Count() == 0 
+                || userActivities == null || userActivities.Count() == 0)
             {
                 DbContext.Activities.RemoveRange(Activities);
                 await DbContext.SaveChangesAsync();

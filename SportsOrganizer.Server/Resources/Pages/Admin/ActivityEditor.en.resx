@@ -232,6 +232,6 @@
     <value>Unique Identifier</value>
   </data>
   <data name="WarningToast" xml:space="preserve">
-    <value>Can't delete activities because of existing activity results!</value>
+    <value>Can't delete activities because of existing activity results or users with activity permissions!</value>
   </data>
 </root>
