@@ -93,6 +93,8 @@ public class UserActivityResultEditModalBase : ComponentBase
     {
         PlayerResults[index].Result = value;
 
+        ActivityResult.Result = 0;
+
         foreach (var playerResult in PlayerResults)
         {
             ActivityResult.Result += playerResult.Result;
