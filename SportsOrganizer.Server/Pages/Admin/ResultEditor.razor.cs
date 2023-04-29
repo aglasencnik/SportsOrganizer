@@ -1,7 +1,15 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazored.Toast.Services;
+using Blazorise;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
+using SportsOrganizer.Data;
 using SportsOrganizer.Data.Enums;
+using SportsOrganizer.Data.Models;
+using SportsOrganizer.Server.Components.AdminComponents.AdminActivityResultEditModalComponent;
+using SportsOrganizer.Server.Enums;
+using SportsOrganizer.Server.Models;
+using SportsOrganizer.Server.Services;
 using SportsOrganizer.Server.Utils;
 using System.Security.Claims;
 
@@ -21,6 +29,26 @@ public class ResultEditorBase : ComponentBase
     [Inject]
     protected NavigationManager NavigationManager { get; set; }
 
+    [Inject]
+    protected IToastService ToastService { get; set; }
+
+    [Inject]
+    protected IModalService ModalService { get; set; }
+
+    [Inject]
+    protected IMessageService MessageService { get; set; }
+
+    [Inject]
+    protected ApplicationDbContextService DbContextService { get; set; }
+
+    private ApplicationDbContext DbContext => DbContextService.GetDbContext();
+
+    protected List<ActivityResultModel> ActivityResults { get; set; }
+    protected List<PlayerResultModel> PlayerResults { get; set; }
+    protected List<ActivityModel> Activities { get; set; }
+    protected List<TeamModel> Teams { get; set; }
+    protected ThemeContrast ThemeContrast { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthState;
@@ -29,5 +57,81 @@ public class ResultEditorBase : ComponentBase
         if (user.Identities.Count() == 0
             || user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value != UserType.Admin.ToString())
             NavigationManager.NavigateTo("/");
+
+        ActivityResults = DbContext.ActivityResults.ToList();
+        PlayerResults = DbContext.PlayerResults.ToList();
+        Activities = DbContext.Activities.ToList();
+        Teams = DbContext.Teams.ToList();
+
+        var themeObj = MemoryStorage.GetValue(KeyValueType.DataGridThemeContrast);
+
+        if (themeObj != null) ThemeContrast = (ThemeContrast)themeObj;
+        else ThemeContrast = ThemeContrast.Light;
+    }
+
+    protected void OpenAddModal()
+    {
+        var modalParameters = new ModalParametersModel
+        {
+            EditType = EditType.Add
+        };
+
+        ModalService.Show<AdminActivityResultEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
+            new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed), UseModalStructure = false });
+    }
+
+    protected void OpenEditModal(int id)
+    {
+        var modalParameters = new ModalParametersModel
+        {
+            EditType = EditType.Edit,
+            Id = id
+        };
+
+        ModalService.Show<AdminActivityResultEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
+            new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed), UseModalStructure = false });
+    }
+
+    protected void OpenDeleteModal(int id)
+    {
+        var modalParameters = new ModalParametersModel
+        {
+            EditType = EditType.Delete,
+            Id = id
+        };
+
+        ModalService.Show<AdminActivityResultEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
+            new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed), UseModalStructure = false });
+    }
+
+    protected async Task DeleteAll()
+    {
+        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"]))
+        {
+            DbContext.PlayerResults.RemoveRange(PlayerResults);
+            DbContext.ActivityResults.RemoveRange(ActivityResults);
+            await DbContext.SaveChangesAsync();
+            ToastService.ShowSuccess(Localizer["SuccessToast"]);
+            OnModalClosed();
+        }
+    }
+
+    protected void Export(ExportFileType fileType)
+    {
+
+    }
+
+    protected void Print()
+    {
+
+    }
+
+    private void OnModalClosed()
+    {
+        ActivityResults = DbContext.ActivityResults.ToList();
+        PlayerResults = DbContext.PlayerResults.ToList();
+        Activities = DbContext.Activities.ToList();
+        Teams = DbContext.Teams.ToList();
+        StateHasChanged();
     }
 }

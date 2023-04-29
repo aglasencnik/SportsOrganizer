@@ -1,1 +1,182 @@
 ﻿@inherits AdminActivityResultEditModalBase
+
+@if (ModalParameters.EditType == EditType.Add)
+{
+    <ModalHeader>
+        <ModalTitle>@Localizer["AddTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["UniqueIdentifier"]</Label>
+            <NumericPicker @bind-Value="ActivityResult.Id" Disabled />
+        </div>
+        <div class="form-group">
+            <Label>@Localizer["Activity"]</Label>
+            <Select TValue="int" SelectedValue="ActivityResult.ActivityId" SelectedValueChanged="OnActivitySelectedValueChanged">
+                @foreach (var activity in Activities)
+                {
+                    <SelectItem Value="@activity.Id">@($"{activity.ActivityNumber}. {activity.Title}")</SelectItem>
+                }
+            </Select>
+        </div>
+        <div class="form-group">
+            <Label>@Localizer["Team"]</Label>
+            <Select TValue="int" SelectedValue="ActivityResult.TeamId" SelectedValueChanged="OnTeamSelectedValueChanged">
+                @foreach (var team in Teams)
+                {
+                    <SelectItem Value="@team.Id">@($"{team.Name}")</SelectItem>
+                }
+            </Select>
+        </div>
+
+        <p class="mt-4">@InstructionText</p>
+
+        @if (NumberOfPlayers > 1)
+        {
+            @foreach (var i in Enumerable.Range(0, NumberOfPlayers))
+            {
+                var ii = i;
+                int num = i + 1;
+
+                <div class="form-group mt-4">
+                    <Label>@($"{Localizer["Player"]} {num}:")</Label>
+                    <div class="mt-2">
+                        <NumericPicker TValue="double" Min="0" Value="PlayerResults[i].Result" ValueChanged="@((double value) => ResumValues(value, i))" Step="0.1M" />
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="form-group mt-4">
+            <Label>@Localizer["Result"]</Label>
+            <div class="mt-1">
+                <NumericPicker TValue="double" @bind-Value="ActivityResult.Result" Min="0" Step="0.1M" />
+            </div>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Success " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}
+else if (ModalParameters.EditType == EditType.Edit)
+{
+    <ModalHeader>
+        <ModalTitle>@Localizer["EditTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["UniqueIdentifier"]</Label>
+            <NumericPicker @bind-Value="ActivityResult.Id" Disabled />
+        </div>
+        <div class="form-group">
+            <Label>@Localizer["Activity"]</Label>
+            <Select TValue="int" SelectedValue="ActivityResult.ActivityId" SelectedValueChanged="OnActivitySelectedValueChanged" Disabled>
+                @foreach (var activity in Activities)
+                {
+                    <SelectItem Value="@activity.Id">@($"{activity.ActivityNumber}. {activity.Title}")</SelectItem>
+                }
+            </Select>
+        </div>
+        <div class="form-group">
+            <Label>@Localizer["Team"]</Label>
+            <Select TValue="int" SelectedValue="ActivityResult.TeamId" SelectedValueChanged="OnTeamSelectedValueChanged" Disabled>
+                @foreach (var team in Teams)
+                {
+                    <SelectItem Value="@team.Id">@($"{team.Name}")</SelectItem>
+                }
+            </Select>
+        </div>
+
+        <p class="mt-4">@InstructionText</p>
+
+        @if (NumberOfPlayers > 1)
+        {
+            @foreach (var i in Enumerable.Range(0, NumberOfPlayers))
+            {
+                var ii = i;
+                int num = i + 1;
+
+                <div class="form-group mt-4">
+                    <Label>@($"{Localizer["Player"]} {num}:")</Label>
+                    <div class="mt-2">
+                        <NumericPicker TValue="double" Min="0" Value="PlayerResults[i].Result" ValueChanged="@((double value) => ResumValues(value, i))" Step="0.1M" />
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="form-group mt-4">
+            <Label>@Localizer["Result"]</Label>
+            <div class="mt-1">
+                <NumericPicker TValue="double" @bind-Value="ActivityResult.Result" Min="0" Step="0.1M" />
+            </div>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Success " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}
+else if (ModalParameters.EditType == EditType.Delete)
+{
+    <ModalHeader>
+        <ModalTitle>@Localizer["DeleteTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["UniqueIdentifier"]</Label>
+            <NumericPicker @bind-Value="ActivityResult.Id" Disabled />
+        </div>
+        <div class="form-group">
+            <Label>@Localizer["Activity"]</Label>
+            <Select TValue="int" SelectedValue="ActivityResult.ActivityId" SelectedValueChanged="OnActivitySelectedValueChanged" Disabled>
+                @foreach (var activity in Activities)
+                {
+                    <SelectItem Value="@activity.Id">@($"{activity.ActivityNumber}. {activity.Title}")</SelectItem>
+                }
+            </Select>
+        </div>
+        <div class="form-group">
+            <Label>@Localizer["Team"]</Label>
+            <Select TValue="int" SelectedValue="ActivityResult.TeamId" SelectedValueChanged="OnTeamSelectedValueChanged" Disabled>
+                @foreach (var team in Teams)
+                {
+                    <SelectItem Value="@team.Id">@($"{team.Name}")</SelectItem>
+                }
+            </Select>
+        </div>
+
+        <p class="mt-4">@InstructionText</p>
+
+        @if (NumberOfPlayers > 1)
+        {
+            @foreach (var i in Enumerable.Range(0, NumberOfPlayers))
+            {
+                var ii = i;
+                int num = i + 1;
+
+                <div class="form-group mt-4">
+                    <Label>@($"{Localizer["Player"]} {num}:")</Label>
+                        <div class="mt-2">
+                            <NumericPicker TValue="double" Min="0" Value="PlayerResults[i].Result" ValueChanged="@((double value) => ResumValues(value, i))" Step="0.1M" Disabled />
+                        </div>
+                    </div>
+            }
+        }
+
+        <div class="form-group mt-4">
+            <Label>@Localizer["Result"]</Label>
+            <div class="mt-1">
+                <NumericPicker TValue="double" @bind-Value="ActivityResult.Result" Min="0" Step="0.1M" Disabled />
+            </div>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Success " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}
