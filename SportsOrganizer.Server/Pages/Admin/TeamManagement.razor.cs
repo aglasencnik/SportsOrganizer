@@ -1,4 +1,5 @@
-﻿using Blazorise;
+﻿using Blazored.Toast.Services;
+using Blazorise;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
@@ -29,7 +30,13 @@ public class TeamManagementBase : ComponentBase
     protected NavigationManager NavigationManager { get; set; }
 
     [Inject]
+    protected IToastService ToastService { get; set; }
+
+    [Inject]
     protected IModalService ModalService { get; set; }
+
+    [Inject]
+    protected IMessageService MessageService { get; set; }
 
     [Inject]
     protected ApplicationDbContextService DbContextService { get; set; }
@@ -89,6 +96,34 @@ public class TeamManagementBase : ComponentBase
 
         ModalService.Show<AdminTeamEditModal>(x => x.Add(x => x.ModalParameters, modalParameters),
             new ModalInstanceOptions { Closed = new EventCallback(this, OnModalClosed), UseModalStructure = false });
+    }
+
+    protected async Task DeleteAll()
+    {
+        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"]))
+        {
+            var teamIds = Teams.Select(t => t.Id);
+            var result = DbContext.ActivityResults.Where(x => teamIds.Contains(x.TeamId)).ToList();
+
+            if (result == null || result.Count() == 0)
+            {
+                DbContext.Teams.RemoveRange(Teams);
+                await DbContext.SaveChangesAsync();
+                ToastService.ShowSuccess(Localizer["SuccessToast"]);
+                OnModalClosed();
+            }
+            else ToastService.ShowWarning(Localizer["WarningToast"]);
+        }
+    }
+
+    protected void Export(ExportFileType fileType)
+    {
+        
+    }
+
+    protected void Print()
+    {
+
     }
 
     private void OnModalClosed()

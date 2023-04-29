@@ -13,6 +13,7 @@
 <p>@Localizer["p4"]</p>
 <p>@Localizer["p5"]</p>
 <p>@Localizer["p6"]</p>
+<Button Margin="Margin.Is3.FromBottom" Color="Color.Danger" Clicked="DeleteAll"><Icon Name="IconName.Delete" />&nbsp;@Localizer["BtnDeleteAll"]</Button>
 <DataGrid Data="Teams"
           Responsive
           ShowPager
@@ -37,8 +38,8 @@
                 @{
                     var teamId = (context as TeamModel)?.Id;
                 }
-                <Button Color="Color.Warning" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenEditModal(teamId ?? default(int)))">@Localizer["BtnEdit"]</Button>
-                <Button Color="Color.Danger" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenDeleteModal(teamId ?? default(int)))">@Localizer["BtnDelete"]</Button>
+                <Button Color="Color.Warning" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenEditModal(teamId ?? default(int)))"><Icon Name="IconName.Edit" />&nbsp;@Localizer["BtnEdit"]</Button>
+                <Button Color="Color.Danger" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenDeleteModal(teamId ?? default(int)))"><Icon Name="IconName.Delete" />&nbsp;@Localizer["BtnDelete"]</Button>
             </DisplayTemplate>
         </DataGridColumn>
         <DataGridColumn Field="@nameof(TeamModel.Id)" Caption="@Localizer["UniqueIdentifier"]" />
@@ -57,4 +58,31 @@
     <TotalItemsShortTemplate><Badge Color="Color.Success">@context.TotalItems</Badge></TotalItemsShortTemplate>
     <ItemsPerPageTemplate></ItemsPerPageTemplate>
 </DataGrid>
-<Button Margin="Margin.Is3.FromTop" Color="Color.Success" Clicked="OpenAddModal">@Localizer["BtnAdd"]</Button>
+<Button Margin="Margin.Is3.FromTop" Color="Color.Success" Clicked="OpenAddModal"><Icon Name="IconName.Add" />&nbsp;@Localizer["BtnAdd"]</Button>
+<hr />
+<h2>@Localizer["DataExportAndPrintingTitle"]</h2>
+<p>@Localizer["ep1"]</p>
+<p>@Localizer["ep2"]</p>
+<p>@Localizer["ep3"]</p>
+<p>@Localizer["ep4"]</p>
+<div class="d-flex mb-5">
+    <Dropdown Margin="Margin.Is3.FromEnd">
+        <DropdownToggle Color="Color.Success">
+            <Icon Name="IconName.FileDownload" />&nbsp;@Localizer["BtnExport"]
+        </DropdownToggle>
+        <DropdownMenu>
+            <DropdownItem Clicked="@(() => Export(ExportFileType.Pdf))">
+                <Icon Name="@("fa-file-pdf")" />&nbsp;@Localizer["BtnExportPdf"]
+            </DropdownItem>
+            <DropdownDivider />
+            <DropdownItem Clicked="@(() => Export(ExportFileType.Excel))">
+                <Icon Name="@("fa-file-excel")" />&nbsp;@Localizer["BtnExportExcel"]
+            </DropdownItem>
+            <DropdownDivider />
+            <DropdownItem Clicked="@(() => Export(ExportFileType.Xml))">
+                <Icon Name="@("fa-file-code")" />&nbsp;@Localizer["BtnExportXml"]
+            </DropdownItem>
+        </DropdownMenu>
+    </Dropdown>
+    <Button Color="Color.Success" Clicked="Print"><Icon Name="IconName.Print" />&nbsp;@Localizer["BtnPrint"]</Button>
+</div>
