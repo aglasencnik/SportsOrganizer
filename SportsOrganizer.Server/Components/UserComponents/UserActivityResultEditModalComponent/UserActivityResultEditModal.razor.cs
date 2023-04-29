@@ -66,7 +66,7 @@ public class UserActivityResultEditModalBase : ComponentBase
                 {
                     if (Activity.NumberOfPlayers > 1)
                     {
-                        DbContext.Remove(PlayerResults);
+                        DbContext.RemoveRange(PlayerResults);
                     }
 
                     DbContext.Remove(ActivityResult);
