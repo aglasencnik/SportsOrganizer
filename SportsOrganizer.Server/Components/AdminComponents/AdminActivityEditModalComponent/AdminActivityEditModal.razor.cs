@@ -8,6 +8,7 @@ using SportsOrganizer.Data.Enums;
 using SportsOrganizer.Data.Models;
 using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Models;
+using SportsOrganizer.Server.Pages;
 using SportsOrganizer.Server.Services;
 
 namespace SportsOrganizer.Server.Components.AdminComponents.AdminActivityEditModalComponent;
@@ -72,8 +73,10 @@ public class AdminActivityEditModalBase : ComponentBase
                 else if (ModalParameters.EditType == EditType.Delete)
                 {
                     var activityResults = DbContext.ActivityResults.Where(x => x.ActivityId == Activity.Id).ToList();
+                    var userActivities = DbContext.UserActivities.Where(x => x.ActivityId == Activity.Id).ToList();
 
-                    if (activityResults == null || activityResults.Count == 0)
+                    if (activityResults == null || activityResults.Count == 0
+                        || userActivities == null || userActivities.Count == 0)
                     {
                         DbContext.Activities.Remove(Activity);
 

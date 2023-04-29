@@ -136,7 +136,7 @@
     <value>Save Changes</value>
   </data>
   <data name="CanNotDeleteToast" xml:space="preserve">
-    <value>Can't delete activity because of existing activity results!</value>
+    <value>Can't delete activity because of existing activity results or users with activity permissions!</value>
   </data>
   <data name="DeleteTitle" xml:space="preserve">
     <value>Delete activity</value>
