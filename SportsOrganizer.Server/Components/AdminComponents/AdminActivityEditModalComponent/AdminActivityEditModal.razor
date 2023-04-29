@@ -32,9 +32,9 @@
         <div class="form-group mt-4">
             <Label>@Localizer["ActivityType"]</Label>
             <Select @bind-SelectedValue="Activity.ActivityType">
+                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
                 <SelectItem Value="ActivityType.Distance">@Localizer["Distance"]</SelectItem>
                 <SelectItem Value="ActivityType.Points">@Localizer["Points"]</SelectItem>
-                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
             </Select>
         </div>
         <div class="form-group mt-4">
@@ -116,9 +116,9 @@ else if (ModalParameters.EditType == EditType.Edit)
         <div class="form-group mt-4">
             <Label>@Localizer["ActivityType"]</Label>
             <Select @bind-SelectedValue="Activity.ActivityType">
+                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
                 <SelectItem Value="ActivityType.Distance">@Localizer["Distance"]</SelectItem>
                 <SelectItem Value="ActivityType.Points">@Localizer["Points"]</SelectItem>
-                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
             </Select>
         </div>
         <div class="form-group mt-4">
@@ -200,9 +200,9 @@ else if (ModalParameters.EditType == EditType.Delete)
         <div class="form-group mt-4">
             <Label>@Localizer["ActivityType"]</Label>
             <Select @bind-SelectedValue="Activity.ActivityType" Disabled>
-                <SelectItem Value="ActivityType.Distance">@Localizer["Distance"]</SelectItem>
-                <SelectItem Value="ActivityType.Points">@Localizer["Points"]</SelectItem>
-                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
+            <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
+            <SelectItem Value="ActivityType.Distance">@Localizer["Distance"]</SelectItem>
+            <SelectItem Value="ActivityType.Points">@Localizer["Points"]</SelectItem>
             </Select>
         </div>
         <div class="form-group mt-4">

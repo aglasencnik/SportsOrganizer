@@ -1,3 +1,138 @@
 ﻿@page "/Admin/User-Management"
+@using SportsOrganizer.Data.Enums;
+@using SportsOrganizer.Data.Models;
 @inherits UserManagementBase
 @layout AdminLayout
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+    <h1 class="text-center">@Localizer["PageTitle"]</h1>
+    <hr />
+    <p>@Localizer["p1"]</p>
+    <p>@Localizer["p2"]</p>
+    <p>@Localizer["p3"]</p>
+    <p>@Localizer["p4"]</p>
+    <p>@Localizer["p5"]</p>
+    <p>@Localizer["p6"]</p>
+    <p>@Localizer["p7"]</p>
+    <Button Margin="Margin.Is3.FromBottom" Color="Color.Danger" Clicked="DeleteAll"><Icon Name="IconName.Delete" />&nbsp;@Localizer["BtnDeleteAll"]</Button>
+    <DataGrid Data="Users"
+          Responsive
+          ShowPager
+          ShowPageSizes
+          PagerPosition="DataGridPagerPosition.Bottom"
+          PagerOptions="new(){ ButtonSize=Size.Small }"
+          Sortable
+          SortMode="DataGridSortMode.Single"
+          Resizable
+          ResizeMode="TableResizeMode.Header"
+          Editable
+          Striped
+          Bordered
+          Hoverable
+          HeaderThemeContrast="ThemeContrast"
+          Filterable
+          FilterMethod="DataGridFilterMethod.Contains">
+
+    <DataGridColumns>
+        <DataGridColumn Caption="@Localizer["EditData"]" TextAlignment="TextAlignment.Center" Width="275px">
+            <DisplayTemplate>
+                @{
+                    var userId = (context as UserModel)?.Id;
+                }
+                <Button Color="Color.Warning" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenEditModal(userId ?? default(int)))"><Icon Name="IconName.Edit" />&nbsp;@Localizer["BtnEdit"]</Button>
+                <Button Color="Color.Danger" Margin="Margin.Is1.FromBottom" Clicked="@(() => OpenDeleteModal(userId ?? default(int)))"><Icon Name="IconName.Delete" />&nbsp;@Localizer["BtnDelete"]</Button>
+            </DisplayTemplate>
+        </DataGridColumn>
+        <DataGridColumn Field="@nameof(UserModel.Id)" Caption="@Localizer["UniqueIdentifier"]" />
+        <DataGridColumn Field="@nameof(UserModel.Username)" Caption="@Localizer["Username"]" />
+        <DataGridColumn Caption="@Localizer["Password"]">
+            <DisplayTemplate>
+                @{
+                    var userId = (context as UserModel)?.Id;
+                    var user = Users.FirstOrDefault(x => x.Id == userId);
+                    var pass = new string('*', user.Password.Length);
+
+                    @($"{pass}")
+                }
+            </DisplayTemplate>
+        </DataGridColumn>
+        <DataGridColumn Caption="@Localizer["UserType"]">
+            <DisplayTemplate>
+                @{
+                    var userId = (context as UserModel)?.Id;
+                    var user = Users.FirstOrDefault(x => x.Id == userId);
+
+                    if (user.UserType == UserType.User)
+                    {
+                        @(Localizer["User"])
+                    }
+                    else if (user.UserType == UserType.Admin)
+                    {
+                        @(Localizer["Admin"])
+                    }
+                }
+            </DisplayTemplate>
+        </DataGridColumn>
+        <DataGridColumn Caption="@Localizer["AssignedActivities"]">
+            <DisplayTemplate>
+                @{
+                    var userId = (context as UserModel)?.Id;
+                    var user = Users.FirstOrDefault(x => x.Id == userId);
+                    if (user.UserType == UserType.User)
+                    {
+                        var userActivityIds = UserActivities.Where(x => x.UserId == userId).Select(x => x.ActivityId).ToList();
+                        var assignedActivities = Activities.Where(x => userActivityIds.Contains(x.Id)).ToList();
+                        string activityNumbers = string.Join(", ", assignedActivities.OrderBy(o => o.ActivityNumber).Select(o => o.ActivityNumber));
+
+                        @(activityNumbers)
+                    }
+                    else if (user.UserType == UserType.Admin)
+                    {
+                        @(Localizer["All"])
+                    }
+                }
+            </DisplayTemplate>
+        </DataGridColumn>
+    </DataGridColumns>
+    <PageButtonTemplate>
+        <Span TextColor="TextColor.Success">
+            @context.PageNumber
+        </Span>
+    </PageButtonTemplate>
+    <NextPageButtonTemplate><Icon Name="IconName.StepForward" TextColor="TextColor.Success" /></NextPageButtonTemplate>
+    <PreviousPageButtonTemplate><Icon Name="IconName.StepBackward" TextColor="TextColor.Success" /></PreviousPageButtonTemplate>
+    <LastPageButtonTemplate><Icon Name="IconName.Forward" TextColor="TextColor.Success" /></LastPageButtonTemplate>
+    <FirstPageButtonTemplate><Icon Name="IconName.Backward" TextColor="TextColor.Success" /></FirstPageButtonTemplate>
+    <TotalItemsTemplate><Badge Color="Color.Success">@context.TotalItems @Localizer["TotalItems"]</Badge></TotalItemsTemplate>
+    <TotalItemsShortTemplate><Badge Color="Color.Success">@context.TotalItems</Badge></TotalItemsShortTemplate>
+    <ItemsPerPageTemplate></ItemsPerPageTemplate>
+</DataGrid>
+<Button Margin="Margin.Is3.FromTop" Color="Color.Success" Clicked="OpenAddModal"><Icon Name="IconName.Add" />&nbsp;@Localizer["BtnAdd"]</Button>
+<hr />
+<h2>@Localizer["DataExportAndPrintingTitle"]</h2>
+<p>@Localizer["ep1"]</p>
+<p>@Localizer["ep2"]</p>
+<p>@Localizer["ep3"]</p>
+<p>@Localizer["ep4"]</p>
+<div class="d-flex mb-5">
+    <Dropdown Margin="Margin.Is3.FromEnd">
+        <DropdownToggle Color="Color.Success">
+            <Icon Name="IconName.FileDownload" />&nbsp;@Localizer["BtnExport"]
+        </DropdownToggle>
+        <DropdownMenu>
+            <DropdownItem Clicked="@(() => Export(ExportFileType.Pdf))">
+                <Icon Name="@("fa-file-pdf")" />&nbsp;@Localizer["BtnExportPdf"]
+            </DropdownItem>
+            <DropdownDivider />
+            <DropdownItem Clicked="@(() => Export(ExportFileType.Excel))">
+                <Icon Name="@("fa-file-excel")" />&nbsp;@Localizer["BtnExportExcel"]
+            </DropdownItem>
+            <DropdownDivider />
+            <DropdownItem Clicked="@(() => Export(ExportFileType.Xml))">
+                <Icon Name="@("fa-file-code")" />&nbsp;@Localizer["BtnExportXml"]
+            </DropdownItem>
+        </DropdownMenu>
+    </Dropdown>
+    <Button Color="Color.Success" Clicked="Print"><Icon Name="IconName.Print" />&nbsp;@Localizer["BtnPrint"]</Button>
+</div>
