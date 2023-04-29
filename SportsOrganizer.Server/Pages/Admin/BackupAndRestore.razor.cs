@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazored.Toast.Services;
+using Blazorise;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
+using SportsOrganizer.Data;
 using SportsOrganizer.Data.Enums;
+using SportsOrganizer.Server.Services;
 using SportsOrganizer.Server.Utils;
 using System.Security.Claims;
 
@@ -21,6 +25,17 @@ public class BackupAndRestoreBase : ComponentBase
     [Inject]
     protected NavigationManager NavigationManager { get; set; }
 
+    [Inject]
+    protected IToastService ToastService { get; set; }
+
+    [Inject]
+    protected IModalService ModalService { get; set; }
+
+    [Inject]
+    protected ApplicationDbContextService DbContextService { get; set; }
+
+    private ApplicationDbContext DbContext => DbContextService.GetDbContext();
+
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthState;
@@ -29,5 +44,15 @@ public class BackupAndRestoreBase : ComponentBase
         if (user.Identities.Count() == 0
             || user.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value != UserType.Admin.ToString())
             NavigationManager.NavigateTo("/");
+    }
+
+    protected async Task Backup()
+    {
+
+    }
+
+    protected async Task Restore()
+    {
+
     }
 }
