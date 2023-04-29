@@ -1,1 +1,256 @@
-﻿@inherits AdminActivityEditModalBase
+﻿@using Radzen.Blazor
+@using SportsOrganizer.Data.Enums;
+@inherits AdminActivityEditModalBase
+
+@if (ModalParameters.EditType == EditType.Add)
+{
+    <ModalHeader>
+        <ModalTitle>@Localizer["AddTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["UniqueIdentifier"]</Label>
+            <NumericPicker @bind-Value="Activity.Id" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["ActivityNumber"]</Label>
+            <NumericPicker @bind-Value="Activity.ActivityNumber" Min="0" Step="1M" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Title"]</Label>
+            <TextEdit @bind-Text="Activity.Title" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Location"]</Label>
+            <TextEdit @bind-Text="Activity.Location" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Props"]</Label>
+            <TextEdit @bind-Text="Activity.Props" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["ActivityType"]</Label>
+            <Select @bind-SelectedValue="Activity.ActivityType">
+                <SelectItem Value="ActivityType.Distance">@Localizer["Distance"]</SelectItem>
+                <SelectItem Value="ActivityType.Points">@Localizer["Points"]</SelectItem>
+                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
+            </Select>
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["OrderType"]</Label>
+            <Select @bind-SelectedValue="Activity.OrderType">
+                <SelectItem Value="OrderType.Ascending">@Localizer["Ascending"]</SelectItem>
+                <SelectItem Value="OrderType.Descending">@Localizer["Descending"]</SelectItem>
+            </Select>
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["NumberOfPlayers"]</Label>
+            <NumericPicker @bind-Value="Activity.NumberOfPlayers" Min="1" Step="1M" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Rules"]</Label>
+            <RadzenHtmlEditor @bind-Value="Activity.Rules" style="height: 500px;">
+                <RadzenHtmlEditorUndo />
+                <RadzenHtmlEditorRedo />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorBold />
+                <RadzenHtmlEditorItalic />
+                <RadzenHtmlEditorUnderline />
+                <RadzenHtmlEditorStrikeThrough />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorAlignLeft />
+                <RadzenHtmlEditorAlignCenter />
+                <RadzenHtmlEditorAlignRight />
+                <RadzenHtmlEditorJustify />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorIndent />
+                <RadzenHtmlEditorOutdent />
+                <RadzenHtmlEditorUnorderedList />
+                <RadzenHtmlEditorOrderedList />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorColor />
+                <RadzenHtmlEditorBackground />
+                <RadzenHtmlEditorRemoveFormat />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorSubscript />
+                <RadzenHtmlEditorSuperscript />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorFontSize />
+                <RadzenHtmlEditorFormatBlock />
+            </RadzenHtmlEditor>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Success" Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}
+else if (ModalParameters.EditType == EditType.Edit)
+{
+        <ModalHeader>
+        <ModalTitle>@Localizer["EditTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["UniqueIdentifier"]</Label>
+            <NumericPicker @bind-Value="Activity.Id" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["ActivityNumber"]</Label>
+            <NumericPicker @bind-Value="Activity.ActivityNumber" Min="0" Step="1M" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Title"]</Label>
+            <TextEdit @bind-Text="Activity.Title" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Location"]</Label>
+            <TextEdit @bind-Text="Activity.Location" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Props"]</Label>
+            <TextEdit @bind-Text="Activity.Props" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["ActivityType"]</Label>
+            <Select @bind-SelectedValue="Activity.ActivityType">
+                <SelectItem Value="ActivityType.Distance">@Localizer["Distance"]</SelectItem>
+                <SelectItem Value="ActivityType.Points">@Localizer["Points"]</SelectItem>
+                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
+            </Select>
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["OrderType"]</Label>
+            <Select @bind-SelectedValue="Activity.OrderType">
+                <SelectItem Value="OrderType.Ascending">@Localizer["Ascending"]</SelectItem>
+                <SelectItem Value="OrderType.Descending">@Localizer["Descending"]</SelectItem>
+            </Select>
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["NumberOfPlayers"]</Label>
+            <NumericPicker @bind-Value="Activity.NumberOfPlayers" Min="1" Step="1M" />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Rules"]</Label>
+            <RadzenHtmlEditor @bind-Value="Activity.Rules" style="height: 500px;">
+                <RadzenHtmlEditorUndo />
+                <RadzenHtmlEditorRedo />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorBold />
+                <RadzenHtmlEditorItalic />
+                <RadzenHtmlEditorUnderline />
+                <RadzenHtmlEditorStrikeThrough />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorAlignLeft />
+                <RadzenHtmlEditorAlignCenter />
+                <RadzenHtmlEditorAlignRight />
+                <RadzenHtmlEditorJustify />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorIndent />
+                <RadzenHtmlEditorOutdent />
+                <RadzenHtmlEditorUnorderedList />
+                <RadzenHtmlEditorOrderedList />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorColor />
+                <RadzenHtmlEditorBackground />
+                <RadzenHtmlEditorRemoveFormat />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorSubscript />
+                <RadzenHtmlEditorSuperscript />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorFontSize />
+                <RadzenHtmlEditorFormatBlock />
+            </RadzenHtmlEditor>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Success" Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}
+else if (ModalParameters.EditType == EditType.Delete)
+{
+    <ModalHeader>
+        <ModalTitle>@Localizer["DeleteTitle"]</ModalTitle>
+        <CloseButton />
+    </ModalHeader>
+    <ModalBody>
+        <div class="form-group">
+            <Label>@Localizer["UniqueIdentifier"]</Label>
+            <NumericPicker @bind-Value="Activity.Id" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["ActivityNumber"]</Label>
+            <NumericPicker @bind-Value="Activity.ActivityNumber" Min="0" Step="1M" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Title"]</Label>
+            <TextEdit @bind-Text="Activity.Title" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Location"]</Label>
+            <TextEdit @bind-Text="Activity.Location" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Props"]</Label>
+            <TextEdit @bind-Text="Activity.Props" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["ActivityType"]</Label>
+            <Select @bind-SelectedValue="Activity.ActivityType" Disabled>
+                <SelectItem Value="ActivityType.Distance">@Localizer["Distance"]</SelectItem>
+                <SelectItem Value="ActivityType.Points">@Localizer["Points"]</SelectItem>
+                <SelectItem Value="ActivityType.Time">@Localizer["Time"]</SelectItem>
+            </Select>
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["OrderType"]</Label>
+            <Select @bind-SelectedValue="Activity.OrderType" Disabled>
+                <SelectItem Value="OrderType.Ascending">@Localizer["Ascending"]</SelectItem>
+                <SelectItem Value="OrderType.Descending">@Localizer["Descending"]</SelectItem>
+            </Select>
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["NumberOfPlayers"]</Label>
+            <NumericPicker @bind-Value="Activity.NumberOfPlayers" Min="1" Step="1M" Disabled />
+        </div>
+        <div class="form-group mt-4">
+            <Label>@Localizer["Rules"]</Label>
+            <RadzenHtmlEditor @bind-Value="Activity.Rules" style="height: 500px;" Disabled>
+                <RadzenHtmlEditorUndo />
+                <RadzenHtmlEditorRedo />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorBold />
+                <RadzenHtmlEditorItalic />
+                <RadzenHtmlEditorUnderline />
+                <RadzenHtmlEditorStrikeThrough />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorAlignLeft />
+                <RadzenHtmlEditorAlignCenter />
+                <RadzenHtmlEditorAlignRight />
+                <RadzenHtmlEditorJustify />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorIndent />
+                <RadzenHtmlEditorOutdent />
+                <RadzenHtmlEditorUnorderedList />
+                <RadzenHtmlEditorOrderedList />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorColor />
+                <RadzenHtmlEditorBackground />
+                <RadzenHtmlEditorRemoveFormat />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorSubscript />
+                <RadzenHtmlEditorSuperscript />
+                <RadzenHtmlEditorSeparator />
+                <RadzenHtmlEditorFontSize />
+                <RadzenHtmlEditorFormatBlock />
+            </RadzenHtmlEditor>
+        </div>
+    </ModalBody>
+    <ModalFooter>
+        <Button Color="Color.Success" Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
+    </ModalFooter>
+}

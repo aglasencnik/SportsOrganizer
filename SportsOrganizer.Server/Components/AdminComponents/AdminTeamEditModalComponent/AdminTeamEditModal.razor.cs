@@ -94,9 +94,6 @@ public class AdminTeamEditModalBase : ComponentBase
         catch
         {
             Toast.ShowError(Localizer["ErrorToast"]);
-        }
-        finally
-        {
             await ModalService.Hide();
         }
     }
