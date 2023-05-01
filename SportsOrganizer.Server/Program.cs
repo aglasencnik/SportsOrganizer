@@ -50,7 +50,7 @@ var languages = configuration.GetSection("Localization:Languages").Get<Dictionar
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
-    options.SetDefaultCulture("en");
+    //options.SetDefaultCulture("en");
     options.AddSupportedCultures(languages.Keys.ToArray());
     options.AddSupportedUICultures(languages.Keys.ToArray());
     options.RequestCultureProviders = new List<IRequestCultureProvider>()
