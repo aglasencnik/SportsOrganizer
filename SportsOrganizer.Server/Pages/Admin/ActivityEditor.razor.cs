@@ -100,7 +100,11 @@ public class ActivityEditorBase : ComponentBase
 
     protected async Task DeleteAll()
     {
-        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"]))
+        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"], opt =>
+        {
+            opt.ConfirmButtonText = Localizer["Confirm"];
+            opt.CancelButtonText = Localizer["Cancel"];
+        }))
         {
             var activityIds = Activities.Select(t => t.Id);
             var activityResults = DbContext.ActivityResults.Where(x => activityIds.Contains(x.ActivityId)).ToList();

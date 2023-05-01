@@ -106,7 +106,11 @@ public class ResultEditorBase : ComponentBase
 
     protected async Task DeleteAll()
     {
-        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"]))
+        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"], opt =>
+        {
+            opt.ConfirmButtonText = Localizer["Confirm"];
+            opt.CancelButtonText = Localizer["Cancel"];
+        }))
         {
             DbContext.PlayerResults.RemoveRange(PlayerResults);
             DbContext.ActivityResults.RemoveRange(ActivityResults);

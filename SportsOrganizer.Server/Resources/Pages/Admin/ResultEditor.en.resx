@@ -147,6 +147,12 @@
   <data name="BtnPrint" xml:space="preserve">
     <value>Print</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
   <data name="ConfModalContent" xml:space="preserve">
     <value>Do you really want to delete all results?</value>
   </data>

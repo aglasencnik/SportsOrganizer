@@ -100,7 +100,11 @@ public class TeamManagementBase : ComponentBase
 
     protected async Task DeleteAll()
     {
-        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"]))
+        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"], opt => 
+        { 
+            opt.ConfirmButtonText = Localizer["Confirm"]; 
+            opt.CancelButtonText = Localizer["Cancel"]; 
+        }))
         {
             var teamIds = Teams.Select(t => t.Id);
             var result = DbContext.ActivityResults.Where(x => teamIds.Contains(x.TeamId)).ToList();

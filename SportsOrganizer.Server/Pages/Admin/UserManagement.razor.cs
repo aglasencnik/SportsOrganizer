@@ -105,7 +105,11 @@ public class UserManagementBase : ComponentBase
 
     protected async Task DeleteAll()
     {
-        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"]))
+        if (await MessageService.Confirm(Localizer["ConfModalContent"], Localizer["ConfModalHeader"], opt => 
+        { 
+            opt.ConfirmButtonText = Localizer["Confirm"]; 
+            opt.CancelButtonText = Localizer["Cancel"]; 
+        }))
         {
             var firstAdmin = Users.FirstOrDefault(x => x.UserType == UserType.Admin);
 

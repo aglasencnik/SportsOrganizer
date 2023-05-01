@@ -56,7 +56,7 @@
         </div>
     </ModalBody>
     <ModalFooter>
-        <Button Color="Color.Success " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Success" Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
         <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
     </ModalFooter>
 }
@@ -116,7 +116,7 @@ else if (ModalParameters.EditType == EditType.Edit)
         </div>
     </ModalBody>
     <ModalFooter>
-        <Button Color="Color.Success " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Warning" Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
         <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
     </ModalFooter>
 }
@@ -176,7 +176,7 @@ else if (ModalParameters.EditType == EditType.Delete)
         </div>
     </ModalBody>
     <ModalFooter>
-        <Button Color="Color.Success " Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
+        <Button Color="Color.Danger" Clicked="Confirm">@Localizer["BtnConfirm"]</Button>
         <Button Color="Color.Secondary" Clicked="ModalService.Hide">@Localizer["BtnCancel"]</Button>
     </ModalFooter>
 }
