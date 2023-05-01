@@ -44,8 +44,7 @@ public class HomepageEditorBase : ComponentBase
 
         var homepageObj = MemoryStorage.GetValue(KeyValueType.Homepage);
 
-        if (homepageObj != null) HomePageHtml = (string)homepageObj;
-        else HomePageHtml = string.Empty;
+        HomePageHtml = (homepageObj != null) ? (string)homepageObj : string.Empty;
     }
 
     protected void SaveChanges()

@@ -49,9 +49,7 @@ public class ThemeSelectorBase : ComponentBase
             NavigationManager.NavigateTo("/");
 
         var oldThemeObj = MemoryStorage.GetValue(KeyValueType.Theme);
-
-        if (oldThemeObj != null) OldTheme = (string)oldThemeObj;
-        else OldTheme = string.Empty;
+        OldTheme = (oldThemeObj != null) ? (string)oldThemeObj : string.Empty;
     }
 
     protected async Task SelectTheme(string theme)

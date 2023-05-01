@@ -52,9 +52,7 @@ public class ActivityDetailsBase : ComponentBase
                         .ToList();
 
                 var colorObj = MemoryStorage.GetValue(KeyValueType.SingleActivityTableColor);
-
-                if (colorObj != null) TableColor = (string)colorObj;
-                else TableColor = Enums.TableColor.Default;
+                TableColor = (colorObj != null) ? (string)colorObj : Enums.TableColor.Default;
             }
             else NavigationManager.NavigateTo("/");
         }

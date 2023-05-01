@@ -23,7 +23,7 @@ public class LogoutBase : ComponentBase
         if (user.Identities.Count() > 0)
         {
             await AuthenticatorService.LogoutAsync();
-            NavigationManager.NavigateTo("/account/login", true);
+            NavigationManager.NavigateTo("/Account/Login", true);
         }
         else
         {

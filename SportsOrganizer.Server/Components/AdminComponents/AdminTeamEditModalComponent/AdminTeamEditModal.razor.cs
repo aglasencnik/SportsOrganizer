@@ -37,7 +37,6 @@ public class AdminTeamEditModalBase : ComponentBase
         if (ModalParameters.EditType != EditType.Add)
         {
             Team = DbContext.Teams.FirstOrDefault(x => x.Id == ModalParameters.Id);
-            
         }
     }
 

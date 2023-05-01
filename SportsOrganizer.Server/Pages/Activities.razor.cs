@@ -24,8 +24,6 @@ public class ActivitiesBase : ComponentBase
 
     protected override void OnInitialized()
     {
-        var result = DbContext.Activities;
-
-        if (result != null) Activities = result.ToList();
+        Activities = DbContext.Activities.ToList();
     }
 }

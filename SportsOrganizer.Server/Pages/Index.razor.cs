@@ -39,18 +39,17 @@ public class IndexBase : ComponentBase
         NumberOfActivities = Activities.Count();
 
         var scoreObj = MemoryStorage.GetValue(KeyValueType.ScoringType);
-        ScoringType scoringType = (scoreObj != null) ? (ScoringType)scoreObj : ScoringType.Ascending;
+        ScoringType scoringType = (scoreObj == null 
+            || !Enum.TryParse(scoreObj.ToString(), out ScoringType result))
+            ? ScoringType.Ascending
+            : result;
 
         ActivityResultScores = ActivityResultScoringService.ScoreActivityResults(Teams, Activities, ActivityResults, scoringType);
 
         var colorObj = MemoryStorage.GetValue(KeyValueType.FinalScoresTableColor);
-
-        if (colorObj != null) TableColor = (string)colorObj;
-        else TableColor = Enums.TableColor.Default;
+        TableColor = (colorObj != null) ? (string)colorObj : Enums.TableColor.Default;
 
         var homepageObj = MemoryStorage.GetValue(KeyValueType.Homepage);
-
-        if (homepageObj != null) Homepage = (string)homepageObj;
-        else Homepage = string.Empty;
+        Homepage = (homepageObj != null) ? (string)homepageObj : string.Empty;
     }
 }

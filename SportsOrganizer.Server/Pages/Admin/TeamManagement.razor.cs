@@ -58,9 +58,10 @@ public class TeamManagementBase : ComponentBase
         Teams = DbContext.Teams.ToList();
 
         var themeObj = MemoryStorage.GetValue(KeyValueType.DataGridThemeContrast);
-
-        if (themeObj != null) ThemeContrast = (ThemeContrast)themeObj;
-        else ThemeContrast = ThemeContrast.Light;
+        ThemeContrast = (themeObj == null
+            || !Enum.TryParse(themeObj.ToString(), out ThemeContrast result))
+            ? ThemeContrast.Light
+            : result;
     }
 
     protected void OpenAddModal()
