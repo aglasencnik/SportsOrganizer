@@ -1,3 +1,136 @@
 ﻿@page "/Admin/Settings"
 @inherits SettingsBase
 @layout AdminLayout
+
+<PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
+
+    <h1 class="text-center">@Localizer["PageTitle"]</h1>
+    <hr />
+    <p>@Localizer["p1"]</p>
+    <p>@Localizer["p2"]</p>
+    <p>@Localizer["p3"]</p>
+    <p>@Localizer["p4"]</p>
+    <p>@Localizer["p5"]</p>
+    <hr />
+    <h2 class="my-3">@Localizer["BasicInformationSettings"]</h2>
+    <p>@Localizer["bp1"]</p>
+
+    <Label Margin="Margin.Is3.FromTop">@Localizer["bp2"]</Label>
+    <Select @bind-SelectedValue="Language">
+        @foreach (var lang in Languages)
+    {
+        <SelectItem Value="@lang.Key">@lang.Value</SelectItem>
+    }
+</Select>
+
+<Validation Validator="ValidationRule.IsNotEmpty">
+    <Label Margin="Margin.Is4.FromTop">@Localizer["bp3"]</Label>
+    <TextEdit @bind-Text="Title">
+        <Feedback>
+            <ValidationError>@Localizer["TitleError"]</ValidationError>
+        </Feedback>
+    </TextEdit>
+</Validation>
+
+<Validation Validator="ValidationRule.IsNotEmpty">
+    <Label Margin="Margin.Is4.FromTop">@Localizer["bp4"]</Label>
+    <TextEdit @bind-Text="CopyrightNotice">
+        <Feedback>
+            <ValidationError>@Localizer["CopyrightNoticeError"]</ValidationError>
+        </Feedback>
+    </TextEdit>
+</Validation>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["bp5"]</Label>
+<FileEdit @ref="FileEdit" AutoReset="false" Filter="image/png" Changed="OnFileChanged" BrowseButtonLocalizer="@((name, arguments)=>Localizer["ChooseFile"])" />
+<Figure Size="FigureSize.Is64x64" Margin="Margin.Is2.FromTop">
+    <FigureImage Source="@Favicon" AlternateText="Favicon" />
+</Figure>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["bp6"]</Label>
+<Select @bind-SelectedValue="ScoringType">
+    <SelectItem Value="ScoringType.Ascending">@Localizer["Ascending"]</SelectItem>
+    <SelectItem Value="ScoringType.Descending">@Localizer["Descending"]</SelectItem>
+</Select>
+
+<Button Color="Color.Success" Clicked="UpdateBasicInfo" Margin="Margin.Is4.FromTop">@Localizer["BtnSaveChanges"]</Button>
+<hr />
+<h2 class="my-3">@Localizer["ThemeCustomization"]</h2>
+<p>@Localizer["tp1"]</p>
+
+<Label Margin="Margin.Is3.FromTop">@Localizer["tp2"]</Label>
+<Select @bind-SelectedValue="HeaderColor">
+    <SelectItem Value="NavbarColor.Primary">@Localizer["Primary"]</SelectItem>
+    <SelectItem Value="NavbarColor.Dark">@Localizer["Dark"]</SelectItem>
+    <SelectItem Value="NavbarColor.Light">@Localizer["Light"]</SelectItem>
+</Select>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["tp3"]</Label>
+<Select @bind-SelectedValue="FooterColor">
+    <SelectItem Value="NavbarColor.Primary">@Localizer["Primary"]</SelectItem>
+    <SelectItem Value="NavbarColor.Dark">@Localizer["Dark"]</SelectItem>
+    <SelectItem Value="NavbarColor.Light">@Localizer["Light"]</SelectItem>
+</Select>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["tp4"]</Label>
+<Select @bind-SelectedValue="FinalScoresTableColor">
+    <SelectItem Value="TableColor.Default">@Localizer["Default"]</SelectItem>
+    <SelectItem Value="TableColor.Active">@Localizer["Active"]</SelectItem>
+    <SelectItem Value="TableColor.Primary">@Localizer["Primary"]</SelectItem>
+    <SelectItem Value="TableColor.Secondary">@Localizer["Secondary"]</SelectItem>
+    <SelectItem Value="TableColor.Success">@Localizer["Success"]</SelectItem>
+    <SelectItem Value="TableColor.Danger">@Localizer["Danger"]</SelectItem>
+    <SelectItem Value="TableColor.Warning">@Localizer["Warning"]</SelectItem>
+    <SelectItem Value="TableColor.Info">@Localizer["Info"]</SelectItem>
+    <SelectItem Value="TableColor.Light">@Localizer["Light"]</SelectItem>
+    <SelectItem Value="TableColor.Dark">@Localizer["Dark"]</SelectItem>
+</Select>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["tp5"]</Label>
+<Select @bind-SelectedValue="SingleActivityTableColor">
+    <SelectItem Value="TableColor.Default">@Localizer["Default"]</SelectItem>
+    <SelectItem Value="TableColor.Active">@Localizer["Active"]</SelectItem>
+    <SelectItem Value="TableColor.Primary">@Localizer["Primary"]</SelectItem>
+    <SelectItem Value="TableColor.Secondary">@Localizer["Secondary"]</SelectItem>
+    <SelectItem Value="TableColor.Success">@Localizer["Success"]</SelectItem>
+    <SelectItem Value="TableColor.Danger">@Localizer["Danger"]</SelectItem>
+    <SelectItem Value="TableColor.Warning">@Localizer["Warning"]</SelectItem>
+    <SelectItem Value="TableColor.Info">@Localizer["Info"]</SelectItem>
+    <SelectItem Value="TableColor.Light">@Localizer["Light"]</SelectItem>
+    <SelectItem Value="TableColor.Dark">@Localizer["Dark"]</SelectItem>
+</Select>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["tp6"]</Label>
+<Select @bind-SelectedValue="DataGridThemeContrast">
+    <SelectItem Value="ThemeContrast.Light">@Localizer["Light"]</SelectItem>
+    <SelectItem Value="ThemeContrast.Dark">@Localizer["Dark"]</SelectItem>
+</Select>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["tp7"]</Label>
+<Select @bind-SelectedValue="AdminSidebarThemeContrast">
+    <SelectItem Value="ThemeContrast.Light">@Localizer["Light"]</SelectItem>
+    <SelectItem Value="ThemeContrast.Dark">@Localizer["Dark"]</SelectItem>
+</Select>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["tp8"]</Label>
+<Select @bind-SelectedValue="AdminHeaderThemeContrast">
+    <SelectItem Value="ThemeContrast.Light">@Localizer["Light"]</SelectItem>
+    <SelectItem Value="ThemeContrast.Dark">@Localizer["Dark"]</SelectItem>
+</Select>
+
+<Label Margin="Margin.Is4.FromTop">@Localizer["tp9"]</Label>
+<Select @bind-SelectedValue="AdminHeaderBackground">
+    <SelectItem Value="Background.Default.Name">@Localizer["Default"]</SelectItem>
+    <SelectItem Value="Background.Primary.Name">@Localizer["Primary"]</SelectItem>
+    <SelectItem Value="Background.Secondary.Name">@Localizer["Secondary"]</SelectItem>
+    <SelectItem Value="Background.Success.Name">@Localizer["Success"]</SelectItem>
+    <SelectItem Value="Background.Danger.Name">@Localizer["Danger"]</SelectItem>
+    <SelectItem Value="Background.Warning.Name">@Localizer["Warning"]</SelectItem>
+    <SelectItem Value="Background.Info.Name">@Localizer["Info"]</SelectItem>
+    <SelectItem Value="Background.Light.Name">@Localizer["Light"]</SelectItem>
+    <SelectItem Value="Background.Dark.Name">@Localizer["Dark"]</SelectItem>
+    <SelectItem Value="Background.White.Name">@Localizer["White"]</SelectItem>
+    <SelectItem Value="Background.Transparent.Name">@Localizer["Transparent"]</SelectItem>
+</Select>
+
+<Button Color="Color.Success" Clicked="UpdateThemeCostumization" Margin="Margin.Is4.OnTablet.FromBottom.Is2.OnMobile.FromBottom.Is4.FromTop">@Localizer["BtnSaveChanges"]</Button>
