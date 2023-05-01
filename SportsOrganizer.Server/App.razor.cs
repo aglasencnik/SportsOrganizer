@@ -35,7 +35,7 @@ public class AppBase : ComponentBase
         var language = MemoryStorage.GetValue(KeyValueType.LanguageShort);
         var culture = CultureInfo.GetCultureInfo((string)language);
 
-        if (CultureProvider.GetCurrentCultureInfo().Parent.IetfLanguageTag != culture.Name)
+        if (CultureProvider.GetCurrentCultureInfo().TwoLetterISOLanguageName != culture.Name)
         {
             var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
             var cultureEscaped = Uri.EscapeDataString(culture.Name);
