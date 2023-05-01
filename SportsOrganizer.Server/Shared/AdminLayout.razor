@@ -207,7 +207,7 @@
     private Background HeaderBackground;
     private RenderFragment customIcon = @<Image Source="/img/logo.svg" Style="width:32px; height: 32px" />;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         string altText = Localizer["SportsOrganizerLogo"];
 
@@ -229,6 +229,19 @@
             : headerThemeContrast;
 
         var headerBackgroundObj = MemoryStorage.GetValue(KeyValueType.AdminLayoutHeaderBackground);
-        HeaderBackground = (headerBackgroundObj != null) ? (Background)headerBackgroundObj : Background.Light;
+        if (headerBackgroundObj != null)
+        {
+            if (Background.Primary.Name == (string)headerBackgroundObj) HeaderBackground = Background.Primary;
+            else if (Background.Secondary.Name == (string)headerBackgroundObj) HeaderBackground = Background.Secondary;
+            else if (Background.Success.Name == (string)headerBackgroundObj) HeaderBackground = Background.Success;
+            else if (Background.Danger.Name == (string)headerBackgroundObj) HeaderBackground = Background.Danger;
+            else if (Background.Warning.Name == (string)headerBackgroundObj) HeaderBackground = Background.Warning;
+            else if (Background.Info.Name == (string)headerBackgroundObj) HeaderBackground = Background.Info;
+            else if (Background.Light.Name == (string)headerBackgroundObj) HeaderBackground = Background.Light;
+            else if (Background.Dark.Name == (string)headerBackgroundObj) HeaderBackground = Background.Dark;
+            else if (Background.White.Name == (string)headerBackgroundObj) HeaderBackground = Background.White;
+            else if (Background.Transparent.Name == (string)headerBackgroundObj) HeaderBackground = Background.Transparent;
+        }
+        else HeaderBackground = Background.Light;
     }
 }
