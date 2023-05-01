@@ -14,12 +14,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Append.Blazor.Printing" Version="6.2.0" />
     <PackageReference Include="Blazored.Toast" Version="4.1.0" />
     <PackageReference Include="Blazorise.Bootstrap5" Version="1.2.2" />
     <PackageReference Include="Blazorise.Components" Version="1.2.2" />
     <PackageReference Include="Blazorise.DataGrid" Version="1.2.2" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.2" />
     <PackageReference Include="Blazorise.SpinKit" Version="1.2.2" />
+    <PackageReference Include="ClosedXML" Version="0.101.0" />
     <PackageReference Include="LiteDB" Version="5.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
@@ -28,7 +30,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Radzen.Blazor" Version="4.10.0" />
+    <PackageReference Include="Radzen.Blazor" Version="4.10.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,3 +1,4 @@
+using Append.Blazor.Printing;
 using Blazored.Toast;
 using Blazorise;
 using Blazorise.Bootstrap5;
@@ -45,6 +46,7 @@ builder.Services.AddScoped<DialogService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<CultureProviderService>();
 builder.Services.AddScoped<MemoryStorageUtility>();
+builder.Services.AddScoped<IPrintingService, PrintingService>();
 
 var languages = configuration.GetSection("Localization:Languages").Get<Dictionary<string, string>>();
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");

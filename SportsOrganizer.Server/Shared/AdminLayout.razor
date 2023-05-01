@@ -217,15 +217,18 @@
         customIcon = @<Image Source="@favicon" Text="@altText" Style="width:32px; height: 32px" />;
 
         var sidebarThemeContrastObj = MemoryStorage.GetValue(KeyValueType.AdminLayoutBarThemeContrast);
-        if (sidebarThemeContrastObj != null) SidebarThemeContrast = (ThemeContrast)sidebarThemeContrastObj;
-        else SidebarThemeContrast = ThemeContrast.Light;
+        SidebarThemeContrast = (sidebarThemeContrastObj == null
+            || !Enum.TryParse(sidebarThemeContrastObj.ToString(), out ThemeContrast sidebarThemeContrast))
+            ? ThemeContrast.Light
+            : sidebarThemeContrast;
 
         var headerThemeContrastObj = MemoryStorage.GetValue(KeyValueType.AdminLayoutHeaderThemeContrast);
-        if (headerThemeContrastObj != null) HeaderThemeContrast = (ThemeContrast)headerThemeContrastObj;
-        else HeaderThemeContrast = ThemeContrast.Light;
+        HeaderThemeContrast = (headerThemeContrastObj == null
+            || !Enum.TryParse(headerThemeContrastObj.ToString(), out ThemeContrast headerThemeContrast))
+            ? ThemeContrast.Light
+            : headerThemeContrast;
 
         var headerBackgroundObj = MemoryStorage.GetValue(KeyValueType.AdminLayoutHeaderBackground);
-        if (headerBackgroundObj != null) HeaderBackground = (Background)headerBackgroundObj;
-        else HeaderBackground = Background.Light;
+        HeaderBackground = (headerBackgroundObj != null) ? (Background)headerBackgroundObj : Background.Light;
     }
 }
