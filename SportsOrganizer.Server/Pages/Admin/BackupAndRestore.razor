@@ -11,5 +11,10 @@
 <p>@Localizer["p3"]</p>
 <p>@Localizer["p4"]</p>
 <p>@Localizer["p5"]</p>
-<Button Color="Color.Success" Clicked="Backup" Margin="Margin.Is3.FromEnd"><Icon Name="IconName.CloudDownloadAlt" />&nbsp;@Localizer["BtnBackup"]</Button>
-<Button Color="Color.Success" Clicked="Restore"><Icon Name="IconName.CloudUploadAlt" />&nbsp;@Localizer["BtnRestore"]</Button>
+<Button Color="Color.Success" Clicked="Backup" Margin="Margin.Is4.FromBottom"><Icon Name="IconName.CloudDownloadAlt" />&nbsp;@Localizer["BtnBackup"]</Button>
+<div>
+    <Button Color="Color.Success" Clicked="Restore" Margin="Margin.Is4.FromBottom"><Icon Name="IconName.CloudUploadAlt" />&nbsp;@Localizer["BtnRestore"]</Button>
+        <div class="row col-md-6">
+        <FileEdit @ref="FileEdit" AutoReset="false" Filter="application/xml,text/xml" Changed="OnFileChanged" BrowseButtonLocalizer="@((name, arguments)=>Localizer["ChooseFile"])" />
+    </div>
+</div>
