@@ -71,10 +71,6 @@
             <Icon Name="IconName.FileDownload" />&nbsp;@Localizer["BtnExport"]
         </DropdownToggle>
         <DropdownMenu>
-            <DropdownItem Clicked="@(() => Export(ExportFileType.Pdf))">
-                <Icon Name="@("fa-file-pdf")" />&nbsp;@Localizer["BtnExportPdf"]
-            </DropdownItem>
-            <DropdownDivider />
             <DropdownItem Clicked="@(() => Export(ExportFileType.Excel))">
                 <Icon Name="@("fa-file-excel")" />&nbsp;@Localizer["BtnExportExcel"]
             </DropdownItem>
