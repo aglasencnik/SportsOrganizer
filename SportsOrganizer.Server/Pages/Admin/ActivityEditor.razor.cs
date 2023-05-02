@@ -137,13 +137,21 @@ public class ActivityEditorBase : ComponentBase
             if (data.success)
             {
                 DateTime currentTime = DateTime.Now;
-                await JSRuntime.InvokeVoidAsync("downloadFile", $"SportsOrganizer_activities_export_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xml", data.message);
+                await JSRuntime.InvokeVoidAsync("saveAsXml", $"SportsOrganizer_activities_export_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xml", data.message);
             }
             else ToastService.ShowError(Localizer["ErrorToast"]);
         }
         else if (fileType == ExportFileType.Excel)
         {
+            (bool success, byte[] message) data = await ExcelSerializerService.SerializeActivitiesToExcel(DbContext);
 
+            if (data.success)
+            {
+                DateTime currentTime = DateTime.Now;
+                var base64 = Convert.ToBase64String(data.message);
+                await JSRuntime.InvokeVoidAsync("saveAsXlsx", $"SportsOrganizer_activities_export_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xlsx", base64);
+            }
+            else ToastService.ShowError(Localizer["ErrorToast"]);
         }
     }
 

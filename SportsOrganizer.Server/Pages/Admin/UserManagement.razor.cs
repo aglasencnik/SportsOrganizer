@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
 using Microsoft.JSInterop;
+using Org.BouncyCastle.Utilities;
 using SportsOrganizer.Data;
 using SportsOrganizer.Data.Enums;
 using SportsOrganizer.Data.Models;
@@ -139,13 +140,21 @@ public class UserManagementBase : ComponentBase
             if (data.success)
             {
                 DateTime currentTime = DateTime.Now;
-                await JSRuntime.InvokeVoidAsync("downloadFile", $"SportsOrganizer_users_export_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xml", data.message);
+                await JSRuntime.InvokeVoidAsync("saveAsXml", $"SportsOrganizer_users_export_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xml", data.message);
             }
             else ToastService.ShowError(Localizer["ErrorToast"]);
         }
         else if (fileType == ExportFileType.Excel)
         {
+            (bool success, byte[] message) data = await ExcelSerializerService.SerializeUsersToExcel(DbContext);
 
+            if (data.success)
+            {
+                DateTime currentTime = DateTime.Now;
+                var base64 = Convert.ToBase64String(data.message);
+                await JSRuntime.InvokeVoidAsync("saveAsXlsx", $"SportsOrganizer_users_export_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xlsx", base64);
+            }
+            else ToastService.ShowError(Localizer["ErrorToast"]);
         }
     }
 

@@ -78,25 +78,23 @@
             }
         }
 
-        window.downloadFile = (filename, data) => {
-            // Create a Blob object with data.
+        window.saveAsXml = (filename, data) => {
             var blob = new Blob([data], { type: 'application/octet-stream' });
-
-            // Create a URL for the blob object.
             var url = window.URL.createObjectURL(blob);
-
-            // Create a download link.
             var a = document.createElement('a');
             a.href = url;
             a.download = filename;
-
-            // Append the download link to the body, and click it.
             document.body.appendChild(a);
             a.click();
-
-            // Clean up.
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
+        };
+
+        window.saveAsXlsx = function (filename, bytesBase64) {
+            var link = document.createElement('a');
+            link.href = "data:application/octet-stream;base64," + bytesBase64;
+            link.download = filename;
+            link.click();
         };
     </script>
 </body>
