@@ -177,6 +177,9 @@
   <data name="ep4" xml:space="preserve">
     <value>Exporting and printing the data is a quick and easy way to share and analyze the data.</value>
   </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>There has been an error!</value>
+  </data>
   <data name="p1" xml:space="preserve">
     <value>Welcome to the Result Editor page!</value>
   </data>

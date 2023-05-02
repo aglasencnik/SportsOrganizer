@@ -3,6 +3,7 @@ using Blazorise;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
+using Microsoft.JSInterop;
 using SportsOrganizer.Data;
 using SportsOrganizer.Data.Enums;
 using SportsOrganizer.Data.Models;
@@ -37,6 +38,9 @@ public class UserManagementBase : ComponentBase
 
     [Inject]
     protected IMessageService MessageService { get; set; }
+
+    [Inject]
+    protected IJSRuntime JSRuntime { get; set; }
 
     [Inject]
     protected ApplicationDbContextService DbContextService { get; set; }
@@ -126,9 +130,23 @@ public class UserManagementBase : ComponentBase
         }
     }
 
-    protected void Export(ExportFileType fileType)
+    protected async Task Export(ExportFileType fileType)
     {
+        if (fileType == ExportFileType.Xml)
+        {
+            (bool success, string message) data = await XmlSerializerService.SerializeUsersToXml(DbContext);
 
+            if (data.success)
+            {
+                DateTime currentTime = DateTime.Now;
+                await JSRuntime.InvokeVoidAsync("downloadFile", $"SportsOrganizer_users_export_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xml", data.message);
+            }
+            else ToastService.ShowError(Localizer["ErrorToast"]);
+        }
+        else if (fileType == ExportFileType.Excel)
+        {
+
+        }
     }
 
     protected void Print()
