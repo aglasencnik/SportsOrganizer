@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Aktivan</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Uzlazni</value>
+  </data>
+  <data name="BasicInformationSettings" xml:space="preserve">
+    <value>Postavke osnovnih informacija</value>
+  </data>
+  <data name="bp1" xml:space="preserve">
+    <value>Dobro došli u odjeljak Osnovne informacije na stranici Postavke. Ovdje možete promijeniti bitne detalje vašeg sportskog događaja, kao što su jezik, naslov, obavijest o autorskim pravima, favicon i vrsta bodovanja.</value>
+  </data>
+  <data name="bp2" xml:space="preserve">
+    <value>Polje 'Jezik' omogućuje vam postavljanje zadanog jezika za aplikaciju. Odaberite između niza podržanih jezika kako biste bili sigurni da je aplikacija dostupna svim korisnicima.</value>
+  </data>
+  <data name="bp3" xml:space="preserve">
+    <value>Koristite polje 'Naslov' za unos naziva vašeg sportskog događaja. To će se pojaviti na vrhu aplikacije i pomoći korisnicima da prepoznaju vaš događaj.</value>
+  </data>
+  <data name="bp4" xml:space="preserve">
+    <value>Polje 'Obavijest o autorskim pravima' omogućuje vam da uključite poruku koja označava vlasništvo nad aplikacijom i njezinim sadržajem.</value>
+  </data>
+  <data name="bp5" xml:space="preserve">
+    <value>Upotrijebite polje 'Favicon' za prijenos prilagođene ikone koja će se pojaviti na kartici preglednika aplikacije. Ovo će pomoći korisnicima da brzo prepoznaju aplikaciju vašeg sportskog događaja među ostalim otvorenim karticama.</value>
+  </data>
+  <data name="bp6" xml:space="preserve">
+    <value>Upotrijebite padajući izbornik 'Vrsta bodovanja' za odabir zadane metode bodovanja za tablicu konačnih rezultata. Vrsta bodovanja 'Rastuće' znači da pobjeđuje tim s najmanjim brojem bodova na konačnoj poziciji. Vrsta bodovanja 'Silazno' je sušta suprotnost, tako da tim s najvećim brojem bodova pobjeđuje.</value>
+  </data>
+  <data name="BtnSaveChanges" xml:space="preserve">
+    <value>Spremi promjene</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Odaberite datoteku...</value>
+  </data>
+  <data name="CopyrightNoticeError" xml:space="preserve">
+    <value>Polje Obavijest o autorskim pravima ne može biti prazno!</value>
+  </data>
+  <data name="Danger" xml:space="preserve">
+    <value>Opasnost</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>tamno</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Zadano</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Silazni</value>
+  </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>Došlo je do pogreške!</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Svjetlo</value>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>Dobro došli na stranicu postavki!</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Ova vam stranica omogućuje promjenu svih postavki aplikacije za vaš sportski događaj. Pomoću ovog alata možete prilagoditi i fino podesiti aplikaciju kako bi odgovarala vašim specifičnim potrebama.</value>
+  </data>
+  <data name="p3" xml:space="preserve">
+    <value>Stranica Postavke pruža intuitivno sučelje za izmjenu svih postavki aplikacije. Odavde možete promijeniti postavke vezane uz događaj, web mjesto i druge značajke aplikacije. Možete prilagoditi postavke kao što su naslov događaja, postavke teme i još mnogo toga.</value>
+  </data>
+  <data name="p4" xml:space="preserve">
+    <value>Nakon što izvršite promjene, jednostavno kliknite gumb "Spremi promjene" kako biste ažurirali aplikaciju svojim novim postavkama.</value>
+  </data>
+  <data name="p5" xml:space="preserve">
+    <value>Stranica Postavke moćan je alat koji vam omogućuje da aplikaciju prilagodite svojim specifičnim potrebama. Koristite ga za prilagodbu i fino podešavanje aplikacije kako biste osigurali uspješan i besprijekoran sportski događaj.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>postavke</value>
+  </data>
+  <data name="Primary" xml:space="preserve">
+    <value>Primarni</value>
+  </data>
+  <data name="Secondary" xml:space="preserve">
+    <value>Sekundarna</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Uspjeh</value>
+  </data>
+  <data name="SuccessToast" xml:space="preserve">
+    <value>Promjene su uspješno spremljene!</value>
+  </data>
+  <data name="ThemeCustomization" xml:space="preserve">
+    <value>Prilagodba teme</value>
+  </data>
+  <data name="TitleError" xml:space="preserve">
+    <value>Polje Naslov ne može biti prazno!</value>
+  </data>
+  <data name="tp1" xml:space="preserve">
+    <value>Dobro došli u odjeljak Kostimizacija teme na stranici Postavke. Ovdje možete prilagoditi izgled i dojam aplikacije za vaš sportski događaj.</value>
+  </data>
+  <data name="tp2" xml:space="preserve">
+    <value>Koristite polje 'Boja zaglavlja' za odabir boje zaglavlja aplikacije. To će se pojaviti na vrhu aplikacije i pomoći korisnicima da prepoznaju vaš događaj.</value>
+  </data>
+  <data name="tp3" xml:space="preserve">
+    <value>Polje 'Boja podnožja' omogućuje vam odabir boje za podnožje aplikacije. To će se pojaviti na dnu aplikacije i pružiti dodatne informacije ili navigaciju.</value>
+  </data>
+  <data name="tp4" xml:space="preserve">
+    <value>Polje 'Boja tablice s konačnim rezultatima' omogućuje vam da postavite boju podatkovne mreže koja prikazuje konačne rezultate natjecanja.</value>
+  </data>
+  <data name="tp5" xml:space="preserve">
+    <value>Upotrijebite polje 'Boja tablice pojedinačne aktivnosti' za postavljanje boje podatkovne mreže koja prikazuje rezultate pojedinačne aktivnosti.</value>
+  </data>
+  <data name="tp6" xml:space="preserve">
+    <value>Upotrijebite padajući izbornik 'Kontrast teme mreže podataka' za odabir zadane postavke kontrasta za rešetke podataka. To će osigurati da su podaci prikazani na jasan i čitljiv način.</value>
+  </data>
+  <data name="tp7" xml:space="preserve">
+    <value>Koristite polje 'Admin Sidebar Theme Contrast' za odabir zadane postavke kontrasta za administratorsku bočnu traku.</value>
+  </data>
+  <data name="tp8" xml:space="preserve">
+    <value>Koristite polje 'Admin Header Theme Contrast' za odabir zadane postavke kontrasta za admin header.</value>
+  </data>
+  <data name="tp9" xml:space="preserve">
+    <value>Koristite polje 'Admin Header Background' za odabir boje pozadine za admin header.</value>
+  </data>
+  <data name="Transparent" xml:space="preserve">
+    <value>Transparentan</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Upozorenje</value>
+  </data>
+  <data name="WarningToast" xml:space="preserve">
+    <value>Provjerite unose i pokušajte ponovno!</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>Bijela</value>
+  </data>
+</root>

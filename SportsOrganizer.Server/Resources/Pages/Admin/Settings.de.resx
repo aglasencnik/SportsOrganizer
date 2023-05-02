@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Aufsteigend</value>
+  </data>
+  <data name="BasicInformationSettings" xml:space="preserve">
+    <value>Grundlegende Informationseinstellungen</value>
+  </data>
+  <data name="bp1" xml:space="preserve">
+    <value>Willkommen im Abschnitt „Grundlegende Informationen“ auf der Seite „Einstellungen“. Hier können Sie die wesentlichen Details Ihrer Sportveranstaltung wie Sprache, Titel, Copyright-Hinweis, Favicon und Art der Wertung ändern.</value>
+  </data>
+  <data name="bp2" xml:space="preserve">
+    <value>Im Feld „Sprache“ können Sie die Standardsprache für die Anwendung festlegen. Wählen Sie aus einer Vielzahl unterstützter Sprachen, um sicherzustellen, dass die Anwendung für alle Benutzer zugänglich ist.</value>
+  </data>
+  <data name="bp3" xml:space="preserve">
+    <value>Verwenden Sie das Feld „Titel“, um den Namen Ihrer Sportveranstaltung einzugeben. Diese erscheint oben in der Anwendung und hilft den Benutzern, Ihre Veranstaltung zu identifizieren.</value>
+  </data>
+  <data name="bp4" xml:space="preserve">
+    <value>Im Feld „Urheberrechtshinweis“ können Sie eine Nachricht einfügen, um das Eigentum an der Anwendung und ihrem Inhalt anzugeben.</value>
+  </data>
+  <data name="bp5" xml:space="preserve">
+    <value>Verwenden Sie das Feld „Favicon“, um ein benutzerdefiniertes Symbol hochzuladen, das im Browser-Tab der Anwendung angezeigt wird. Dies hilft Benutzern, die Anwendung Ihres Sportereignisses schnell unter anderen geöffneten Registerkarten zu identifizieren.</value>
+  </data>
+  <data name="bp6" xml:space="preserve">
+    <value>Verwenden Sie das Dropdown-Menü „Bewertungstyp“, um die standardmäßige Bewertungsmethode für die endgültige Ergebnistabelle auszuwählen. Der Wertungstyp „Aufsteigend“ bedeutet, dass das Team mit den wenigsten Endplatzierungspunkten gewinnt. Der Wertungstyp „Absteigend“ ist genau umgekehrt, also gewinnt das Team mit der höchsten Punktzahl.</value>
+  </data>
+  <data name="BtnSaveChanges" xml:space="preserve">
+    <value>Änderungen speichern</value>
+  </data>
+  <data name="ChooseFile" xml:space="preserve">
+    <value>Wähle eine Datei aus...</value>
+  </data>
+  <data name="CopyrightNoticeError" xml:space="preserve">
+    <value>Das Feld Urheberrechtshinweis darf nicht leer sein!</value>
+  </data>
+  <data name="Danger" xml:space="preserve">
+    <value>Achtung</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dunkel</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Absteigend</value>
+  </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>Es ist ein Fehler aufgetreten!</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Die Info</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Licht</value>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>Willkommen auf der Einstellungsseite!</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Auf dieser Seite können Sie alle Einstellungen der Anwendung Ihres Sportereignisses ändern. Mit diesem Tool können Sie die Anwendung an Ihre speziellen Bedürfnisse anpassen und feinabstimmen.</value>
+  </data>
+  <data name="p3" xml:space="preserve">
+    <value>Die Seite „Einstellungen“ bietet eine intuitive Benutzeroberfläche zum Ändern aller Anwendungseinstellungen. Von hier aus können Sie Einstellungen in Bezug auf die Veranstaltung, die Website und andere Funktionen der Anwendung ändern. Sie können Einstellungen wie Veranstaltungstitel, Themeneinstellungen und vieles mehr anpassen.</value>
+  </data>
+  <data name="p4" xml:space="preserve">
+    <value>Nachdem Sie Ihre Änderungen vorgenommen haben, klicken Sie einfach auf die Schaltfläche „Änderungen speichern“, um die Anwendung mit Ihren neuen Einstellungen zu aktualisieren.</value>
+  </data>
+  <data name="p5" xml:space="preserve">
+    <value>Die Seite „Einstellungen“ ist ein leistungsstarkes Tool, mit dem Sie die Anwendung an Ihre speziellen Anforderungen anpassen können. Verwenden Sie es, um die Anwendung anzupassen und zu optimieren, um ein erfolgreiches und nahtloses Sportereignis zu gewährleisten.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="Primary" xml:space="preserve">
+    <value>Primär</value>
+  </data>
+  <data name="Secondary" xml:space="preserve">
+    <value>Sekundär</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Erfolg</value>
+  </data>
+  <data name="SuccessToast" xml:space="preserve">
+    <value>Die Änderungen wurden erfolgreich gespeichert!</value>
+  </data>
+  <data name="ThemeCustomization" xml:space="preserve">
+    <value>Theme-Anpassung</value>
+  </data>
+  <data name="TitleError" xml:space="preserve">
+    <value>Das Titelfeld darf nicht leer sein!</value>
+  </data>
+  <data name="tp1" xml:space="preserve">
+    <value>Willkommen im Bereich Theme-Anpassung auf der Einstellungsseite. Hier können Sie das Erscheinungsbild der Anwendung Ihres Sportereignisses anpassen.</value>
+  </data>
+  <data name="tp2" xml:space="preserve">
+    <value>Verwenden Sie das Feld „Kopfzeilenfarbe“, um eine Farbe für die Kopfzeile der Anwendung auszuwählen. Diese erscheint oben in der Anwendung und hilft den Benutzern, Ihre Veranstaltung zu identifizieren.</value>
+  </data>
+  <data name="tp3" xml:space="preserve">
+    <value>Im Feld „Fußzeilenfarbe“ können Sie eine Farbe für die Anwendungsfußzeile auswählen. Diese erscheint unten in der Anwendung und bietet zusätzliche Informationen oder Navigation.</value>
+  </data>
+  <data name="tp4" xml:space="preserve">
+    <value>Im Feld „Farbe der Endergebnistabelle“ können Sie die Farbe des Datenrasters festlegen, das die Endergebnisse des Wettbewerbs anzeigt.</value>
+  </data>
+  <data name="tp5" xml:space="preserve">
+    <value>Verwenden Sie das Feld „Tabellenfarbe für einzelne Aktivität“, um die Farbe des Datenrasters festzulegen, das die Ergebnisse einer einzelnen Aktivität anzeigt.</value>
+  </data>
+  <data name="tp6" xml:space="preserve">
+    <value>Verwenden Sie das Dropdown-Menü „Kontrast des Datenraster-Designs“, um die standardmäßige Kontrasteinstellung für die Datenraster auszuwählen. Dadurch wird sichergestellt, dass die Daten klar und lesbar angezeigt werden.</value>
+  </data>
+  <data name="tp7" xml:space="preserve">
+    <value>Verwenden Sie das Feld „Kontrast des Admin-Sidebar-Designs“, um die Standardkontrasteinstellung für die Admin-Sidebar auszuwählen.</value>
+  </data>
+  <data name="tp8" xml:space="preserve">
+    <value>Verwenden Sie das Feld „Kontrast des Admin-Header-Designs“, um die Standardkontrasteinstellung für den Admin-Header auszuwählen.</value>
+  </data>
+  <data name="tp9" xml:space="preserve">
+    <value>Verwenden Sie das Feld „Admin-Header-Hintergrund“, um die Hintergrundfarbe für den Admin-Header auszuwählen.</value>
+  </data>
+  <data name="Transparent" xml:space="preserve">
+    <value>Transparent</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="WarningToast" xml:space="preserve">
+    <value>Überprüfen Sie die Eingaben und versuchen Sie es erneut!</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>Weiss</value>
+  </data>
+</root>

@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Admin" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Todo</value>
+  </data>
+  <data name="AssignedActivities" xml:space="preserve">
+    <value>Actividades asignadas</value>
+  </data>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Agregar usuario</value>
+  </data>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="BtnDeleteAll" xml:space="preserve">
+    <value>Eliminar todos los usuarios</value>
+  </data>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="BtnExport" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="BtnExportExcel" xml:space="preserve">
+    <value>Exportar a Excel</value>
+  </data>
+  <data name="BtnExportPdf" xml:space="preserve">
+    <value>Exportar a PDF</value>
+  </data>
+  <data name="BtnExportXml" xml:space="preserve">
+    <value>Exportar a XML</value>
+  </data>
+  <data name="BtnPrint" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="ConfModalContent" xml:space="preserve">
+    <value>¿Realmente desea eliminar todos los usuarios?</value>
+  </data>
+  <data name="ConfModalHeader" xml:space="preserve">
+    <value>Confirmar la eliminación de todos los usuarios</value>
+  </data>
+  <data name="DataExportAndPrintingTitle" xml:space="preserve">
+    <value>Exportación e impresión de datos</value>
+  </data>
+  <data name="EditData" xml:space="preserve">
+    <value>Editar datos</value>
+  </data>
+  <data name="ep1" xml:space="preserve">
+    <value>Esta sección le permite exportar e imprimir los datos que se muestran en la cuadrícula de datos. Puede exportar los datos a varios formatos de archivo, incluidos PDF, Excel y XML.</value>
+  </data>
+  <data name="ep2" xml:space="preserve">
+    <value>Para exportar los datos, simplemente haga clic en el botón 'Exportar' y seleccione el formato de archivo deseado en el menú desplegable. Luego, el sistema generará el archivo y le pedirá que lo guarde en su computadora.</value>
+  </data>
+  <data name="ep3" xml:space="preserve">
+    <value>Además de exportar, también puede imprimir los datos directamente desde la página. Simplemente haga clic en el botón 'Imprimir' para abrir el cuadro de diálogo de impresión. Desde aquí, puede seleccionar su impresora y ajustar la configuración de impresión según sea necesario.</value>
+  </data>
+  <data name="ep4" xml:space="preserve">
+    <value>Exportar e imprimir los datos es una forma rápida y fácil de compartir y analizar los datos.</value>
+  </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>¡Ha habido un error!</value>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>¡Bienvenido a la página de Gestión de usuarios!</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Esta página te permite gestionar los usuarios de la aplicación de tu evento deportivo. Con el editor proporcionado, puede agregar, editar o eliminar usuarios fácilmente según sea necesario.</value>
+  </data>
+  <data name="p3" xml:space="preserve">
+    <value>Agregar un nuevo usuario es simple: simplemente haga clic en el botón 'Agregar usuario' y complete la información necesaria. Puede incluir el nombre de usuario, la contraseña y cualquier otro detalle que desee agregar. Una vez agregado, el nuevo usuario aparecerá en el editor.</value>
+  </data>
+  <data name="p4" xml:space="preserve">
+    <value>Desde aquí, también puede asignar roles a los usuarios, como 'Usuario' o 'Administrador'. Los usuarios con el rol de 'Administrador' tienen acceso a todas las funciones de la aplicación, mientras que los usuarios con el rol de 'Usuario' tienen acceso limitado. También puede elegir a qué actividades puede acceder cada usuario, lo que le brinda un control completo sobre sus permisos.</value>
+  </data>
+  <data name="p5" xml:space="preserve">
+    <value>Si necesita realizar cambios en un usuario existente, simplemente haga clic en el botón 'Editar' junto a la información del usuario. Puede modificar el nombre de usuario, la contraseña, la función o cualquier otro detalle según sea necesario. Una vez que haya terminado, simplemente haga clic en el botón 'Guardar cambios'.</value>
+  </data>
+  <data name="p6" xml:space="preserve">
+    <value>En caso de que necesite eliminar un usuario, puede hacerlo haciendo clic en el botón 'Eliminar' junto a la información del usuario. Aparecerá un mensaje de confirmación y, una vez confirmado, el usuario será eliminado permanentemente del editor.</value>
+  </data>
+  <data name="p7" xml:space="preserve">
+    <value>Con la página de Gestión de usuarios, tienes control total sobre los usuarios de la aplicación de tu evento deportivo. Úselo para organizar y mantener la información del usuario, asegurando un evento deportivo seguro y exitoso.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Gestión de usuarios</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="SuccessToast" xml:space="preserve">
+    <value>¡Usuarios eliminados con éxito!</value>
+  </data>
+  <data name="UniqueIdentifier" xml:space="preserve">
+    <value>Identificador único</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="UserType" xml:space="preserve">
+    <value>Tipo de usuario</value>
+  </data>
+</root>

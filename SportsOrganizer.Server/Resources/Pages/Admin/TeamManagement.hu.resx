@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Csapat hozzáadása</value>
+  </data>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Töröl</value>
+  </data>
+  <data name="BtnDeleteAll" xml:space="preserve">
+    <value>Az összes csapat törlése</value>
+  </data>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Szerkesztés</value>
+  </data>
+  <data name="BtnExport" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="BtnExportExcel" xml:space="preserve">
+    <value>Exportálás EXCEL-be</value>
+  </data>
+  <data name="BtnExportPdf" xml:space="preserve">
+    <value>Exportálás PDF-be</value>
+  </data>
+  <data name="BtnExportXml" xml:space="preserve">
+    <value>Exportálás XML-be</value>
+  </data>
+  <data name="BtnPrint" xml:space="preserve">
+    <value>Nyomtatás</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Megszünteti</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>megerősít</value>
+  </data>
+  <data name="ConfModalContent" xml:space="preserve">
+    <value>Biztosan törölni szeretné az összes csapatot?</value>
+  </data>
+  <data name="ConfModalHeader" xml:space="preserve">
+    <value>Erősítse meg az összes csapat törlését</value>
+  </data>
+  <data name="DataExportAndPrintingTitle" xml:space="preserve">
+    <value>Adatexportálás és nyomtatás</value>
+  </data>
+  <data name="EditData" xml:space="preserve">
+    <value>Adatok szerkesztése</value>
+  </data>
+  <data name="ep1" xml:space="preserve">
+    <value>Ez a szakasz lehetővé teszi az adatrácsban megjelenített adatok exportálását és nyomtatását. Az adatokat különféle fájlformátumokba exportálhatja, beleértve a PDF, Excel és XML formátumokat.</value>
+  </data>
+  <data name="ep2" xml:space="preserve">
+    <value>Az adatok exportálásához egyszerűen kattintson az "Exportálás" gombra, és válassza ki a kívánt fájlformátumot a legördülő menüből. A rendszer ezután létrehozza a fájlt, és kéri, hogy mentse a számítógépére.</value>
+  </data>
+  <data name="ep3" xml:space="preserve">
+    <value>Az exportálás mellett közvetlenül az oldalról is kinyomtathatja az adatokat. Egyszerűen kattintson a „Nyomtatás” gombra a nyomtatási párbeszédpanel megnyitásához. Innen kiválaszthatja a nyomtatót, és szükség szerint módosíthatja a nyomtatási beállításokat.</value>
+  </data>
+  <data name="ep4" xml:space="preserve">
+    <value>Az adatok exportálása és nyomtatása gyors és egyszerű módja az adatok megosztásának és elemzésének.</value>
+  </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>Hiba történt!</value>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>Üdvözöljük a Csapatmenedzsment oldalon!</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Ezen az oldalon kezelheti a sporteseményén részt vevő összes versenyző csapatot. Az adatrács az összes aktuális csapatot megjeleníti, és innen szükség szerint hozzáadhatja, szerkesztheti vagy törölheti őket.</value>
+  </data>
+  <data name="p3" xml:space="preserve">
+    <value>Csapat hozzáadása egyszerű – csak kattintson a „Csapat hozzáadása” gombra, és töltse ki a szükséges adatokat. Megadhatja a csapat nevét, a kapitány nevét és a hozzáadni kívánt további adatokat. A hozzáadást követően az új csapat megjelenik az adatrácsban.</value>
+  </data>
+  <data name="p4" xml:space="preserve">
+    <value>Ha módosítania kell egy meglévő csapatot, egyszerűen kattintson a "Szerkesztés" gombra a csapat adatai mellett. Módosíthatja a csapat nevét. Ha végzett, kattintson a "Változtatások mentése" gombra.</value>
+  </data>
+  <data name="p5" xml:space="preserve">
+    <value>Abban az esetben, ha egy csapatot le kell távolítania a versenyről, ezt a csapat adatai mellett található „Törlés” gombra kattintva teheti meg. Megjelenik egy megerősítő üzenet, és a megerősítést követően a csapat véglegesen eltávolításra kerül az adatrácsból.</value>
+  </data>
+  <data name="p6" xml:space="preserve">
+    <value>A Csapatkezelés oldalon teljes irányítást gyakorolhat az eseményen résztvevő csapatok felett. Használja a csapat információinak rendszerezésére és karbantartására, biztosítva a zökkenőmentes és sikeres sporteseményt.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Csapat menedzsment</value>
+  </data>
+  <data name="SuccessToast" xml:space="preserve">
+    <value>A csapatok sikeresen törölve!</value>
+  </data>
+  <data name="TeamName" xml:space="preserve">
+    <value>Csapat név</value>
+  </data>
+  <data name="TotalItems" xml:space="preserve">
+    <value>összesen tétel</value>
+  </data>
+  <data name="UniqueIdentifier" xml:space="preserve">
+    <value>Egyedi azonosító</value>
+  </data>
+  <data name="WarningToast" xml:space="preserve">
+    <value>A meglévő tevékenységi eredmények miatt nem lehet törölni csapatokat!</value>
+  </data>
+</root>

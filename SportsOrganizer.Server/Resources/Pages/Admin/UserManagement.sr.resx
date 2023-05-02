@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Admin" xml:space="preserve">
+    <value>Админ</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Све</value>
+  </data>
+  <data name="AssignedActivities" xml:space="preserve">
+    <value>Додијељене активности</value>
+  </data>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Додати корисника</value>
+  </data>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Избриши</value>
+  </data>
+  <data name="BtnDeleteAll" xml:space="preserve">
+    <value>Избришите све кориснике</value>
+  </data>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Уредити</value>
+  </data>
+  <data name="BtnExport" xml:space="preserve">
+    <value>Извоз</value>
+  </data>
+  <data name="BtnExportExcel" xml:space="preserve">
+    <value>Извези у ЕКСЦЕЛ</value>
+  </data>
+  <data name="BtnExportPdf" xml:space="preserve">
+    <value>Извези у ПДФ</value>
+  </data>
+  <data name="BtnExportXml" xml:space="preserve">
+    <value>Извези у КСМЛ</value>
+  </data>
+  <data name="BtnPrint" xml:space="preserve">
+    <value>Принт</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Поништити, отказати</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Потврди</value>
+  </data>
+  <data name="ConfModalContent" xml:space="preserve">
+    <value>Да ли заиста желите да избришете све кориснике?</value>
+  </data>
+  <data name="ConfModalHeader" xml:space="preserve">
+    <value>Потврдите брисање свих корисника</value>
+  </data>
+  <data name="DataExportAndPrintingTitle" xml:space="preserve">
+    <value>Извоз и штампање података</value>
+  </data>
+  <data name="EditData" xml:space="preserve">
+    <value>Уреди податке</value>
+  </data>
+  <data name="ep1" xml:space="preserve">
+    <value>Овај одељак вам омогућава да извезете и одштампате податке приказане у мрежи података. Можете извести податке у различите формате датотека, укључујући ПДФ, Екцел и КСМЛ.</value>
+  </data>
+  <data name="ep2" xml:space="preserve">
+    <value>Да бисте извезли податке, једноставно кликните на дугме 'Извези' и изаберите жељени формат датотеке из падајућег менија. Систем ће затим генерисати датотеку и затражити од вас да је сачувате на рачунару.</value>
+  </data>
+  <data name="ep3" xml:space="preserve">
+    <value>Поред извоза, можете и да штампате податке директно са странице. Једноставно кликните на дугме 'Штампај' да бисте отворили дијалог за штампање. Одавде можете да изаберете свој штампач и прилагодите подешавања штампања по потреби.</value>
+  </data>
+  <data name="ep4" xml:space="preserve">
+    <value>Извоз и штампање података је брз и лак начин за дељење и анализу података.</value>
+  </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>Дошло је до грешке!</value>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>Добродошли на страницу за управљање корисницима!</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Ова страница вам омогућава да управљате корисницима апликације вашег спортског догађаја. Помоћу обезбеђеног уређивача можете лако да додајете, мењате или бришете кориснике по потреби.</value>
+  </data>
+  <data name="p3" xml:space="preserve">
+    <value>Додавање новог корисника је једноставно - само кликните на дугме 'Додај корисника' и попуните потребне информације. Можете укључити корисничко име, лозинку и све друге детаље које желите да додате. Након додавања, нови корисник ће се појавити у уређивачу.</value>
+  </data>
+  <data name="p4" xml:space="preserve">
+    <value>Одавде такође можете да доделите улоге корисницима, као што су „Корисник“ или „Администратор“. Корисници са улогом „Админ“ имају приступ свим функцијама апликације, док корисници са улогом „Корисник“ имају ограничен приступ. Такође можете одабрати којим активностима сваки корисник може приступити, дајући вам потпуну контролу над њиховим дозволама.</value>
+  </data>
+  <data name="p5" xml:space="preserve">
+    <value>Ако треба да унесете промене у постојећег корисника, једноставно кликните на дугме „Измени“ поред информација о кориснику. Можете да измените корисничко име, лозинку, улогу или било које друге детаље по потреби. Када завршите, само кликните на дугме „Сачувај промене“.</value>
+  </data>
+  <data name="p6" xml:space="preserve">
+    <value>У случају да морате да уклоните корисника, то можете учинити кликом на дугме 'Избриши' поред информација о кориснику. Појавит ће се упит за потврду, а након потврде, корисник ће бити трајно уклоњен из уређивача.</value>
+  </data>
+  <data name="p7" xml:space="preserve">
+    <value>Са страницом за управљање корисницима, имате потпуну контролу над корисницима апликације вашег спортског догађаја. Користите га за организовање и одржавање корисничких информација, обезбеђујући сигуран и успешан спортски догађај.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Управљање корисницима</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Лозинка</value>
+  </data>
+  <data name="SuccessToast" xml:space="preserve">
+    <value>Корисници су успешно избрисани!</value>
+  </data>
+  <data name="UniqueIdentifier" xml:space="preserve">
+    <value>Јединствени идентификатор</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Корисник</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Корисничко име</value>
+  </data>
+  <data name="UserType" xml:space="preserve">
+    <value>Тип корисника</value>
+  </data>
+</root>

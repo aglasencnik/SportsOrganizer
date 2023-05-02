@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivityNumber" xml:space="preserve">
+    <value>Številka dejavnosti</value>
+  </data>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Dodaj rezultat</value>
+  </data>
+  <data name="BtnDelete" xml:space="preserve">
+    <value>Izbriši</value>
+  </data>
+  <data name="BtnDeleteAll" xml:space="preserve">
+    <value>Izbriši vse rezultate</value>
+  </data>
+  <data name="BtnEdit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="BtnExport" xml:space="preserve">
+    <value>Izvozi</value>
+  </data>
+  <data name="BtnExportExcel" xml:space="preserve">
+    <value>Izvoz v EXCEL</value>
+  </data>
+  <data name="BtnExportPdf" xml:space="preserve">
+    <value>Izvozi v PDF</value>
+  </data>
+  <data name="BtnExportXml" xml:space="preserve">
+    <value>Izvoz v XML</value>
+  </data>
+  <data name="BtnPrint" xml:space="preserve">
+    <value>Tiskanje</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Prekliči</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potrdi</value>
+  </data>
+  <data name="ConfModalContent" xml:space="preserve">
+    <value>Ali res želite izbrisati vse rezultate?</value>
+  </data>
+  <data name="ConfModalHeader" xml:space="preserve">
+    <value>Potrdite izbris vseh rezultatov</value>
+  </data>
+  <data name="DataExportAndPrintingTitle" xml:space="preserve">
+    <value>Izvoz in tiskanje podatkov</value>
+  </data>
+  <data name="EditData" xml:space="preserve">
+    <value>Uredi podatke</value>
+  </data>
+  <data name="ep1" xml:space="preserve">
+    <value>Ta razdelek vam omogoča izvoz in tiskanje podatkov, prikazanih v podatkovni mreži. Podatke lahko izvozite v različne formate datotek, vključno s PDF, Excel in XML.</value>
+  </data>
+  <data name="ep2" xml:space="preserve">
+    <value>Če želite izvoziti podatke, preprosto kliknite gumb »Izvozi« in v spustnem meniju izberite želeno obliko datoteke. Sistem bo nato ustvaril datoteko in vas pozval, da jo shranite v svoj računalnik.</value>
+  </data>
+  <data name="ep3" xml:space="preserve">
+    <value>Poleg izvoza lahko podatke tudi natisnete neposredno s strani. Preprosto kliknite gumb 'Natisni', da odprete pogovorno okno za tiskanje. Tukaj lahko izberete svoj tiskalnik in po potrebi prilagodite nastavitve tiskanja.</value>
+  </data>
+  <data name="ep4" xml:space="preserve">
+    <value>Izvoz in tiskanje podatkov je hiter in enostaven način za skupno rabo in analizo podatkov.</value>
+  </data>
+  <data name="ErrorToast" xml:space="preserve">
+    <value>Prišlo je do napake!</value>
+  </data>
+  <data name="p1" xml:space="preserve">
+    <value>Dobrodošli na strani urejevalnika rezultatov!</value>
+  </data>
+  <data name="p2" xml:space="preserve">
+    <value>Ta stran vam omogoča urejanje rezultatov aktivnosti, ki so jih opravile tekmovalne ekipe na vašem športnem dogodku. S priloženim urejevalnikom lahko po potrebi preprosto dodate, uredite ali izbrišete rezultate dejavnosti.</value>
+  </data>
+  <data name="p3" xml:space="preserve">
+    <value>Podatkovna mreža prikazuje vse dejavnosti in ustrezne rezultate, ki so jih poslale ekipe. Če želite dodati nov rezultat, preprosto kliknite gumb »Dodaj rezultat« in izpolnite potrebne podatke. Ko je dodan, se bo nov rezultat pojavil v podatkovni mreži.</value>
+  </data>
+  <data name="p4" xml:space="preserve">
+    <value>Če morate spremeniti obstoječi rezultat, preprosto kliknite gumb 'Uredi' poleg informacij o rezultatu. Po potrebi lahko spremenite ekipo, rezultat ali druge podrobnosti. Ko končate, samo kliknite gumb »Shrani spremembe«.</value>
+  </data>
+  <data name="p5" xml:space="preserve">
+    <value>Če morate rezultat odstraniti, lahko to storite s klikom na gumb »Izbriši« poleg informacij o rezultatu. Prikaže se potrditveni poziv in ko bo rezultat potrjen, bo trajno odstranjen iz podatkovne mreže.</value>
+  </data>
+  <data name="p6" xml:space="preserve">
+    <value>S stranjo Urejevalnik rezultatov imate popoln nadzor nad rezultati dejavnosti, ki so jih opravile tekmovalne ekipe v vašem dogodku. Uporabite ga za organizacijo in vzdrževanje informacij o rezultatih ter tako zagotovite pošten in uspešen športni dogodek.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Urejevalnik rezultatov</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Rezultat</value>
+  </data>
+  <data name="TeamName" xml:space="preserve">
+    <value>Ime ekipe</value>
+  </data>
+  <data name="UniqueIdentifier" xml:space="preserve">
+    <value>Enolični identifikator</value>
+  </data>
+</root>
