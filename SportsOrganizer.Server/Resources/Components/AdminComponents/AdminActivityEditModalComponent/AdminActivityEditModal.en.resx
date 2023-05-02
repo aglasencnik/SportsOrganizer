@@ -147,6 +147,9 @@
   <data name="Distance" xml:space="preserve">
     <value>Distance</value>
   </data>
+  <data name="DuplicateWarning" xml:space="preserve">
+    <value>Duplicate warning!</value>
+  </data>
   <data name="EditTitle" xml:space="preserve">
     <value>Edit activity</value>
   </data>

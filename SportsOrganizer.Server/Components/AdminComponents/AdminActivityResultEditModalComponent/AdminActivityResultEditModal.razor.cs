@@ -1,6 +1,7 @@
 ﻿using Blazored.Toast.Services;
 using Blazorise;
 using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using SportsOrganizer.Data;
 using SportsOrganizer.Data.Enums;
@@ -77,19 +78,25 @@ public class AdminActivityResultEditModalBase : ComponentBase
             {
                 if (ModalParameters.EditType == EditType.Add)
                 {
-                    await DbContext.ActivityResults.AddAsync(ActivityResult);
-                    await DbContext.SaveChangesAsync();
+                    var existingResult = await DbContext.ActivityResults.FirstOrDefaultAsync(x => x.ActivityId == ActivityResult.ActivityId && x.TeamId == ActivityResult.TeamId);
 
-                    for (int i = 0; i < PlayerResults.Count; i++)
+                    if (existingResult == null)
                     {
-                        PlayerResults[i].ActivityResultId = ActivityResult.Id;
+                        await DbContext.ActivityResults.AddAsync(ActivityResult);
+                        await DbContext.SaveChangesAsync();
+
+                        for (int i = 0; i < PlayerResults.Count; i++)
+                        {
+                            PlayerResults[i].ActivityResultId = ActivityResult.Id;
+                        }
+
+                        DbContext.PlayerResults.UpdateRange(PlayerResults);
+                        await DbContext.SaveChangesAsync();
+
+                        Toast.ShowSuccess(Localizer["SuccessToast"]);
+                        await ModalService.Hide();
                     }
-
-                    DbContext.PlayerResults.UpdateRange(PlayerResults);
-                    await DbContext.SaveChangesAsync();
-
-                    Toast.ShowSuccess(Localizer["SuccessToast"]);
-                    await ModalService.Hide();
+                    else Toast.ShowWarning(Localizer["DuplicateWarning"]);
                 }
                 else if (ModalParameters.EditType == EditType.Edit)
                 {

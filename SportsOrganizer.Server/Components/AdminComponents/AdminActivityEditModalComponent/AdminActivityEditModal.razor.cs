@@ -4,11 +4,9 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using SportsOrganizer.Data;
-using SportsOrganizer.Data.Enums;
 using SportsOrganizer.Data.Models;
 using SportsOrganizer.Server.Enums;
 using SportsOrganizer.Server.Models;
-using SportsOrganizer.Server.Pages;
 using SportsOrganizer.Server.Services;
 
 namespace SportsOrganizer.Server.Components.AdminComponents.AdminActivityEditModalComponent;
@@ -54,12 +52,19 @@ public class AdminActivityEditModalBase : ComponentBase
             {
                 if (ModalParameters.EditType == EditType.Add)
                 {
-                    await DbContext.Activities.AddAsync(Activity);
+                    var existingActivity = await DbContext.Activities.FirstOrDefaultAsync(x => x.ActivityNumber == Activity.ActivityNumber 
+                                                                                            && x.Title == Activity.Title);
 
-                    await DbContext.SaveChangesAsync();
+                    if (existingActivity == null)
+                    {
+                        await DbContext.Activities.AddAsync(Activity);
 
-                    Toast.ShowSuccess(Localizer["SuccessToast"]);
-                    await ModalService.Hide();
+                        await DbContext.SaveChangesAsync();
+
+                        Toast.ShowSuccess(Localizer["SuccessToast"]);
+                        await ModalService.Hide();
+                    }
+                    else Toast.ShowWarning(Localizer["DuplicateWarning"]);
                 }
                 else if (ModalParameters.EditType == EditType.Edit)
                 {

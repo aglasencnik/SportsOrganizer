@@ -135,6 +135,9 @@
   <data name="DistanceText" xml:space="preserve">
     <value>Enter the distance in the format written in the rules.</value>
   </data>
+  <data name="DuplicateWarning" xml:space="preserve">
+    <value>Duplicate warning!</value>
+  </data>
   <data name="EditTitle" xml:space="preserve">
     <value>Edit result</value>
   </data>

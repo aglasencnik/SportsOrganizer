@@ -48,12 +48,18 @@ public class AdminTeamEditModalBase : ComponentBase
             {
                 if (ModalParameters.EditType == EditType.Add)
                 {
-                    await DbContext.Teams.AddAsync(Team);
+                    var existingTeam = await DbContext.Teams.FirstOrDefaultAsync(x => x.Name == Team.Name);
 
-                    await DbContext.SaveChangesAsync();
+                    if (existingTeam == null)
+                    {
+                        await DbContext.Teams.AddAsync(Team);
 
-                    Toast.ShowSuccess(Localizer["SuccessToast"]);
-                    await ModalService.Hide();
+                        await DbContext.SaveChangesAsync();
+
+                        Toast.ShowSuccess(Localizer["SuccessToast"]);
+                        await ModalService.Hide();
+                    }
+                    else Toast.ShowWarning(Localizer["DuplicateWarning"]);
                 }
                 else if (ModalParameters.EditType == EditType.Edit)
                 {

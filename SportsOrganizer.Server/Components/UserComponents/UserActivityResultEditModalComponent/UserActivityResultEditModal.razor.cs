@@ -34,7 +34,7 @@ public class UserActivityResultEditModalBase : ComponentBase
     protected TeamModel Team { get; set; } = new();
     protected List<PlayerResultModel> PlayerResults { get; set; } = new();
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         ActivityResult = DbContext.ActivityResults.FirstOrDefault(x => x.Id == ModalParameters.Id);
         Activity = DbContext.Activities.FirstOrDefault(x => x.Id == ActivityResult.ActivityId);

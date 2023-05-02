@@ -60,23 +60,29 @@ public class AdminUserEditModalBase : ComponentBase
             {
                 if (ModalParameters.EditType == EditType.Add)
                 {
-                    await DbContext.Users.AddAsync(User);
-                    await DbContext.SaveChangesAsync();
+                    var existingUser = await DbContext.Users.FirstOrDefaultAsync(x => x.Username == User.Username);
 
-                    if (SelectedActivityIds != null && SelectedActivityIds.Count != 0)
+                    if (existingUser == null)
                     {
-                        foreach (var activityId in SelectedActivityIds)
+                        await DbContext.Users.AddAsync(User);
+                        await DbContext.SaveChangesAsync();
+
+                        if (SelectedActivityIds != null && SelectedActivityIds.Count != 0)
                         {
-                            UserActivities.Add(new UserActivityModel { ActivityId = activityId, UserId = User.Id });
+                            foreach (var activityId in SelectedActivityIds)
+                            {
+                                UserActivities.Add(new UserActivityModel { ActivityId = activityId, UserId = User.Id });
+                            }
+
+                            await DbContext.UserActivities.AddRangeAsync(UserActivities);
                         }
 
-                        await DbContext.UserActivities.AddRangeAsync(UserActivities);
+                        await DbContext.SaveChangesAsync();
+
+                        Toast.ShowSuccess(Localizer["SuccessToast"]);
+                        await ModalService.Hide();
                     }
-
-                    await DbContext.SaveChangesAsync();
-
-                    Toast.ShowSuccess(Localizer["SuccessToast"]);
-                    await ModalService.Hide();
+                    else Toast.ShowWarning(Localizer["DuplicateWarning"]);
                 }
                 else if (ModalParameters.EditType == EditType.Edit)
                 {
