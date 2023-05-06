@@ -121,7 +121,7 @@
     <value>Predogled</value>
   </data>
   <data name="BtnSelect" xml:space="preserve">
-    <value>Izberite Tema</value>
+    <value>Izberi temo</value>
   </data>
   <data name="ErrorToast" xml:space="preserve">
     <value>Prišlo je do napake!</value>

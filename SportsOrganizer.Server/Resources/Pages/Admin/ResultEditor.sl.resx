@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivityNumber" xml:space="preserve">
-    <value>Številka dejavnosti</value>
+    <value>Številka naloge</value>
   </data>
   <data name="BtnAdd" xml:space="preserve">
     <value>Dodaj rezultat</value>
@@ -184,10 +184,10 @@
     <value>Dobrodošli na strani urejevalnika rezultatov!</value>
   </data>
   <data name="p2" xml:space="preserve">
-    <value>Ta stran vam omogoča urejanje rezultatov aktivnosti, ki so jih opravile tekmovalne ekipe na vašem športnem dogodku. S priloženim urejevalnikom lahko po potrebi preprosto dodate, uredite ali izbrišete rezultate dejavnosti.</value>
+    <value>Ta stran vam omogoča urejanje rezultatov nalog, ki so jih opravile tekmovalne ekipe na vašem športnem dogodku. S priloženim urejevalnikom lahko po potrebi preprosto dodate, uredite ali izbrišete rezultate dejavnosti.</value>
   </data>
   <data name="p3" xml:space="preserve">
-    <value>Podatkovna mreža prikazuje vse dejavnosti in ustrezne rezultate, ki so jih poslale ekipe. Če želite dodati nov rezultat, preprosto kliknite gumb »Dodaj rezultat« in izpolnite potrebne podatke. Ko je dodan, se bo nov rezultat pojavil v podatkovni mreži.</value>
+    <value>Podatkovna mreža prikazuje vse naloge in ustrezne rezultate, ki so jih poslale ekipe. Če želite dodati nov rezultat, preprosto kliknite gumb »Dodaj rezultat« in izpolnite potrebne podatke. Ko je dodan, se bo nov rezultat pojavil v podatkovni mreži.</value>
   </data>
   <data name="p4" xml:space="preserve">
     <value>Če morate spremeniti obstoječi rezultat, preprosto kliknite gumb 'Uredi' poleg informacij o rezultatu. Po potrebi lahko spremenite ekipo, rezultat ali druge podrobnosti. Ko končate, samo kliknite gumb »Shrani spremembe«.</value>
@@ -196,7 +196,7 @@
     <value>Če morate rezultat odstraniti, lahko to storite s klikom na gumb »Izbriši« poleg informacij o rezultatu. Prikaže se potrditveni poziv in ko bo rezultat potrjen, bo trajno odstranjen iz podatkovne mreže.</value>
   </data>
   <data name="p6" xml:space="preserve">
-    <value>S stranjo Urejevalnik rezultatov imate popoln nadzor nad rezultati dejavnosti, ki so jih opravile tekmovalne ekipe v vašem dogodku. Uporabite ga za organizacijo in vzdrževanje informacij o rezultatih ter tako zagotovite pošten in uspešen športni dogodek.</value>
+    <value>S stranjo Urejevalnik rezultatov imate popoln nadzor nad rezultati nalog, ki so jih opravile tekmovalne ekipe v vašem dogodku. Uporabite ga za organizacijo in vzdrževanje informacij o rezultatih ter tako zagotovite pošten in uspešen športni dogodek.</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Urejevalnik rezultatov</value>

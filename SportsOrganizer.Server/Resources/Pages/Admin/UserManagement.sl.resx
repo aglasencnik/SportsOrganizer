@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Admin" xml:space="preserve">
-    <value>skrbnik</value>
+    <value>Skrbnik</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>Vse</value>
   </data>
   <data name="AssignedActivities" xml:space="preserve">
-    <value>Dodeljene dejavnosti</value>
+    <value>Dodeljene naloge</value>
   </data>
   <data name="BtnAdd" xml:space="preserve">
     <value>Dodaj uporabnika</value>
@@ -196,7 +196,7 @@
     <value>Dodajanje novega uporabnika je preprosto - samo kliknite gumb 'Dodaj uporabnika' in izpolnite potrebne podatke. Vključite lahko uporabniško ime, geslo in vse druge podrobnosti, ki jih želite dodati. Ko je nov uporabnik dodan, se bo pojavil v urejevalniku.</value>
   </data>
   <data name="p4" xml:space="preserve">
-    <value>Tukaj lahko uporabnikom dodelite tudi vloge, kot sta 'Uporabnik' ali 'Skrbnik'. Uporabniki z vlogo 'Admin' imajo dostop do vseh funkcij aplikacije, uporabniki z vlogo 'Uporabnik' pa imajo omejen dostop. Izberete lahko tudi, do katerih dejavnosti lahko dostopa vsak uporabnik, kar vam daje popoln nadzor nad njihovimi dovoljenji.</value>
+    <value>Tukaj lahko uporabnikom dodelite tudi vloge, kot sta 'Uporabnik' ali 'Skrbnik'. Uporabniki z vlogo 'Admin' imajo dostop do vseh funkcij aplikacije, uporabniki z vlogo 'Uporabnik' pa imajo omejen dostop. Izberete lahko tudi, do katerih nalog lahko dostopa vsak uporabnik, kar vam daje popoln nadzor nad njihovimi dovoljenji.</value>
   </data>
   <data name="p5" xml:space="preserve">
     <value>Če morate spremeniti obstoječega uporabnika, preprosto kliknite gumb 'Uredi' poleg informacij o uporabniku. Po potrebi lahko spremenite uporabniško ime, geslo, vlogo ali druge podrobnosti. Ko končate, samo kliknite gumb »Shrani spremembe«.</value>

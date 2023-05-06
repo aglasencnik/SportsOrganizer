@@ -127,13 +127,13 @@
     <value>Shrani spremembe</value>
   </data>
   <data name="CanNotDeleteToast" xml:space="preserve">
-    <value>Ekipe ni mogoče izbrisati zaradi obstoječih rezultatov dejavnosti!</value>
+    <value>Ekipe ni mogoče izbrisati zaradi obstoječih rezultatov!</value>
   </data>
   <data name="DeleteTitle" xml:space="preserve">
     <value>Izbriši ekipo</value>
   </data>
   <data name="DuplicateWarning" xml:space="preserve">
-    <value>Podvojeno opozorilo!</value>
+    <value>Opozorilo o možni podvojenosti!</value>
   </data>
   <data name="EditTitle" xml:space="preserve">
     <value>Uredi ekipo</value>

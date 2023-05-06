@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivityEditor" xml:space="preserve">
-    <value>Urejevalnik dejavnosti</value>
+    <value>Urejevalnik nalog</value>
   </data>
   <data name="Backup&amp;Restore" xml:space="preserve">
     <value>Varnostno kopiranje in obnovitev</value>
@@ -136,19 +136,19 @@
     <value>Urejevalnik rezultatov</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>nastavitve</value>
+    <value>Nastavitve</value>
   </data>
   <data name="SportsOrganizerLogo" xml:space="preserve">
     <value>Logo organizatorja športa</value>
   </data>
   <data name="TeamManagement" xml:space="preserve">
-    <value>Vodenje ekipe</value>
+    <value>Vodenje ekip</value>
   </data>
   <data name="ThemeSelector" xml:space="preserve">
     <value>Izbirnik tem</value>
   </data>
   <data name="Update&amp;Versioning" xml:space="preserve">
-    <value>Posodobitev in urejanje različic</value>
+    <value>Posodobitev in urejanje verzij</value>
   </data>
   <data name="UserManagement" xml:space="preserve">
     <value>Upravljanje uporabnikov</value>

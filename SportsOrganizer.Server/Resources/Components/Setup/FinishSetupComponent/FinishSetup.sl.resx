@@ -124,12 +124,12 @@
     <value>SportsOrganizer je bil uspešno nameščen. Hvala in uživajte!</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>geslo:</value>
+    <value>Geslo:</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>uspeh!</value>
+    <value>Uspeh!</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>uporabniško ime:</value>
+    <value>Uporabniško ime:</value>
   </data>
 </root>

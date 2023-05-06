@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BtnBackup" xml:space="preserve">
-    <value>Rezerva</value>
+    <value>Varnostno kopiranje</value>
   </data>
   <data name="BtnRestore" xml:space="preserve">
     <value>Obnovi</value>
@@ -148,7 +148,7 @@
     <value>Ta stran vam omogoča izdelavo varnostne kopije datotek aplikacije vašega športnega dogodka in po potrebi obnovitev iz prejšnjih primerkov. S tem orodjem lahko zagotovite varnost svojih podatkov in preprosto obnovite morebitne napake.</value>
   </data>
   <data name="p3" xml:space="preserve">
-    <value>Če želite narediti varnostno kopijo vaše aplikacije, preprosto kliknite gumb 'Varnostno kopiraj'. S tem boste ustvarili varnostno kopijo vaše aplikacije in jo shranili na izbrano lokacijo. Nato lahko uporabite to datoteko varnostne kopije, da po potrebi obnovite svojo aplikacijo na prejšnji primerek.</value>
+    <value>Če želite narediti varnostno kopijo vaše aplikacije, preprosto kliknite gumb 'Varnostno kopiranje'. S tem boste ustvarili varnostno kopijo vaše aplikacije in jo shranili na izbrano lokacijo. Nato lahko uporabite to datoteko varnostne kopije, da po potrebi obnovite svojo aplikacijo na prejšnji primerek.</value>
   </data>
   <data name="p4" xml:space="preserve">
     <value>Če želite obnoviti svojo aplikacijo iz prejšnjega primerka, kliknite gumb »Obnovi« in izberite varnostno kopijo, ki jo želite uporabiti. Vaša aplikacija bo nato obnovljena v stanje, v katerem je bila v času, ko je bila ustvarjena varnostna kopija.</value>

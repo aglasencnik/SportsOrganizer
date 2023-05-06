@@ -130,7 +130,7 @@
     <value>Urejanje podatkov</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
-    <value>Pregled rezultatov dejavnosti</value>
+    <value>Pregled rezultatov nalog</value>
   </data>
   <data name="Player" xml:space="preserve">
     <value>Igralec</value>
@@ -142,7 +142,7 @@
     <value>Ime ekipe</value>
   </data>
   <data name="totalItems" xml:space="preserve">
-    <value>skupno postavk</value>
+    <value>skupno</value>
   </data>
   <data name="UniqueIdentifier" xml:space="preserve">
     <value>Enolični identifikator</value>

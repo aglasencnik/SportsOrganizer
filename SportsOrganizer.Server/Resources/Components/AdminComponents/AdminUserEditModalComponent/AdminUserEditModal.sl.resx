@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Activity" xml:space="preserve">
-    <value>dejavnost</value>
+    <value>Naloga</value>
   </data>
   <data name="AddTitle" xml:space="preserve">
     <value>Dodaj uporabnika</value>
   </data>
   <data name="Admin" xml:space="preserve">
-    <value>skrbnik</value>
+    <value>Skrbnik</value>
   </data>
   <data name="AssignedActivities" xml:space="preserve">
-    <value>Dodeljene dejavnosti:</value>
+    <value>Dodeljene naloge:</value>
   </data>
   <data name="BtnCancel" xml:space="preserve">
     <value>Prekliči</value>
@@ -139,7 +139,7 @@
     <value>Izbriši uporabnika</value>
   </data>
   <data name="DuplicateWarning" xml:space="preserve">
-    <value>Podvojeno opozorilo!</value>
+    <value>Opozorilo o možni podvojenosti!</value>
   </data>
   <data name="EditTitle" xml:space="preserve">
     <value>Uredi uporabnika</value>
@@ -148,7 +148,7 @@
     <value>Prišlo je do napake!</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>geslo:</value>
+    <value>Geslo:</value>
   </data>
   <data name="ShowHidePass" xml:space="preserve">
     <value>Pokaži ali skrij geslo</value>
@@ -163,7 +163,7 @@
     <value>Uporabnik</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>uporabniško ime:</value>
+    <value>Uporabniško ime:</value>
   </data>
   <data name="UserType" xml:space="preserve">
     <value>Vrsta uporabnika:</value>

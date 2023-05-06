@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Active" xml:space="preserve">
-    <value>Aktiven</value>
+    <value>Aktivno</value>
   </data>
   <data name="Ascending" xml:space="preserve">
     <value>Naraščajoče</value>
@@ -154,7 +154,7 @@
     <value>Polje Obvestilo o avtorskih pravicah ne sme biti prazno!</value>
   </data>
   <data name="Danger" xml:space="preserve">
-    <value>Nevarnost</value>
+    <value>Nevarno</value>
   </data>
   <data name="Dark" xml:space="preserve">
     <value>Temno</value>
@@ -163,16 +163,16 @@
     <value>Privzeto</value>
   </data>
   <data name="Descending" xml:space="preserve">
-    <value>Sestopanje</value>
+    <value>Padajoče</value>
   </data>
   <data name="ErrorToast" xml:space="preserve">
     <value>Prišlo je do napake!</value>
   </data>
   <data name="Info" xml:space="preserve">
-    <value>Informacije</value>
+    <value>Informacija</value>
   </data>
   <data name="Light" xml:space="preserve">
-    <value>Svetloba</value>
+    <value>Svetlo</value>
   </data>
   <data name="p1" xml:space="preserve">
     <value>Dobrodošli na strani z nastavitvami!</value>
@@ -190,10 +190,10 @@
     <value>Stran z nastavitvami je zmogljivo orodje, ki vam omogoča, da aplikacijo prilagodite svojim posebnim potrebam. Uporabite ga za prilagoditev in natančno nastavitev aplikacije, da zagotovite uspešen in brezhiben športni dogodek.</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
-    <value>nastavitve</value>
+    <value>Nastavitve</value>
   </data>
   <data name="Primary" xml:space="preserve">
-    <value>Primarni</value>
+    <value>Primarno</value>
   </data>
   <data name="Secondary" xml:space="preserve">
     <value>Sekundarno</value>
@@ -223,7 +223,7 @@
     <value>Polje 'Barva tabele končnih rezultatov' vam omogoča nastavitev barve podatkovne mreže, ki prikazuje končne rezultate tekmovanja.</value>
   </data>
   <data name="tp5" xml:space="preserve">
-    <value>Uporabite polje 'Barva tabele posamezne dejavnosti', da nastavite barvo podatkovne mreže, ki prikazuje rezultate posamezne dejavnosti.</value>
+    <value>Uporabite polje 'Barva tabele posamezne naloge', da nastavite barvo podatkovne mreže, ki prikazuje rezultate posamezne dejavnosti.</value>
   </data>
   <data name="tp6" xml:space="preserve">
     <value>Uporabite spustni meni »Kontrast teme mreže podatkov«, da izberete privzeto nastavitev kontrasta za mreže podatkov. To bo zagotovilo, da bodo podatki prikazani na jasen in berljiv način.</value>
@@ -238,7 +238,7 @@
     <value>Uporabite polje 'Ozadje skrbniške glave', da izberete barvo ozadja za skrbniško glavo.</value>
   </data>
   <data name="Transparent" xml:space="preserve">
-    <value>Pregleden</value>
+    <value>Prozorno</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Opozorilo</value>

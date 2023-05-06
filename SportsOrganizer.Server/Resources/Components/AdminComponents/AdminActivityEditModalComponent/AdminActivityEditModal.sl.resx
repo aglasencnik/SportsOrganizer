@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivityNumber" xml:space="preserve">
-    <value>Številka aktivnosti:</value>
+    <value>Številka naloge:</value>
   </data>
   <data name="ActivityType" xml:space="preserve">
-    <value>Vrsta dejavnosti:</value>
+    <value>Vrsta naloge:</value>
   </data>
   <data name="AddTitle" xml:space="preserve">
-    <value>Dodajte dejavnost</value>
+    <value>Dodajte nalogo</value>
   </data>
   <data name="Ascending" xml:space="preserve">
     <value>Naraščajoče</value>
@@ -136,22 +136,22 @@
     <value>Shrani spremembe</value>
   </data>
   <data name="CanNotDeleteToast" xml:space="preserve">
-    <value>Dejavnosti ni mogoče izbrisati zaradi obstoječih rezultatov dejavnosti ali uporabnikov z dovoljenji za dejavnost!</value>
+    <value>Naloge ni mogoče izbrisati zaradi obstoječih rezultatov ali uporabnikov z dovoljenji za nalogo!</value>
   </data>
   <data name="DeleteTitle" xml:space="preserve">
-    <value>Izbriši dejavnost</value>
+    <value>Izbriši nalogo</value>
   </data>
   <data name="Descending" xml:space="preserve">
-    <value>Sestopanje</value>
+    <value>Padajoče</value>
   </data>
   <data name="Distance" xml:space="preserve">
     <value>Razdalja</value>
   </data>
   <data name="DuplicateWarning" xml:space="preserve">
-    <value>Podvojeno opozorilo!</value>
+    <value>Opozorilo o možni podvojenosti!</value>
   </data>
   <data name="EditTitle" xml:space="preserve">
-    <value>Uredi dejavnost</value>
+    <value>Uredi nalogo</value>
   </data>
   <data name="ErrorToast" xml:space="preserve">
     <value>Prišlo je do napake!</value>
@@ -163,7 +163,7 @@
     <value>Število igralcev:</value>
   </data>
   <data name="OrderType" xml:space="preserve">
-    <value>Vrsta naročila:</value>
+    <value>Vrsta razvrščanja:</value>
   </data>
   <data name="Points" xml:space="preserve">
     <value>Točke</value>

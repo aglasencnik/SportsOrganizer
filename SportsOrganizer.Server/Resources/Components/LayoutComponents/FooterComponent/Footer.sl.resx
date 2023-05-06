@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Activities" xml:space="preserve">
-    <value>dejavnosti</value>
+    <value>Naloge</value>
   </data>
   <data name="ActivityResults" xml:space="preserve">
     <value>Rezultati</value>
@@ -130,7 +130,7 @@
     <value>Domača stran</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Vpiši se</value>
+    <value>Prijava</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Odjava</value>

@@ -124,13 +124,13 @@
     <value>Potrdi</value>
   </data>
   <data name="DeleteTitle" xml:space="preserve">
-    <value>Izbriši rezultat dejavnosti</value>
+    <value>Izbriši rezultat</value>
   </data>
   <data name="DistanceText" xml:space="preserve">
     <value>Razdaljo vnesite v obliki zapisani v pravilih.</value>
   </data>
   <data name="EditTitle" xml:space="preserve">
-    <value>Uredi rezultat dejavnosti</value>
+    <value>Uredi rezultat</value>
   </data>
   <data name="ErrorToast" xml:space="preserve">
     <value>Prišlo je do napake!</value>
@@ -148,7 +148,7 @@
     <value>Spremembe uspešno shranjene!</value>
   </data>
   <data name="Team" xml:space="preserve">
-    <value>ekipa:</value>
+    <value>Ekipa:</value>
   </data>
   <data name="TimeText" xml:space="preserve">
     <value>Čas vnesite v obliki, ki je zapisana v pravilih in izbrana v nastavitvah brskalnika (npr. 123,45).</value>

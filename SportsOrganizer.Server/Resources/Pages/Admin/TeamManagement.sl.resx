@@ -205,12 +205,12 @@
     <value>Ime ekipe</value>
   </data>
   <data name="TotalItems" xml:space="preserve">
-    <value>skupno postavk</value>
+    <value>skupno</value>
   </data>
   <data name="UniqueIdentifier" xml:space="preserve">
     <value>Enolični identifikator</value>
   </data>
   <data name="WarningToast" xml:space="preserve">
-    <value>Ekip ni mogoče izbrisati zaradi obstoječih rezultatov dejavnosti!</value>
+    <value>Ekip ni mogoče izbrisati zaradi obstoječih rezultatov nalog!</value>
   </data>
 </root>
