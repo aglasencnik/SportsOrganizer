@@ -70,7 +70,7 @@ public class BackupAndRestoreBase : ComponentBase
         if (data.success)
         {
             DateTime currentTime = DateTime.Now;
-            await JSRuntime.InvokeVoidAsync("downloadFile", $"SportsOrganizer_backup_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xml", data.message);
+            await JSRuntime.InvokeVoidAsync("saveAsXml", $"SportsOrganizer_backup_{currentTime.ToString("yyyy-MM-dd HH:mm:ss")}.xml", data.message);
         }
         else ToastService.ShowError(Localizer["ErrorToast"]);
     }
