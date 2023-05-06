@@ -8,4 +8,5 @@ public class ActivityResultSortModel
     public TeamModel? Team { get; set; }
     public ActivityModel? Activity { get; set; }
     public ActivityResultModel? ActivityResult { get; set; }
+    public List<PlayerResultModel>? PlayerResults { get; set; }
 }

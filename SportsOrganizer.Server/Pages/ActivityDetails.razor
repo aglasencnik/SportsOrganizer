@@ -1,4 +1,5 @@
 ﻿@page "/Activity-Details/{ActivityId:int}"
+@using SportsOrganizer.Data.Models;
 @inherits ActivityDetailsBase
 
 <PageTitle>@($"{Activity.ActivityNumber}. {Localizer["Activity"]}") - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
@@ -42,11 +43,19 @@
                             {
                                 var activityResult = ActivityResults.FirstOrDefault(x => x.TeamId == team.Id);
 
+                                List<PlayerResultModel> playerResults = new();
+
+                                if (activityResult != null) 
+                                {
+                                    playerResults = PlayerResults.Where(x => x.ActivityResultId == activityResult.Id).ToList();
+                                }
+
                                 sortedActivityResults.Add(new ActivityResultSortModel()
                                 {
                                     Team = team,
                                     Activity = Activity,
-                                    ActivityResult = activityResult
+                                    ActivityResult = activityResult,
+                                    PlayerResults = playerResults
                                 });
                             }
 
@@ -59,13 +68,13 @@
                                     <td>@activityResult.Team.Name</td>
                                     @if (Activity.NumberOfPlayers > 1)
                                     {
-                                        if (activityResult.ActivityResult != null)
+                                        if (activityResult.ActivityResult != null 
+                                            && activityResult.PlayerResults != null 
+                                            && activityResult.PlayerResults.Count != 0)
                                         {
-                                            var playerResults = PlayerResults.Where(x => x.ActivityResultId == activityResult.ActivityResult.Id);
-
-                                            foreach (var result in playerResults)
+                                            foreach (var result in activityResult.PlayerResults)
                                             {
-                                                <td>@($"{result}")</td>
+                                                <td>@result.Result</td>
                                             }
                                         }
                                         else

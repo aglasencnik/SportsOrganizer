@@ -1,12 +1,13 @@
 ﻿@page "/Activity-Results"
+@using SportsOrganizer.Data.Models;
 @inherits ActivityResultsBase
 
 <PageTitle>@Localizer["PageTitle"] - @((string)MemoryStorage.GetValue(KeyValueType.Title))</PageTitle>
 
-<h1 class="text-center display-6">@Localizer["PageTitle"]</h1>
+    <h1 class="text-center display-6">@Localizer["PageTitle"]</h1>
 
-<div class="mt-5">
-    @if (Activities != null && Activities.Count != 0)
+    <div class="mt-5">
+        @if (Activities != null && Activities.Count != 0)
     {
         foreach (var Activity in Activities)
         {
@@ -47,13 +48,21 @@
 
                                             foreach (var team in Teams)
                                             {
-                                                var activityResult = ActivityResults.FirstOrDefault(x => x.TeamId == team.Id);
+                                                var activityResult = ActivityResults.FirstOrDefault(x => x.TeamId == team.Id && x.ActivityId == Activity.Id);
+
+                                                List<PlayerResultModel> playerResults = new();
+
+                                                if (activityResult != null)
+                                                {
+                                                    playerResults = PlayerResults.Where(x => x.ActivityResultId == activityResult.Id).ToList();
+                                                }
 
                                                 sortedActivityResults.Add(new ActivityResultSortModel()
                                                 {
                                                     Team = team,
                                                     Activity = Activity,
-                                                    ActivityResult = activityResult
+                                                    ActivityResult = activityResult,
+                                                    PlayerResults = playerResults
                                                 });
                                             }
 
@@ -66,13 +75,13 @@
                                                     <td>@activityResult.Team.Name</td>
                                                     @if (Activity.NumberOfPlayers > 1)
                                                     {
-                                                        if (activityResult.ActivityResult != null)
+                                                        if (activityResult.ActivityResult != null
+                                                            && activityResult.PlayerResults != null
+                                                            && activityResult.PlayerResults.Count != 0)
                                                         {
-                                                            var playerResults = PlayerResults.Where(x => x.ActivityResultId == activityResult.ActivityResult.Id);
-
-                                                            foreach (var result in playerResults)
+                                                            foreach (var result in activityResult.PlayerResults)
                                                             {
-                                                                <td>@($"{result}")</td>
+                                                                <td>@result.Result</td>
                                                             }
                                                         }
                                                         else
@@ -95,6 +104,7 @@
                     </div>
                 </div>
             </div>
+            <hr />
         }
     }
 </div>
