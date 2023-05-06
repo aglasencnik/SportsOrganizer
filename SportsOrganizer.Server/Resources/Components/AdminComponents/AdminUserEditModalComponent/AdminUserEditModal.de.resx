@@ -150,6 +150,9 @@
   <data name="Password" xml:space="preserve">
     <value>Passwort:</value>
   </data>
+  <data name="ShowHidePass" xml:space="preserve">
+    <value>Passwort ein- oder ausblenden</value>
+  </data>
   <data name="SuccessToast" xml:space="preserve">
     <value>Änderungen erfolgreich gespeichert!</value>
   </data>

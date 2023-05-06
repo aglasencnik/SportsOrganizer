@@ -150,6 +150,9 @@
   <data name="Password" xml:space="preserve">
     <value>geslo:</value>
   </data>
+  <data name="ShowHidePass" xml:space="preserve">
+    <value>Pokaži ali skrij geslo</value>
+  </data>
   <data name="SuccessToast" xml:space="preserve">
     <value>Spremembe uspešno shranjene!</value>
   </data>

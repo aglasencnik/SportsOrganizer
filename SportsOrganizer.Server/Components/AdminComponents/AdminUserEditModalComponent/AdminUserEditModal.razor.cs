@@ -36,6 +36,8 @@ public class AdminUserEditModalBase : ComponentBase
     protected List<UserActivityModel> UserActivities { get; set; } = new();
     protected List<ActivityModel> Activities { get; set; } = new();
     protected IReadOnlyList<int> SelectedActivityIds { get; set; }
+    protected TextRole Role { get; set; }
+    protected bool ShowPassword { get; set; }
 
     protected override void OnInitialized()
     {
@@ -48,6 +50,8 @@ public class AdminUserEditModalBase : ComponentBase
 
         User.UserType = UserType.User;
         Activities = DbContext.Activities.ToList();
+
+        Role = TextRole.Password;
     }
 
     protected async Task Confirm()
@@ -157,5 +161,12 @@ public class AdminUserEditModalBase : ComponentBase
             Toast.ShowError(Localizer["ErrorToast"]);
             await ModalService.Hide();
         }
+    }
+
+    protected void TogglePasswordVisibility()
+    {
+        ShowPassword = !ShowPassword;
+        if (ShowPassword) Role = TextRole.Text;
+        else Role = TextRole.Password;
     }
 }

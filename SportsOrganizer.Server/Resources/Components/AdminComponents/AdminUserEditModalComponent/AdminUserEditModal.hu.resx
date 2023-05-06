@@ -150,6 +150,9 @@
   <data name="Password" xml:space="preserve">
     <value>Jelszó:</value>
   </data>
+  <data name="ShowHidePass" xml:space="preserve">
+    <value>Jelszó megjelenítése vagy elrejtése</value>
+  </data>
   <data name="SuccessToast" xml:space="preserve">
     <value>A módosítások sikeresen mentve!</value>
   </data>

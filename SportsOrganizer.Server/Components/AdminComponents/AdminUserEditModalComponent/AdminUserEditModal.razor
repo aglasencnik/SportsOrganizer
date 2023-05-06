@@ -18,7 +18,10 @@
         </div>
         <div class="form-group mt-4">
             <Label>@Localizer["Password"]</Label>
-            <TextEdit @bind-Text="User.Password" />
+            <TextEdit @bind-Text="User.Password" Role="Role" />
+            <Button Color="Color.Primary" Clicked="TogglePasswordVisibility" Margin="Margin.Is2.FromTop">
+                <Icon Name="@(ShowPassword ? "far fa-eye-slash" : "far fa-eye")" />&nbsp;@Localizer["ShowHidePass"]
+            </Button>
         </div>
         <div class="form-group mt-4">
             <Label>@Localizer["UserType"]</Label>
@@ -28,7 +31,7 @@
             </Select>
         </div>
         <div class="form-group mt-4">
-            <Label>@Localizer["UserType"]</Label>
+            <Label>@Localizer["AssignedActivities"]</Label>
             <Select @bind-SelectedValues="SelectedActivityIds" Multiple MaxVisibleItems="10">
                 @foreach (var activity in Activities)
                 {
@@ -60,7 +63,10 @@ else if (ModalParameters.EditType == EditType.Edit)
         </div>
         <div class="form-group mt-4">
             <Label>@Localizer["Password"]</Label>
-            <TextEdit @bind-Text="User.Password" />
+            <TextEdit @bind-Text="User.Password" Role="Role" />
+            <Button Color="Color.Primary" Clicked="TogglePasswordVisibility" Margin="Margin.Is2.FromTop">
+                <Icon Name="@(ShowPassword ? "far fa-eye-slash" : "far fa-eye")" />&nbsp;@Localizer["ShowHidePass"]
+            </Button>
         </div>
         <div class="form-group mt-4">
             <Label>@Localizer["UserType"]</Label>
@@ -70,7 +76,7 @@ else if (ModalParameters.EditType == EditType.Edit)
             </Select>
         </div>
         <div class="form-group mt-4">
-            <Label>@Localizer["UserType"]</Label>
+            <Label>@Localizer["AssignedActivities"]</Label>
             <Select @bind-SelectedValues="SelectedActivityIds" Multiple MaxVisibleItems="10">
                 @foreach (var activity in Activities)
                 {
@@ -102,7 +108,10 @@ else if (ModalParameters.EditType == EditType.Delete)
         </div>
         <div class="form-group mt-4">
             <Label>@Localizer["Password"]</Label>
-            <TextEdit @bind-Text="User.Password" Disabled />
+            <TextEdit @bind-Text="User.Password" Role="Role" Disabled />
+            <Button Color="Color.Primary" Clicked="TogglePasswordVisibility" Margin="Margin.Is2.FromTop">
+                <Icon Name="@(ShowPassword ? "far fa-eye-slash" : "far fa-eye")" />&nbsp;@Localizer["ShowHidePass"]
+            </Button>
         </div>
         <div class="form-group mt-4">
             <Label>@Localizer["UserType"]</Label>
@@ -112,7 +121,7 @@ else if (ModalParameters.EditType == EditType.Delete)
         </Select>
     </div>
     <div class="form-group mt-4">
-        <Label>@Localizer["UserType"]</Label>
+        <Label>@Localizer["AssignedActivities"]</Label>
         <Select @bind-SelectedValues="SelectedActivityIds" Multiple MaxVisibleItems="10" Disabled>
                 @foreach (var activity in Activities)
                 {

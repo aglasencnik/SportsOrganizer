@@ -150,6 +150,9 @@
   <data name="Password" xml:space="preserve">
     <value>Лозинка:</value>
   </data>
+  <data name="ShowHidePass" xml:space="preserve">
+    <value>Прикажи или сакриј лозинку</value>
+  </data>
   <data name="SuccessToast" xml:space="preserve">
     <value>Промене су успешно сачуване!</value>
   </data>
