@@ -36,11 +36,8 @@
         {
             @foreach (var i in Enumerable.Range(0, NumberOfPlayers))
             {
-                var ii = i;
-                int num = i + 1;
-
                 <div class="form-group mt-4">
-                    <Label>@($"{Localizer["Player"]} {num}:")</Label>
+                    <Label>@($"{Localizer["Player"]} {i+1}:")</Label>
                     <div class="mt-2">
                         <NumericPicker TValue="double" Min="0" Value="PlayerResults[i].Result" ValueChanged="@((double value) => ResumValues(value, i))" Step="0.1M" />
                     </div>

@@ -53,6 +53,16 @@ public class AdminActivityResultEditModalBase : ComponentBase
             if (activity.NumberOfPlayers > 1)
             {
                 PlayerResults = DbContext.PlayerResults.Where(x => x.ActivityResultId == ActivityResult.Id).ToList();
+
+                if (PlayerResults == null || PlayerResults.Count == 0)
+                {
+                    PlayerResults = new();
+
+                    for (int i = 0; i < NumberOfPlayers; i++)
+                    {
+                        PlayerResults.Add(new PlayerResultModel());
+                    }
+                }
             }
         }
         else
@@ -65,6 +75,13 @@ public class AdminActivityResultEditModalBase : ComponentBase
 
             var firstTeam = Teams.FirstOrDefault();
             if (firstTeam != null) ActivityResult.TeamId = firstTeam.Id;
+
+            PlayerResults = new();
+
+            for (int i = 0; i < NumberOfPlayers; i++)
+            {
+                PlayerResults.Add(new PlayerResultModel());
+            }
         }
     }
 
