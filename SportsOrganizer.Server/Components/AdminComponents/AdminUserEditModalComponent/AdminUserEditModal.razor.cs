@@ -47,8 +47,11 @@ public class AdminUserEditModalBase : ComponentBase
             UserActivities = DbContext.UserActivities.Where(x => x.UserId == User.Id).ToList();
             SelectedActivityIds = UserActivities.Select(x => x.ActivityId).ToList();
         }
+        else
+        {
+            User.UserType = UserType.User;
+        }
 
-        User.UserType = UserType.User;
         Activities = DbContext.Activities.ToList();
 
         Role = TextRole.Password;
