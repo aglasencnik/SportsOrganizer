@@ -242,20 +242,28 @@ public class XmlBackupService
 
                 foreach (var userActivity in user.AssignedActivities ?? Enumerable.Empty<UserActivityModelXmlDto>())
                 {
-                    var activity = db.Activities.FirstOrDefault(x => x.ActivityNumber == userActivity.Activity.ActivityNumber
-                                                                && x.Title == userActivity.Activity.Title
-                                                                && x.Location == userActivity.Activity.Location
-                                                                && x.Props == userActivity.Activity.Props
-                                                                && x.ActivityType == userActivity.Activity.ActivityType);
+                    var oldActivity = oldActivitiesDb.FirstOrDefault(x => x.Id == userActivity.ActivityId);
 
-                    var newUserActivity = new UserActivityModel
+                    if (oldActivity != null)
                     {
-                        UserId = userActivity.UserId,
-                        ActivityId = activity.Id
-                    };
+                        var newActivity = db.Activities.FirstOrDefault(x => x.ActivityNumber == oldActivity.ActivityNumber
+                                                                    && x.Title == oldActivity.Title
+                                                                    && x.Location == oldActivity.Location
+                                                                    && x.Props == oldActivity.Props
+                                                                    && x.ActivityType == oldActivity.ActivityType);
 
-                    await db.UserActivities.AddAsync(newUserActivity);
-                    await db.SaveChangesAsync();
+                        if (newActivity != null)
+                        {
+                            var newUserActivity = new UserActivityModel
+                            {
+                                UserId = newUser.Id,
+                                ActivityId = newActivity.Id
+                            };
+
+                            await db.UserActivities.AddAsync(newUserActivity);
+                            await db.SaveChangesAsync();
+                        }
+                    }
                 }
             }
 
