@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="String1" xml:space="preserve">
+  <data name="PageTitle" xml:space="preserve">
     <value>Activity results overview selector</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Choose an activity for result overview</value>
   </data>
 </root>
