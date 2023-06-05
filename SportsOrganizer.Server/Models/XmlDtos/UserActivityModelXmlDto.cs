@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace SportsOrganizer.Server.Models.XmlDtos;
+﻿namespace SportsOrganizer.Server.Models.XmlDtos;
 
 public class UserActivityModelXmlDto
 {

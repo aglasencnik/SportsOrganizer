@@ -37,32 +37,6 @@ public class XmlBackupService
                 });
             }
 
-            foreach (var user in usersDb ?? Enumerable.Empty<UserModel>())
-            {
-                var userActivities = new List<UserActivityModelXmlDto>();
-
-                var records = userActivitiesDb.Where(x => x.UserId == user.Id).ToList();
-
-                foreach (var record in records ?? Enumerable.Empty<UserActivityModel>())
-                {
-                    userActivities.Add(new UserActivityModelXmlDto
-                    {
-                        Id = record.Id,
-                        UserId = record.UserId,
-                        ActivityId = record.ActivityId
-                    });
-                }
-
-                backupModel.Users.Add(new UserModelXmlDto
-                {
-                    Id = user.Id,
-                    Username = user.Username,
-                    Password = user.Password,
-                    UserType = user.UserType,
-                    AssignedActivities = userActivities
-                });
-            }
-
             foreach (var activity in activitiesDb ?? Enumerable.Empty<ActivityModel>())
             {
                 var activityResults = new List<ActivityResultModelXmlDto>();
@@ -110,6 +84,33 @@ public class XmlBackupService
                 });
             }
 
+            foreach (var user in usersDb ?? Enumerable.Empty<UserModel>())
+            {
+                var userActivities = new List<UserActivityModelXmlDto>();
+
+                var records = userActivitiesDb.Where(x => x.UserId == user.Id).ToList();
+
+                foreach (var record in records ?? Enumerable.Empty<UserActivityModel>())
+                {
+                    userActivities.Add(new UserActivityModelXmlDto
+                    {
+                        Id = record.Id,
+                        UserId = record.UserId,
+                        ActivityId = record.ActivityId,
+                        Activity = backupModel.Activities.FirstOrDefault(x => x.Id == record.ActivityId) ?? new ActivityModelXmlDto()
+                    });
+                }
+
+                backupModel.Users.Add(new UserModelXmlDto
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Password = user.Password,
+                    UserType = user.UserType,
+                    AssignedActivities = userActivities
+                });
+            }
+
             StringWriter stringWriter = new StringWriter();
             XmlSerializer serializer = new XmlSerializer(typeof(BackupXmlModel));
             serializer.Serialize(stringWriter, backupModel);
@@ -140,7 +141,7 @@ public class XmlBackupService
             var oldUserActivitiesDb = await db.UserActivities.ToListAsync();
             var oldLiteDbResults = liteDbService.GetAll().ToList();
 
-            if (oldPlayerResultsDb != null && oldPlayerResultsDb.Count != 0) 
+            if (oldPlayerResultsDb != null && oldPlayerResultsDb.Count != 0)
                 db.PlayerResults.RemoveRange(oldPlayerResultsDb);
 
             if (oldActivityResultsDb != null && oldActivityResultsDb.Count != 0)
@@ -164,10 +165,10 @@ public class XmlBackupService
             // Insert into LiteDB
             foreach (var liteDbResult in backupModel.AppSettings ?? Enumerable.Empty<AppSettingsModel>())
             {
-                liteDbService.Insert(new AppSettingsModel 
-                { 
-                    KeyValueType = liteDbResult.KeyValueType, 
-                    Value = liteDbResult.Value 
+                liteDbService.Insert(new AppSettingsModel
+                {
+                    KeyValueType = liteDbResult.KeyValueType,
+                    Value = liteDbResult.Value
                 });
             }
 
@@ -242,29 +243,25 @@ public class XmlBackupService
 
                 foreach (var userActivity in user.AssignedActivities ?? Enumerable.Empty<UserActivityModelXmlDto>())
                 {
-                    var oldActivity = oldActivitiesDb.FirstOrDefault(x => x.Id == userActivity.ActivityId);
+                    var activity = db.Activities.FirstOrDefault(x => x.ActivityNumber == userActivity.Activity.ActivityNumber
+                                                                && x.Title == userActivity.Activity.Title
+                                                                && x.Location == userActivity.Activity.Location
+                                                                && x.Props == userActivity.Activity.Props
+                                                                && x.ActivityType == userActivity.Activity.ActivityType);
 
-                    if (oldActivity != null)
+                    if (activity != null)
                     {
-                        var newActivity = db.Activities.FirstOrDefault(x => x.ActivityNumber == oldActivity.ActivityNumber
-                                                                    && x.Title == oldActivity.Title
-                                                                    && x.Location == oldActivity.Location
-                                                                    && x.Props == oldActivity.Props
-                                                                    && x.ActivityType == oldActivity.ActivityType);
-
-                        if (newActivity != null)
+                        var newUserActivity = new UserActivityModel
                         {
-                            var newUserActivity = new UserActivityModel
-                            {
-                                UserId = newUser.Id,
-                                ActivityId = newActivity.Id
-                            };
+                            UserId = newUser.Id,
+                            ActivityId = activity.Id
+                        };
 
-                            await db.UserActivities.AddAsync(newUserActivity);
-                            await db.SaveChangesAsync();
-                        }
+                        await db.UserActivities.AddAsync(newUserActivity);
+                        await db.SaveChangesAsync();
                     }
                 }
+
             }
 
             return true;
